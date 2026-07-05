@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>indē wild US — Browse Abandonment · Flow Wireframe</title>
+<style>
+  :root{
+    --ink:#3a2e26;--muted:#8a7d72;--line:#e6dccf;--bg:#fbf7f2;--card:#fff;
+    --email:#6b4fa8;--email-bg:#efeafc;--sms:#1f7d78;--sms-bg:#e2f1f0;
+    --note:#b5762a;--note-bg:#f8efdd;--keep:#166534;--keep-bg:#d9f0e1;
+    --split:#8a6d3b;--split-bg:#f6efe1;--pros:#b8567e;--pros-bg:#fbecf3;--cust:#3f6f86;--cust-bg:#e8f1f5;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:14px;line-height:1.5}
+  .wrap{max-width:900px;margin:0 auto;padding:30px 22px 70px}
+  .kicker{letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--muted);margin:0 0 6px}
+  h1{font-size:24px;margin:0 0 6px}
+  .sub{color:var(--muted);font-size:13px;margin:0 0 20px;max-width:720px}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+  .lg{font-size:11px;font-weight:600;padding:4px 10px;border-radius:20px;border:1px solid transparent}
+  .lg.e{background:var(--email-bg);color:var(--email)}.lg.m{background:var(--sms-bg);color:var(--sms)}
+  .lg.k{background:var(--keep-bg);color:var(--keep)}.lg.s{background:var(--split-bg);color:var(--split)}
+  .lg.c{background:var(--card);color:var(--muted);border-color:var(--line)}
+  .col{display:flex;flex-direction:column;align-items:center}
+  .conn{width:2px;background:var(--line);height:24px}
+  .delay{font-size:10.5px;color:var(--muted);background:var(--bg);padding:2px 8px;border:1px solid var(--line);border-radius:20px}
+  .filters{background:#eef2fb;border:1px dashed #b9c6e4;border-radius:12px;padding:13px 16px;max-width:660px;margin:0 auto}
+  .filters h4{margin:0 0 6px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#4a5b86}
+  .filters ul{margin:0;padding-left:16px;font-size:12.5px;color:#42506f}.filters li{margin:2px 0}
+  .gate{font-size:10.5px;color:var(--muted);font-style:italic;margin:4px 0}
+  .pair{display:flex;gap:14px;align-items:stretch;justify-content:center;flex-wrap:wrap;width:100%}
+  .node{border-radius:12px;padding:11px 15px;text-align:center;min-width:220px;align-self:center}
+  .node .chip{font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.8;display:block;margin-bottom:3px}
+  .node .ttl{font-weight:700;font-size:14px}
+  .node.email{background:var(--email-bg);border:1px solid #ddd0f2;color:var(--email)}
+  .node.sms{background:var(--sms-bg);border:1px solid #c3e3e0;color:var(--sms)}
+  .node.split{background:var(--split-bg);border:1px solid #e3d3ad;color:var(--split);min-width:380px}
+  .keepbadge{display:inline-block;margin-top:6px;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;background:var(--keep-bg);color:var(--keep);border-radius:20px;padding:2px 9px}
+  .cbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:11px 14px;max-width:360px;text-align:left}
+  .cbox h5{margin:0 0 5px;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+  .cbox ul{margin:0;padding-left:15px;font-size:12.5px}.cbox li{margin:2px 0}.cbox .subj{font-weight:600;color:var(--ink)}
+  .branch-head{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:4px}
+  .lanehdr{border-radius:12px;padding:9px 14px;text-align:center;font-weight:700;font-size:13px}
+  .lanehdr.p{background:var(--pros-bg);border:1px solid #f0cadd;color:var(--pros)}
+  .lanehdr.c{background:var(--cust-bg);border:1px solid #cadfe8;color:var(--cust)}
+  .lanehdr .tag{display:block;font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;opacity:.85;margin-top:2px}
+  .lanes{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  .lane{display:flex;flex-direction:column;align-items:center}
+  .offer{display:inline-block;font-size:10px;font-weight:700;border-radius:20px;padding:1px 9px;margin-top:6px}
+  .offer.yes{background:var(--pros-bg);color:var(--pros)}.offer.no{background:var(--cust-bg);color:var(--cust)}
+  .lane .cbox{max-width:100%;margin-top:8px}.lane .node{min-width:0;width:100%}
+  .impl{background:var(--note-bg);border:1px solid #ecd7a8;border-radius:12px;padding:16px 20px;margin-top:32px}
+  .impl h4{margin:0 0 8px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--note)}
+  .impl ul{margin:0;padding-left:17px;font-size:12.5px}.impl li{margin:4px 0}
+  footer{margin-top:26px;font-size:11.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+  @media(max-width:720px){.branch-head,.lanes{grid-template-columns:1fr}.node.split{min-width:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker">indē wild US · Klaviyo · Pre-purchase</p>
+  <h1>Browse Abandonment — reworked flow wireframe</h1>
+  <p class="sub">Keep the existing single email, then split. Prospects get a modest offer; customers get a value-led angle instead of a discount. One SMS closes each lane. Kept short — browse is the lowest-intent signal, so the touches stay light. Content stays generic (no past-purchase personalization); only the viewed-product block is dynamic. v1, for review.</p>
+
+  <div class="legend">
+    <span class="lg e">Email</span><span class="lg m">SMS</span>
+    <span class="lg k">Reuse · keep as-is</span><span class="lg s">Split</span>
+    <span class="lg c">Content box</span><span class="lg c">⊗ exit gate</span>
+  </div>
+
+  <div class="filters">
+    <h4>Entry · profile filters</h4>
+    <ul>
+      <li>Viewed Product, and not already in this flow</li>
+      <li>Started Checkout zero times in last 24h <i>(active checkouts go to the AC flow instead)</i></li>
+      <li>Placed Order zero times in last 7 days <i>(don't nag a very recent buyer)</i></li>
+      <li><b>Note:</b> the old "Placed Order = 0 all time" gate is removed so customers can enter — the buyer vs non-buyer decision happens at the split, not the entry.</li>
+    </ul>
+  </div>
+
+  <div class="col">
+    <div class="conn"></div>
+    <span class="delay">wait 2 hours</span>
+    <div class="conn"></div>
+
+    <!-- E1 common reuse -->
+    <div class="pair">
+      <div class="node email"><span class="chip">Email · Day 0</span><span class="ttl">E1 · the one that got away</span><div class="keepbadge">reuse · keep as-is</div></div>
+      <div class="cbox"><h5>E1 contains</h5><ul>
+        <li><span class="subj">Subject:</span> is this the one that got away?</li>
+        <li><b>Keep as-is</b> — 61.9% open, 3.6% click, 1.8% conv. No discount (correct for a low-intent browse).</li>
+        <li>Dynamic block of the product they viewed + single CTA back to the PDP.</li>
+      </ul></div>
+    </div>
+    <div class="gate">⊗ exits here and at every step if Placed Order &gt; 0, or if they start a checkout (hand off to AC)</div>
+    <div class="conn"></div>
+
+    <!-- split -->
+    <div class="node split"><span class="chip">Split · purchase history</span><span class="ttl">Prospect vs Customer</span>
+      <div style="font-size:11.5px;font-weight:500;margin-top:5px;opacity:.9">Never bought (Placed Order all-time = 0) → Prospect &nbsp;·&nbsp; has bought (≥ 1) → Customer</div>
+    </div>
+
+    <div style="width:100%;max-width:840px;margin-top:22px">
+      <div class="branch-head">
+        <div class="lanehdr p">PROSPECT <span class="tag">never bought · gets 10%</span></div>
+        <div class="lanehdr c">CUSTOMER <span class="tag">has bought · no discount, value-led</span></div>
+      </div>
+      <div class="lanes">
+        <!-- PROSPECT -->
+        <div class="lane">
+          <div class="conn"></div><span class="delay">+1 day</span><div class="conn"></div>
+          <div class="node email"><span class="chip">Email · Day 1</span><span class="ttl">E2 · a little nudge</span><div class="offer yes">10% · WELCOME10</div></div>
+          <div class="cbox"><h5>E2 contains</h5><ul>
+            <li><span class="subj">Subject:</span> still thinking it over? here's 10% ✨</li>
+            <li>Offer band shows the standing 10% (first-order). Kept modest — browse is low intent.</li>
+            <li>The viewed product + one CTA.</li></ul></div>
+          <div class="conn"></div><span class="delay">+1 day</span><div class="conn"></div>
+          <div class="node sms"><span class="chip">SMS · Day 2</span><span class="ttl">S1 · offer text</span><div class="offer yes">10% + link</div></div>
+          <div class="cbox"><h5>S1 contains</h5><ul>
+            <li>Hi {first_name}, still eyeing {product}? Here's 10% to make it yours: {link}</li>
+            <li>GSM-7 safe; auto-shorten link ON.</li></ul></div>
+        </div>
+        <!-- CUSTOMER -->
+        <div class="lane">
+          <div class="conn"></div><span class="delay">+1 day</span><div class="conn"></div>
+          <div class="node email"><span class="chip">Email · Day 1</span><span class="ttl">E2 · completes your ritual</span><div class="offer no">no offer</div></div>
+          <div class="cbox"><h5>E2 contains</h5><ul>
+            <li><span class="subj">Subject:</span> the piece your routine's been missing</li>
+            <li>No discount. Generic "completes your routine" + social-proof framing on the <b>viewed</b> product. Copy stays generic — we can't reference their past purchase yet.</li>
+            <li>Reviews + routine framing; CTA to the PDP of the viewed product.</li></ul></div>
+          <div class="conn"></div><span class="delay">+1 day</span><div class="conn"></div>
+          <div class="node sms"><span class="chip">SMS · Day 2</span><span class="ttl">S1 · routine text</span><div class="offer no">no offer</div></div>
+          <div class="cbox"><h5>S1 contains</h5><ul>
+            <li>Hi {first_name}, {product} slots right into your routine. Take another look: {link}</li>
+            <li>GSM-7 safe; auto-shorten link ON.</li></ul></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="impl">
+    <h4>Implementation notes (for the Klaviyo build)</h4>
+    <ul>
+      <li><b>E1 is reused, not rebuilt.</b> Everything after the split is the new work.</li>
+      <li><b>Entry filter change:</b> drop the "Placed Order = 0 all time" gate so customers can enter; the buyer/non-buyer decision moves to the split (Placed Order all-time = 0 → Prospect).</li>
+      <li><b>Prospect offer stays modest</b> — standing 10% (WELCOME10). Browse is a weaker signal than an abandoned checkout, so no deeper discount.</li>
+      <li><b>Customer lane runs on value, not price</b> — generic "completes your routine" + proof framing, protecting margin on people who already buy.</li>
+      <li><b>Copy stays generic (important):</b> the only dynamic element is the viewed-product block. We can't reference the customer's past purchase yet — per-product / per-category emails are a later phase.</li>
+      <li><b>All gates on Placed Order.</b> Exit if they place an order or start a checkout (checkout intent hands off to the AC flow, no double-send).</li>
+      <li><b>2 SMS total</b>, one closing each lane, consented only, GSM-7 safe.</li>
+      <li><b>Cadence:</b> Day 0 (+2h) → Day 1 → Day 2. Short window; browse intent decays fast.</li>
+      <li>Dynamic viewed-product block in every message.</li>
+    </ul>
+  </div>
+
+  <footer>Wireframe v1 · indē wild US · Browse Abandonment (rework). Maps to Flow 3 on the FIP build sheet.</footer>
+</div>
+</body>
+</html>
