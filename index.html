@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>indē wild US — Flow Wireframes</title>
+<style>
+  :root{--ink:#3a2e26;--muted:#8a7d72;--line:#e6dccf;--bg:#fbf7f2;--card:#fff;--accent:#6b4fa8}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;line-height:1.55}
+  .wrap{max-width:760px;margin:0 auto;padding:56px 24px 80px}
+  .kicker{letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--muted);margin:0 0 8px}
+  h1{font-size:28px;margin:0 0 8px}
+  .sub{color:var(--muted);font-size:14px;margin:0 0 34px;max-width:560px}
+  h2{font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);
+    margin:32px 0 12px;border-bottom:1px solid var(--line);padding-bottom:8px}
+  a.card{display:block;text-decoration:none;color:inherit;background:var(--card);
+    border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:12px;transition:border-color .15s}
+  a.card:hover{border-color:var(--accent)}
+  a.card .t{font-weight:700;font-size:16px}
+  a.card .d{color:var(--muted);font-size:13px;margin-top:3px}
+  a.card .s{display:inline-block;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;
+    color:var(--accent);background:#efeafc;border-radius:20px;padding:2px 9px;margin-top:8px}
+  footer{margin-top:44px;font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker">indē wild US · Klaviyo Lifecycle</p>
+  <h1>Flow Wireframes</h1>
+  <p class="sub">Live, shareable wireframes for the indē wild US lifecycle rebuild. Each page maps a flow node-by-node so the client team and implementation specialist can review and execute from one link.</p>
+
+  <h2>Pre-purchase</h2>
+  <a class="card" href="wireframes/abandoned-checkout.html">
+    <div class="t">Abandoned Checkout — new flow</div>
+    <div class="d">Common nudge, then a prospect / customer split where only the offer changes. Email + SMS per lane, social-proof review, and a Diipa story close.</div>
+    <span class="s">v1 · for review</span>
+  </a>
+
+  <footer>indē wild US · maintained by Grovae. More flows added as they're approved.</footer>
+</div>
+</body>
+</html>
