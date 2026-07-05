@@ -1,0 +1,19 @@
+# Never commit secrets or client data dumps
+.env
+.env.*
+*.key
+*.pem
+secrets*
+*credentials*
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Data / working files that should not be public
+*.csv
+*.xlsx
+*.json
