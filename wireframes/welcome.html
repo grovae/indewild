@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>indē wild US — Welcome · Flow Wireframe</title>
+<style>
+  :root{
+    --ink:#3a2e26;--muted:#8a7d72;--line:#e6dccf;--bg:#fbf7f2;--card:#fff;
+    --email:#6b4fa8;--email-bg:#efeafc;--sms:#1f7d78;--sms-bg:#e2f1f0;
+    --note:#b5762a;--note-bg:#f8efdd;--keep:#166534;--keep-bg:#d9f0e1;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:14px;line-height:1.5}
+  .wrap{max-width:900px;margin:0 auto;padding:30px 22px 70px}
+  .kicker{letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--muted);margin:0 0 6px}
+  h1{font-size:24px;margin:0 0 6px}
+  .sub{color:var(--muted);font-size:13px;margin:0 0 20px;max-width:720px}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+  .lg{font-size:11px;font-weight:600;padding:4px 10px;border-radius:20px;border:1px solid transparent}
+  .lg.e{background:var(--email-bg);color:var(--email)} .lg.m{background:var(--sms-bg);color:var(--sms)}
+  .lg.k{background:var(--keep-bg);color:var(--keep)} .lg.c{background:var(--card);color:var(--muted);border-color:var(--line)}
+  .col{display:flex;flex-direction:column;align-items:center}
+  .conn{width:2px;background:var(--line);height:24px}
+  .delay{font-size:10.5px;color:var(--muted);background:var(--bg);padding:2px 8px;border:1px solid var(--line);border-radius:20px}
+  .filters{background:#eef2fb;border:1px dashed #b9c6e4;border-radius:12px;padding:13px 16px;max-width:660px;margin:0 auto}
+  .filters h4{margin:0 0 6px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#4a5b86}
+  .filters ul{margin:0;padding-left:16px;font-size:12.5px;color:#42506f}.filters li{margin:2px 0}
+  .gate{font-size:10.5px;color:var(--muted);font-style:italic;margin:4px 0}
+  .pair{display:flex;gap:14px;align-items:stretch;justify-content:center;flex-wrap:wrap;width:100%}
+  .node{border-radius:12px;padding:11px 15px;text-align:center;min-width:230px;align-self:center;position:relative}
+  .node .chip{font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.8;display:block;margin-bottom:3px}
+  .node .ttl{font-weight:700;font-size:14px}
+  .node.email{background:var(--email-bg);border:1px solid #ddd0f2;color:var(--email)}
+  .node.sms{background:var(--sms-bg);border:1px solid #c3e3e0;color:var(--sms)}
+  .keepbadge{display:inline-block;margin-top:6px;font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;background:var(--keep-bg);color:var(--keep);border-radius:20px;padding:2px 9px}
+  .offer{display:inline-block;font-size:10px;font-weight:700;border-radius:20px;padding:1px 9px;margin-top:6px;background:#f4eefb;color:var(--email)}
+  .cbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:11px 14px;max-width:360px;text-align:left}
+  .cbox h5{margin:0 0 5px;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+  .cbox ul{margin:0;padding-left:15px;font-size:12.5px}.cbox li{margin:2px 0}.cbox .subj{font-weight:600;color:var(--ink)}
+  .impl{background:var(--note-bg);border:1px solid #ecd7a8;border-radius:12px;padding:16px 20px;margin-top:32px}
+  .impl h4{margin:0 0 8px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--note)}
+  .impl ul{margin:0;padding-left:17px;font-size:12.5px}.impl li{margin:4px 0}
+  footer{margin-top:26px;font-size:11.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+  @media(max-width:720px){.node{min-width:0;width:100%}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker">indē wild US · Klaviyo · Lifecycle</p>
+  <h1>Welcome — reworked flow wireframe</h1>
+  <p class="sub">Cut from 7 emails to 3 emails + 2 SMS. Keep the winner (Diipa's founder story), drop the dead middle and the fake urgency, add SMS. Story → proof → what to buy. v1, for review.</p>
+
+  <div class="legend">
+    <span class="lg e">Email</span>
+    <span class="lg m">SMS</span>
+    <span class="lg k">Reuse · keep as-is</span>
+    <span class="lg c">Content box</span>
+    <span class="lg c">⊗ exit gate</span>
+  </div>
+
+  <div class="filters">
+    <h4>Entry · profile filters</h4>
+    <ul>
+      <li>Added to list at popup signup, and Placed Order = 0 all time</li>
+      <li>Not already in this flow</li>
+      <li>Exit if the profile enters the Abandoned Checkout flow <i>(hand off, no double-send)</i></li>
+    </ul>
+  </div>
+
+  <div class="col">
+    <div class="conn"></div>
+
+    <!-- E1 reuse -->
+    <div class="pair">
+      <div class="node email"><span class="chip">Email · Day 0</span><span class="ttl">E1 · Diipa's founder story</span><div class="keepbadge">reuse · keep as-is</div></div>
+      <div class="cbox"><h5>E1 contains</h5><ul>
+        <li><span class="subj">Subject:</span> hi, I'm Diipa 💛</li>
+        <li><b>Keep exactly as-is</b> — 63.9% open, 122 orders, ~89% of flow revenue. The winner, do not rebuild.</li>
+        <li>Carries the standing 10% (WELCOME10). Optional cheap win: resend to non-openers with a fresh subject.</li>
+      </ul></div>
+    </div>
+    <div class="gate">⊗ exits here and at every step if Placed Order &gt; 0</div>
+    <div class="conn"></div><span class="delay">same day (+1h)</span><div class="conn"></div>
+
+    <!-- SMS1 -->
+    <div class="pair">
+      <div class="node sms"><span class="chip">SMS · Day 0</span><span class="ttl">S1 · Welcome + code</span><div class="offer">10% + code</div></div>
+      <div class="cbox"><h5>S1 contains</h5><ul>
+        <li>Deliver the code by text same day to SMS-consented. Redundancy with E1 lifts conversion.</li>
+        <li><i>Welcome to indē wild, {first_name}. Here's 10% off your first order: WELCOME10. Shop your ritual: {link}</i></li>
+        <li>GSM-7 safe: straight apostrophes, no ē / em dash / curly quotes; auto-shorten ON.</li>
+      </ul></div>
+    </div>
+    <div class="conn"></div><span class="delay">+2 days</span><div class="conn"></div>
+
+    <!-- E2 proof -->
+    <div class="pair">
+      <div class="node email"><span class="chip">Email · Day 2</span><span class="ttl">E2 · Proof</span><div class="offer">10% · WELCOME10</div></div>
+      <div class="cbox"><h5>E2 contains</h5><ul>
+        <li><span class="subj">Subject:</span> 50% less hair fall, in 28 days</li>
+        <li>Sharpest conversion email. Lead with the clinical number OR social proof (reviews), not both.</li>
+        <li>Champi-led. Built for engaged non-buyers.</li>
+      </ul></div>
+    </div>
+    <div class="conn"></div><span class="delay">+2 days</span><div class="conn"></div>
+
+    <!-- SMS2 -->
+    <div class="pair">
+      <div class="node sms"><span class="chip">SMS · Day 4 · optional</span><span class="ttl">S2 · Shop the hero</span><div class="offer">10% + link</div></div>
+      <div class="cbox"><h5>S2 contains</h5><ul>
+        <li>One-tap shop the hero with the code. Optional second SMS.</li>
+        <li><i>Still deciding, {first_name}? Champi's where most people start. 10% off with WELCOME10: {link}</i></li>
+      </ul></div>
+    </div>
+    <div class="conn"></div><span class="delay">+1 day</span><div class="conn"></div>
+
+    <!-- E3 hero pick -->
+    <div class="pair">
+      <div class="node email"><span class="chip">Email · Day 5</span><span class="ttl">E3 · Where to start</span><div class="offer">10% · WELCOME10</div></div>
+      <div class="cbox"><h5>E3 contains</h5><ul>
+        <li><span class="subj">Subject:</span> not sure where to start? 🤎</li>
+        <li>Answers "what do I buy?" — hero pick led by Champi (90-day, most US first-timers).</li>
+        <li>Replaces the fake-urgency close and the 2nd Diipa story. Standing 10%, no countdown. Value framing.</li>
+      </ul></div>
+    </div>
+  </div>
+
+  <div class="impl">
+    <h4>Implementation notes (for the Klaviyo build)</h4>
+    <ul>
+      <li><b>E1 is reused, not rebuilt</b> — it's the current top performer. Everything after it is the new work.</li>
+      <li><b>No fake urgency.</b> The 10% is a standing WELCOME10; drop any "expires today" framing.</li>
+      <li><b>All gates on Placed Order</b> (the old flow mixed in Checkout Started). Exit on Placed Order at every step.</li>
+      <li><b>Hand off to Abandoned Checkout:</b> if the subscriber starts a checkout / enters the AC flow, exit Welcome so the two flows never double-send.</li>
+      <li><b>SMS to consented profiles only;</b> GSM-7 safe, auto-shorten links ON.</li>
+      <li><b>Concern-branching (hair vs skin) is phase 2</b> — needs the popup to capture concern. For now everything defaults to Champi / hair.</li>
+      <li><b>Cadence:</b> Day 0 (E1 + SMS) → Day 2 (E2) → Day 4 (SMS, optional) → Day 5 (E3).</li>
+    </ul>
+  </div>
+
+  <footer>Wireframe v1 · indē wild US · Welcome (rework). Maps to Flow 2 on the FIP build sheet.</footer>
+</div>
+</body>
+</html>
