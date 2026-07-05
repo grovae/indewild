@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>indē wild IN — Replenishment · Flow Wireframe</title>
+<style>
+  :root{--ink:#3a2e26;--muted:#8a7d72;--line:#e6dccf;--bg:#fbf7f2;--card:#fff;
+    --email:#6b4fa8;--email-bg:#efeafc;--wa:#128c7e;--wa-bg:#e3f3ef;--note:#b5762a;--note-bg:#f8efdd;--warn:#b23b3b;--warn-bg:#f6e6e4;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:14px;line-height:1.5}
+  .wrap{max-width:900px;margin:0 auto;padding:30px 22px 70px}
+  .kicker{letter-spacing:.14em;text-transform:uppercase;font-size:11px;color:var(--muted);margin:0 0 6px}
+  h1{font-size:24px;margin:0 0 6px}
+  .sub{color:var(--muted);font-size:13px;margin:0 0 20px;max-width:720px}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+  .lg{font-size:11px;font-weight:600;padding:4px 10px;border-radius:20px;border:1px solid transparent}
+  .lg.e{background:var(--email-bg);color:var(--email)}.lg.w{background:var(--wa-bg);color:var(--wa)}.lg.c{background:var(--card);color:var(--muted);border-color:var(--line)}
+  .callout{border-radius:10px;padding:12px 16px;margin:0 0 14px;font-size:12.5px}
+  .callout.warn{background:var(--warn-bg);border:1px solid #e6c4c1;border-left:4px solid var(--warn);color:#7d2b2b}
+  .callout.info{background:#eef2fb;border:1px solid #b9c6e4;border-left:4px solid #3f5b86;color:#3a4d70}
+  .col{display:flex;flex-direction:column;align-items:center}
+  .conn{width:2px;background:var(--line);height:24px}
+  .delay{font-size:10.5px;color:var(--muted);background:var(--bg);padding:2px 8px;border:1px solid var(--line);border-radius:20px}
+  .delay.win{background:#eef2fb;border-color:#b9c6e4;color:#3f5b86;font-weight:600}
+  .filters{background:#eef2fb;border:1px dashed #b9c6e4;border-radius:12px;padding:13px 16px;max-width:660px;margin:0 auto}
+  .filters h4{margin:0 0 6px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#4a5b86}
+  .filters ul{margin:0;padding-left:16px;font-size:12.5px;color:#42506f}.filters li{margin:2px 0}
+  .gate{font-size:10.5px;color:var(--muted);font-style:italic;margin:4px 0}
+  .pair{display:flex;gap:14px;align-items:stretch;justify-content:center;flex-wrap:wrap;width:100%}
+  .node{border-radius:12px;padding:11px 15px;text-align:center;min-width:230px;align-self:center}
+  .node .chip{font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;opacity:.8;display:block;margin-bottom:3px}
+  .node .ttl{font-weight:700;font-size:14px}
+  .node.email{background:var(--email-bg);border:1px solid #ddd0f2;color:var(--email)}
+  .node.wa{background:var(--wa-bg);border:1px solid #b6ddd3;color:var(--wa)}
+  .tag{display:inline-block;font-size:10px;font-weight:700;border-radius:20px;padding:1px 9px;margin-top:6px;background:#f0e9e1;color:#8a7d72}
+  .cbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:11px 14px;max-width:370px;text-align:left}
+  .cbox h5{margin:0 0 5px;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+  .cbox ul{margin:0;padding-left:15px;font-size:12.5px}.cbox li{margin:2px 0}.cbox .subj{font-weight:600;color:var(--ink)}
+  .impl{background:var(--note-bg);border:1px solid #ecd7a8;border-radius:12px;padding:16px 20px;margin-top:28px}
+  .impl h4{margin:0 0 8px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--note)}
+  .impl ul{margin:0;padding-left:17px;font-size:12.5px}.impl li{margin:4px 0}
+  footer{margin-top:26px;font-size:11.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+  @media(max-width:720px){.node{min-width:0;width:100%}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="kicker">indē wild IN · Klaviyo · Post-purchase</p>
+  <h1>Replenishment — reworked flow wireframe (India)</h1>
+  <p class="sub">Same shape as the US, but with the subscription play removed. India has no Recharge, so this drives the reorder itself. 2 emails + 1 WhatsApp, kept lean. v1, for review.</p>
+
+  <div class="legend">
+    <span class="lg e">Email</span><span class="lg w">WhatsApp (Bitespeed)</span><span class="lg c">Content box</span><span class="lg c">⊗ exit gate</span>
+  </div>
+
+  <div class="callout warn"><b>No subscription in India.</b> The US version's "subscribe &amp; save" close does not apply here — there's no Recharge. The incentive is a reorder nudge; whether E2 carries a small restock offer (the existing 10% restart) or stays offer-free is an open decision against margin.</div>
+  <div class="callout info"><b>Channel is WhatsApp, not SMS.</b> The mid-flow touch runs through Bitespeed. Suppress against the standalone Bitespeed flows so the same shopper isn't double-messaged.</div>
+
+  <div class="filters">
+    <h4>Entry · profile filters</h4>
+    <ul>
+      <li>Delivered Shipment (a replenishable order), not already in flow</li>
+      <li>Exit at every step if Placed Order &gt; 0 (reordered) — gate on Placed Order, not Checkout Started</li>
+      <li>Coordinate with the other Delivered-Shipment flows (Winback etc.) to avoid stacking.</li>
+    </ul>
+  </div>
+
+  <div class="col">
+    <div class="conn"></div>
+    <span class="delay win">wait until restock window · set per estimated depletion</span>
+    <div class="conn"></div>
+    <div class="pair">
+      <div class="node email"><span class="chip">Email · window open</span><span class="ttl">E1 · Reorder nudge</span><div class="tag">no offer · full price</div></div>
+      <div class="cbox"><h5>E1 contains</h5><ul>
+        <li><span class="subj">Subject:</span> time for a top-up?</li>
+        <li><b>The whole job: a live one-tap "Reorder" button.</b> Fixes the 0.3–0.4% click (currently image-only).</li>
+        <li>No discount. Short and light.</li></ul></div>
+    </div>
+    <div class="gate">⊗ exits here and at every step if Placed Order &gt; 0</div>
+    <div class="conn"></div><span class="delay">+2 days</span><div class="conn"></div>
+    <div class="pair">
+      <div class="node wa"><span class="chip">WhatsApp · +2 days</span><span class="ttl">W1 · Reorder message</span><div class="tag">no offer</div></div>
+      <div class="cbox"><h5>W1 contains</h5><ul>
+        <li>Timely, transactional — WhatsApp's strongest use.</li>
+        <li><i>Running low? Reorder in a tap: {link}</i></li>
+        <li>Via Bitespeed; suppress against the standard WhatsApp flows.</li></ul></div>
+    </div>
+    <div class="conn"></div><span class="delay">+3 days</span><div class="conn"></div>
+    <div class="pair">
+      <div class="node email"><span class="chip">Email · +5 days</span><span class="ttl">E2 · Keep your results going</span><div class="tag">no offer / 10% TBD</div></div>
+      <div class="cbox"><h5>E2 contains</h5><ul>
+        <li><span class="subj">Subject:</span> keep your results going  <span style="color:var(--muted)">(alt: don't lose your progress)</span></li>
+        <li>Reorder value framing: stopping mid-routine loses the results they've built.</li>
+        <li>Reviews / results proof + reorder CTA. <b>Offer decision open</b> — offer-free (recommended) or the existing 10% restart.</li></ul></div>
+    </div>
+  </div>
+
+  <div class="impl">
+    <h4>Implementation notes (for the Klaviyo build)</h4>
+    <ul>
+      <li><b>No subscription lever</b> — India has no Recharge. Drive the reorder directly; decide the E2 incentive against margin.</li>
+      <li><b>One-tap reorder CTA is the primary mechanic</b> — the current 0.3–0.4% click is the image-only design with no live CTA.</li>
+      <li><b>Timing is consumption-based</b> — set per estimated depletion (e.g. a 90ml node), not the current flat 45/52 days.</li>
+      <li><b>WhatsApp via Bitespeed</b>, not SMS. Suppress against the standalone Bitespeed flows.</li>
+      <li><b>Copy stays generic</b> (no product name) until the SKU decision.</li>
+      <li><b>All gates on Placed Order</b>; the current flow uses Checkout Started — fix.</li>
+    </ul>
+  </div>
+  <footer>Wireframe v1 · indē wild IN · Replenishment (rework). Maps to Flow 4 on the India FIP build sheet.</footer>
+</div>
+</body>
+</html>
