@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>indē wild IN — Flash Sale · WhatsApp Flow</title>
+<style>
+  :root{
+    --bg:#f4f3f1; --card:#fff; --ink:#2b2620; --muted:#8d857a; --line:#e7e3db;
+    --badge:#503d2d; --p1:#e2574a; --p2:#3f9f6b; --p3:#4a7fb5; --gate:#c07a2a;
+    --drop:#2f7d52; --dropbg:#e7f2ea; --flash:#c0493a; --flashbg:#fbeae7;
+    --try:#3a6597; --trybg:#eaf0f7; --add:#a97b2e; --addbg:#f7efdd;
+    --vip:#c0493a; --vipbg:#fbeae7; --neutral:#5f5e5a; --neutralbg:#edeeec; --exc:#b8632a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.5;padding:38px 24px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:920px;margin:0 auto}
+  .brand{font-size:21px;font-weight:800}
+  .brand span{color:var(--muted);font-weight:400}
+  .sub{font-size:13px;color:var(--muted);margin:3px 0 18px}
+  .lede{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 16px;
+    font-size:13px;color:#4a463f;margin-bottom:26px}
+  .lede b{color:var(--ink)}
+  .phase{display:flex;align-items:center;gap:11px;margin:28px 0 14px}
+  .phase .b{width:30px;height:30px;border-radius:50%;background:var(--badge);color:#fff;
+    font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:center;flex:0 0 30px}
+  .phase h2{font-size:18px;font-weight:800}
+  .phase .st{color:var(--muted);font-weight:400;font-size:14px}
+  .grp{font-size:12.5px;font-weight:800;color:var(--badge);margin:16px 0 8px 124px;display:flex;align-items:center;gap:8px}
+  .grp .pill{font-size:11px;font-weight:700}
+  .item{display:grid;grid-template-columns:96px 28px 1fr;align-items:stretch;margin-bottom:10px}
+  .time{text-align:right;padding-top:18px;padding-right:2px}
+  .time .t{font-size:15px;font-weight:800}
+  .time .d{font-size:12px;color:var(--muted)}
+  .node{position:relative}
+  .node .ln{position:absolute;left:50%;top:0;bottom:-10px;width:2px;background:var(--line);transform:translateX(-50%)}
+  .node .dot{position:absolute;left:50%;top:22px;width:13px;height:13px;border-radius:50%;
+    background:#fff;border:3px solid var(--p1);transform:translateX(-50%);z-index:1}
+  .item.g2 .dot{border-color:var(--p2)} .item.g3 .dot{border-color:var(--p3)} .item.g4 .dot{border-color:var(--neutral)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 18px;
+    box-shadow:0 1px 2px rgba(0,0,0,.04)}
+  .card .r{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:9px}
+  .card .name{font-size:15.5px;font-weight:800}
+  .pills{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+  .pill{font-size:11px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;padding:3px 10px;border-radius:20px;white-space:nowrap}
+  .pd{background:var(--dropbg);color:var(--drop)} .pf{background:var(--flashbg);color:var(--flash)}
+  .pt{background:var(--trybg);color:var(--try)} .pa{background:var(--addbg);color:var(--add)}
+  .pv{background:var(--vipbg);color:var(--vip)} .pn{background:var(--neutralbg);color:var(--neutral)}
+  .kv{display:grid;grid-template-columns:78px 1fr;gap:4px 12px;font-size:13.5px}
+  .kv .k{color:var(--muted);font-weight:700}
+  .kv .v{color:var(--ink)}
+  .kv .v.exc{color:var(--exc);font-weight:600}
+  .gate{margin:6px 0 14px 124px;background:#fbf1e3;border:1px dashed var(--gate);border-radius:12px;
+    padding:11px 16px;font-size:13px;font-weight:700;color:var(--gate)}
+  .instr{margin:0 0 14px 124px;background:#eef4f7;border:1px solid #cfe0e8;border-radius:12px;
+    padding:12px 16px;font-size:13px;color:#2f5566}
+  .instr b{color:#1d4456}
+  .end{margin:22px 0 0 124px;background:#211d18;color:#fff;border-radius:12px;padding:13px 18px;font-size:13.5px;font-weight:700}
+  @media(max-width:640px){.item{grid-template-columns:74px 24px 1fr}.gate,.end,.grp,.instr{margin-left:98px}.kv{grid-template-columns:66px 1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">indē wild IN <span>· Flash Sale — WhatsApp Flow</span></div>
+  <div class="sub">Jul 16–19, 2026 · India · send top to bottom (execution order)</div>
+  <div class="lede"><b>How to read this:</b> each numbered card is one send. Within a product the price-drop to past buyers goes first, then the flash to VIPs (excluding those buyers), then — after a 24h ROI check — the same to twice-buyers. Every card states exactly who to <b>send to</b> and who to <b>exclude</b>. <b>All sends exclude anyone who bought in the last 15 days.</b></div>
+
+  <div class="phase"><div class="b">1</div><h2>Cream first</h2><span class="st">· VIPs &amp; past buyers</span></div>
+
+  <div class="grp">Sleek Stick <span class="pill pn">₹799 · live</span></div>
+  <div class="item">
+    <div class="time"><div class="t">11:00am</div><div class="d">Thu 16 Jul</div></div>
+    <div class="node"><div class="ln"></div><div class="dot"></div></div>
+    <div class="card">
+      <div class="r"><span class="name">1 · Sleek Stick — Price Drop</span><div class="pills"><span class="pill pd">price drop</span></div></div>
+      <div class="kv">
+        <span class="k">Send to</span><span class="v">Bought Sleek Stick in last 365 days</span>
+        <span class="k">Exclude</span><span class="v exc">Bought in last 15 days, unsub (WA)</span>
+        <span class="k">Message</span><span class="v">“Price drop — your Sleek Stick is ₹799. Restock now.”</span>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="time"><div class="t">6:30pm</div><div class="d">Thu 16 Jul</div></div>
+    <div class="node"><div class="ln"></div><div class="dot"></div></div>
+    <div class="card">
+      <div class="r"><span class="name">2 · Sleek Stick — Flash (VIPs)</span><div class="pills"><span class="pill pf">flash</span><span class="pill pv">vip</span></div></div>
+      <div class="kv">
+        <span class="k">Send to</span><span class="v">VIPs (bought 3+)</span>
+        <span class="k">Exclude</span><span class="v exc">Sleek Stick buyers (got #1), bought in last 15 days, unsub (WA)</span>
+        <span class="k">Message</span><span class="v">“Flash sale — Sleek Stick ₹799, your Champi oil's frizz finish.”</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="grp">Moonlight Scalp Serum (MSS) <span class="pill pn">15% · code</span></div>
+  <div class="item">
+    <div class="time"><div class="t">11:00am</div><div class="d">Fri 17 Jul</div></div>
+    <div class="node"><div class="ln"></div><div class="dot"></div></div>
+    <div class="card">
+      <div class="r"><span class="name">3 · Moonlight — Price Drop</span><div class="pills"><span class="pill pd">price drop</span></div></div>
+      <div class="kv">
+        <span class="k">Send to</span><span class="v">Bought Moonlight in last 365 days</span>
+        <span class="k">Exclude</span><span class="v exc">Bought in last 15 days, unsub (WA)</span>
+        <span class="k">Message</span><span class="v">“Price drop — restock Moonlight, 15% off with [CODE].”</span>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="time"><div class="t">6:30pm</div><div class="d">Fri 17 Jul</div></div>
+    <div class="node"><div class="ln"></div><div class="dot"></div></div>
+    <div class="card">
+      <div class="r"><span class="name">4 · Moonlight — Try it (VIPs)</span><div class="pills"><span class="pill pt">try-it</span><span class="pill pv">vip</span></div></div>
+      <div class="kv">
+        <span class="k">Send to</span><span class="v">VIPs (bought 3+)</span>
+        <span class="k">Exclude</span><span class="v exc">Moonlight buyers (got #3), bought in last 15 days, unsub (WA)</span>
+        <span class="k">Message</span><span class="v">“Monsoon hair-fall? Meet Moonlight — 15% off with [CODE].”</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="gate">⏱ ROI gate — read sends 2 &amp; 4 after 24h · scale to phase 2 only if ROAS ≥ 2–3×</div>
+
+  <div class="phase"><div class="b">2</div><h2>Scale to 2× buyers</h2><span class="st">· only if ROI clears</span></div>
+  <div class="item g2">
+    <div class="time"><div class="t">12:00pm</div><div class="d">Sat 18 Jul</div></div>
+    <div class="node"><div class="ln"></div><div class="dot"></div></div>
+    <div class="card">
+      <div class="r"><span class="name">5 · Sleek Stick — Flash (2×)</span><div class="pills"><span class="pill pf">flash</span></div></div>
+      <div class="kv">
+        <span class="k">Send to</span><span class="v">2× customers (bought twice)</span>
+        <span class="k">Exclude</span><span class="v exc">Sleek Stick buyers, VIPs already messaged (#2), bought in last 15 days, unsub (WA)</span>
+        <span class="k">Message</span><span class="v">“Flash sale — Sleek Stick ₹799, this week only.”</span>
+      </div>
+    </div>
+  </div>
+  <div class="item g2">
+    <div class="time"><div class="t">6:30pm</div><div class="d">Sat 18 Jul</div></div>
+    <div class="node"><div class="ln"></div><div class="dot"></div></div>
+    <div class="card">
+      <div class="r"><span class="name">6 · Moonlight — Try it (2×)</span><div class="pills"><span class="pill pt">try-it</span></div></div>
+      <div class="kv">
+        <span class="k">Send to</span><span class="v">2× customers (bought twice)</span>
+        <span class="k">Exclude</span><span class="v exc">Moonlight buyers, VIPs already messaged (#4), bought in last 15 days, unsub (WA)</span>
+        <span class="k">Message</span><span class="v">“Try Moonlight — 15% off with [CODE], this week only.”</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase"><div class="b">3</div><h2>Lip &amp; Scent</h2><span class="st">· broaden the base</span></div>
+
+  <div class="grp">DLT <span class="pill pn">₹649 · live</span></div>
+  <div class="item g3">
+    <div class="time"><div class="t">3:00pm</div><div class="d">Sat 18 Jul</div></div>
+    <div class="node"><div class="ln"></div><div class="dot"></div></div>
+    <div class="card">
+      <div class="r"><span class="name">7 · DLT — Price Drop</span><div class="pills"><span class="pill pd">price drop</span></div></div>
+      <div class="kv">
+        <span class="k">Send to</span><span class="v">Bought DLT in last 365 days</span>
+        <span class="k">Exclude</span><span class="v exc">Bought in last 15 days, unsub (WA)</span>
+        <span class="k">Message</span><span class="v">“Back at ₹649 — your favourite dewy lip, on sale.”</span>
+      </div>
+    </div>
+  </div>
+  <div class="item g3">
+    <div class="time"><div class="t">11:00am</div><div class="d">Sun 19 Jul</div></div>
+    <div class="node"><div class="ln"></div><div class="dot"></div></div>
+    <div class="card">
+      <div class="r"><span class="name">8 · DLT — Welcome / Try</span><div class="pills"><span class="pill pt">try-it</span></div></div>
+      <div class="kv">
+        <span class="k">Send to</span><span class="v">New signups (no order yet) + 90D engagers</span>
+        <span class="k">Exclude</span><span class="v exc">VIPs, 2× customers, DLT buyers (#7), bought in last 15 days, unsub (WA)</span>
+        <span class="k">Message</span><span class="v">“The dewy lip everyone loves — yours at ₹649.”</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="grp">Scent (fragrance) <span class="pill pn">₹1,019 · live</span></div>
+  <div class="item g3">
+    <div class="time"><div class="t">1:00pm</div><div class="d">Sun 19 Jul</div></div>
+    <div class="node"><div class="ln"></div><div class="dot"></div></div>
+    <div class="card">
+      <div class="r"><span class="name">9 · Scent — Price Drop</span><div class="pills"><span class="pill pd">price drop</span></div></div>
+      <div class="kv">
+        <span class="k">Send to</span><span class="v">Bought a fragrance / mist in last 365 days (Chandra / Surya)</span>
+        <span class="k">Exclude</span><span class="v exc">Bought in last 15 days, unsub (WA)</span>
+        <span class="k">Message</span><span class="v">“Price drop — your favourite mist is ₹1,019. Restock.”</span>
+      </div>
+    </div>
+  </div>
+  <div class="item g3">
+    <div class="time"><div class="t">5:00pm</div><div class="d">Sun 19 Jul</div></div>
+    <div class="node"><div class="dot"></div></div>
+    <div class="card">
+      <div class="r"><span class="name">10 · Scent — Add-on</span><div class="pills"><span class="pill pa">add-on</span></div></div>
+      <div class="kv">
+        <span class="k">Send to</span><span class="v">Bought Champi oil / Moonlight / any hair care in last 365 days</span>
+        <span class="k">Exclude</span><span class="v exc">Scent owners (got #9), bought in last 15 days, unsub (WA)</span>
+        <span class="k">Message</span><span class="v">“Carry your hair ritual as a scent — any mist, flat ₹1,019.”</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="end">⏳ 11:59pm Sun 19 Jul — flash ends, prices revert to normal.</div>
+
+  <div class="phase" style="margin-top:34px;border-top:1px solid var(--line);padding-top:24px"><div class="b">E</div><h2>Emails</h2><span class="st">· broad, by interest · run in parallel</span></div>
+
+  <div class="instr">📌 <b>Every email — add a GWP footer block:</b> at the bottom of each send, show the free gift(s) running during the sale and the threshold price(s) to unlock them (e.g. “free gift on orders above ₹1,499”). Confirm the exact gifts &amp; tiers with the client before send.</div>
+
+  <div class="item g4">
+    <div class="time"><div class="t">10:30am</div><div class="d">Thu 16 Jul</div></div>
+    <div class="node"><div class="ln"></div><div class="dot"></div></div>
+    <div class="card">
+      <div class="r"><span class="name">E1 · Monsoon Hair Rescue</span><div class="pills"><span class="pill pn">Moonlight 15% + Sleek Stick ₹799</span></div></div>
+      <div class="kv">
+        <span class="k">Send to</span><span class="v">Browsed or bought any hair product in last 365 days (Champi, Moonlight, Bond Repair, Sleek Stick) ∪ 90D engagers</span>
+        <span class="k">Exclude</span><span class="v exc">Bought in last 15 days, unsub, bounced</span>
+        <span class="k">Message</span><span class="v">“Monsoon's here — and so is the hair fall + frizz. Your rescue: Moonlight for fall, Sleek Stick for frizz.” (Grow &amp; Repair 20% as go-all-in)</span>
+      </div>
+    </div>
+  </div>
+  <div class="item g4">
+    <div class="time"><div class="t">10:30am</div><div class="d">Fri 17 Jul</div></div>
+    <div class="node"><div class="ln"></div><div class="dot"></div></div>
+    <div class="card">
+      <div class="r"><span class="name">E2 · The Lip Drop</span><div class="pills"><span class="pill pn">OG DLT ₹649</span></div></div>
+      <div class="kv">
+        <span class="k">Send to</span><span class="v">Browsed or bought lip in last 365 days (DLT) ∪ 90D engagers + prospects</span>
+        <span class="k">Exclude</span><span class="v exc">Bought in last 15 days, unsub, bounced</span>
+        <span class="k">Message</span><span class="v">“The dewy lip everyone loves — OG shade, now ₹649.”</span>
+      </div>
+    </div>
+  </div>
+  <div class="item g4">
+    <div class="time"><div class="t">10:30am</div><div class="d">Sat 18 Jul</div></div>
+    <div class="node"><div class="ln"></div><div class="dot"></div></div>
+    <div class="card">
+      <div class="r"><span class="name">E3 · Scent to Match</span><div class="pills"><span class="pill pn">Any fragrance ₹1,019</span></div></div>
+      <div class="kv">
+        <span class="k">Send to</span><span class="v">Hair-care customers (last 365 days) ∪ browsed fragrance ∪ 90D engagers</span>
+        <span class="k">Exclude</span><span class="v exc">Fragrance owners, bought in last 15 days, unsub</span>
+        <span class="k">Message</span><span class="v">“Carry your ritual as a scent — any Chandra or Surya mist, flat ₹1,019.”</span>
+      </div>
+    </div>
+  </div>
+  <div class="item g4">
+    <div class="time"><div class="t">11:00am</div><div class="d">Sun 19 Jul</div></div>
+    <div class="node"><div class="dot"></div></div>
+    <div class="card">
+      <div class="r"><span class="name">E4 · Flash Ending Soon</span><div class="pills"><span class="pill pf">close</span><span class="pill pn">all deals</span></div></div>
+      <div class="kv">
+        <span class="k">Send to</span><span class="v">90D-engaged sale non-buyers + cart abandoners</span>
+        <span class="k">Exclude</span><span class="v exc">Bought during the sale, bought in last 15 days, unsub</span>
+        <span class="k">Message</span><span class="v">“Last hours — every flash price ends tonight. Don't miss your pick.”</span>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
