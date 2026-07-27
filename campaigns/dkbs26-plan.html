@@ -3,113 +3,274 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DKBS'26 — DK Birthday Sale Plan (Aug 28 – Sep 5)</title>
+<title>indē wild — DK Birthday Sale '26 · US + India · Aug 29 – Sep 5</title>
 <style>
   :root{
     --ink:#3a2e26; --muted:#8a7d72; --line:#eee5dd; --bg:#faf6f1;
-    --accent:#b5654a; --soft:#f3ece4; --good:#4a7a5c;
+    --accent:#b5654a; --soft:#f3ece4; --good:#4a7a5c; --gold:#a8873c;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
-  body{font-family:Georgia,'Times New Roman',serif; background:var(--bg); color:var(--ink); line-height:1.55; padding:40px 20px;}
-  .wrap{max-width:860px; margin:0 auto;}
-  header{margin-bottom:36px; border-bottom:2px solid var(--ink); padding-bottom:20px;}
-  h1{font-size:30px; font-weight:normal; letter-spacing:-0.5px;}
-  .sub{color:var(--muted); font-size:15px; margin-top:6px;}
-  .pill{display:inline-block; background:var(--ink); color:#fff; font-size:12px; padding:3px 10px; border-radius:20px; margin-right:6px; font-family:Arial,sans-serif; letter-spacing:0.4px;}
-  h2{font-size:20px; margin:34px 0 12px; font-weight:normal;}
-  h2 .num{color:var(--accent); margin-right:8px;}
-  p{margin-bottom:10px; font-size:15px;}
-  .card{background:#fff; border:1px solid var(--line); border-radius:10px; padding:20px 24px; margin-bottom:14px;}
-  .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; margin:16px 0;}
-  .stat{background:#fff; border:1px solid var(--line); border-radius:10px; padding:14px 16px;}
-  .stat .k{font-size:22px; font-family:Arial,sans-serif;}
-  .stat .l{font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:0.6px; font-family:Arial,sans-serif; margin-top:2px;}
-  table{width:100%; border-collapse:collapse; font-size:14px; background:#fff; border:1px solid var(--line); border-radius:10px; overflow:hidden;}
-  th{background:var(--soft); text-align:left; padding:10px 12px; font-family:Arial,sans-serif; font-size:12px; text-transform:uppercase; letter-spacing:0.5px; color:var(--muted);}
+  body{font-family:Georgia,'Times New Roman',serif; background:var(--bg); color:var(--ink); line-height:1.5; padding:40px 20px;}
+  .wrap{max-width:920px; margin:0 auto;}
+  header{margin-bottom:26px; border-bottom:2px solid var(--ink); padding-bottom:20px;}
+  h1{font-size:29px; font-weight:normal; letter-spacing:-0.5px;}
+  .sub{color:var(--muted); font-size:14.5px; margin-top:7px;}
+  .pill{display:inline-block; background:var(--ink); color:#fff; font-size:11.5px; padding:3px 11px; border-radius:20px; margin-right:6px; font-family:Arial,sans-serif; letter-spacing:0.5px;}
+  h2{font-size:19px; margin:34px 0 4px; font-weight:normal;}
+  h2 .num{color:var(--accent); margin-right:8px; font-family:Arial,sans-serif; font-size:15px;}
+  .h2sub{color:var(--muted); font-size:13px; margin-bottom:12px; font-family:Arial,sans-serif;}
+  .card{background:#fff; border:1px solid var(--line); border-radius:12px; padding:18px 22px; margin-bottom:12px;}
+  table{width:100%; border-collapse:collapse; font-size:13.5px; background:#fff; border:1px solid var(--line); border-radius:12px; overflow:hidden;}
+  th{background:var(--soft); text-align:left; padding:10px 12px; font-family:Arial,sans-serif; font-size:11px; text-transform:uppercase; letter-spacing:0.6px; color:var(--muted);}
   td{padding:10px 12px; border-top:1px solid var(--line); vertical-align:top;}
-  .tag{display:inline-block; font-family:Arial,sans-serif; font-size:11px; padding:2px 8px; border-radius:12px; background:var(--soft); color:var(--ink);}
-  .tag.hot{background:var(--accent); color:#fff;}
-  ul{margin:0 0 10px 20px; font-size:15px;}
+  ul{margin:0 0 2px 18px; font-size:14px;}
   li{margin-bottom:6px;}
-  .flag{border-left:4px solid var(--accent); background:#fff; padding:12px 16px; margin-bottom:10px; border-radius:0 8px 8px 0; font-size:14px;}
-  .assume{background:var(--soft); border-radius:8px; padding:12px 16px; font-size:14px; margin:14px 0;}
-  footer{margin-top:40px; color:var(--muted); font-size:13px; border-top:1px solid var(--line); padding-top:14px;}
+  footer{margin-top:38px; color:var(--muted); font-size:12px; border-top:1px solid var(--line); padding-top:14px;}
+  .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:10px; margin:12px 0;}
+  .stat{background:#fff; border:1px solid var(--line); border-radius:12px; padding:13px 15px;}
+  .stat .k{font-size:19px; font-family:Arial,sans-serif;}
+  .stat .l{font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:0.5px; font-family:Arial,sans-serif; margin-top:3px;}
+  .duo{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+  @media (max-width:640px){ .duo{grid-template-columns:1fr;} }
+  /* offer architecture */
+  .offer{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:10px; margin:12px 0;}
+  .offer .o{background:#fff; border:1px solid var(--line); border-radius:12px; padding:15px 17px;}
+  .offer .o .t{font-family:Arial,sans-serif; font-size:12px; letter-spacing:0.5px; text-transform:uppercase; color:var(--accent); margin-bottom:6px;}
+  .offer .o .d{font-size:13.5px;}
+  /* type tags */
+  .tp{display:inline-block; font-family:Arial,sans-serif; font-size:10px; font-weight:bold; letter-spacing:0.6px; text-transform:uppercase; padding:2px 8px; border-radius:11px; white-space:nowrap;}
+  .tp.anchor{background:var(--ink); color:#fff;}
+  .tp.deal{background:var(--accent); color:#fff;}
+  .tp.spot{background:var(--soft); color:var(--ink);}
+  .tp.story{background:#fff; border:1px solid var(--line); color:var(--muted);}
+  .tp.close{background:var(--good); color:#fff;}
+  .ch{font-family:Arial,sans-serif; font-size:11px; white-space:nowrap; color:var(--muted);}
+  .legend{font-family:Arial,sans-serif; font-size:11.5px; color:var(--muted); margin:8px 0 14px;}
+  .legend .tp{margin-right:4px;}
+  /* live layer */
+  .live-strip{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:10px; margin:16px 0 4px;}
+  .live-tile{background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px 15px;}
+  .live-tile .k{font-size:24px; font-family:Arial,sans-serif; font-variant-numeric:tabular-nums;}
+  .live-tile .l{font-size:10.5px; color:var(--muted); text-transform:uppercase; letter-spacing:0.5px; font-family:Arial,sans-serif; margin-top:3px;}
+  .phase-banner{font-family:Arial,sans-serif; font-size:12.5px; background:var(--soft); border:1px solid var(--line); border-radius:10px; padding:9px 14px; margin-top:12px;}
+  .phase-banner b{color:var(--accent);}
+  .timeline{position:relative; height:26px; background:#fff; border:1px solid var(--line); border-radius:13px; margin:12px 0 2px; overflow:hidden; font-family:Arial,sans-serif;}
+  .timeline .seg{position:absolute; top:0; bottom:0; display:flex; align-items:center; justify-content:center; font-size:10px; letter-spacing:0.5px; text-transform:uppercase; color:var(--muted);}
+  .timeline .seg.build{background:#fff;}
+  .timeline .seg.tease{background:var(--soft);}
+  .timeline .seg.sale{background:#eaddd3;}
+  .timeline .now{position:absolute; top:0; bottom:0; width:2px; background:var(--accent);}
+  .st{display:inline-block; font-family:Arial,sans-serif; font-size:10px; font-weight:bold; letter-spacing:0.5px; padding:2px 7px; border-radius:11px; white-space:nowrap;}
+  .st.done{background:var(--soft); color:var(--muted);}
+  .st.today{background:var(--good); color:#fff;}
+  .st.up{background:#fff; border:1px solid var(--line); color:var(--muted);}
+  .need{border-left:4px solid var(--gold); background:#fff; padding:10px 15px; margin-bottom:8px; border-radius:0 10px 10px 0; font-size:13.5px;}
+  .need b{font-family:Arial,sans-serif; font-size:12px;}
 </style>
 </head>
 <body>
 <div class="wrap">
 
 <header>
-  <div style="margin-bottom:10px;">
+  <div style="margin-bottom:9px;">
     <span class="pill">indē wild</span>
-    <span class="pill" style="background:var(--accent);">DKBS'26</span>
+    <span class="pill" style="background:var(--accent);">DK BIRTHDAY SALE '26</span>
+    <span class="pill">US + INDIA</span>
+    <span class="pill" id="phasePill" style="background:var(--good);">…</span>
   </div>
-  <h1>DK Birthday Sale — Plan</h1>
-  <div class="sub">Aug 28 – Sep 5, 2026 · Flat 29% off sitewide · Extra 5% deployed at three moments · Target: $35–45k email/SMS revenue</div>
+  <h1>DK Birthday Sale — The Plan</h1>
+  <div class="sub">August 29 – September 5, 2026 · Flat 29% sitewide · Free gifts as your cart grows · One playbook across both stores</div>
+
+  <div class="live-strip">
+    <div class="live-tile"><div class="k" id="cdPopup">–</div><div class="l">to waitlist launch · Aug 3</div></div>
+    <div class="live-tile"><div class="k" id="cdStart">–</div><div class="l">to sale open · Aug 29</div></div>
+    <div class="live-tile"><div class="k" id="cdEnd">–</div><div class="l">to sale end · Sep 5</div></div>
+    <div class="live-tile"><div class="k" id="sendsLeft">–</div><div class="l">sends remaining</div></div>
+  </div>
+  <div class="timeline" id="timeline">
+    <div class="seg build" style="left:0%; width:30.3%;">waitlist build · from aug 3</div>
+    <div class="seg tease" style="left:30.3%; width:48.5%;">tease · aug 13–28</div>
+    <div class="seg sale" style="left:78.8%; width:21.2%;">sale · aug 29 – sep 5</div>
+    <div class="now" id="nowMarker" style="left:0%; display:none;"></div>
+  </div>
+  <div class="phase-banner" id="phaseBanner">Loading…</div>
 </header>
 
-<h2><span class="num">→</span>What last year's data says</h2>
+<h2><span class="num">01</span>The plan at a glance</h2>
+<div class="card">
+  <ul>
+    <li><b>One playbook, two stores.</b> Same dates, same offers, same creative skeleton. Only the urgency channel differs: SMS supports the US, WhatsApp powers India.</li>
+    <li><b>29% is the only number anyone ever sees.</b> Clean, uncluttered, easy to say out loud.</li>
+    <li><b>A secret extra 5%</b> lands in waitlist inboxes on Sep 4 — a reward for joining early, never advertised anywhere.</li>
+    <li><b>All of August builds the waitlist.</b> Popup + ads + social from Aug 3. Promise: "the biggest sale of the year is coming." No price revealed.</li>
+    <li><b>Daily rhythm inside the sale.</b> One message per day — a product spotlight or a 24-hour deal, never both. The base offer never changes underneath.</li>
+    <li><b>Subscribers are protected and included</b> — their next order is auto-upgraded to the sale price, then we invite them to shop the rest of the shelf.</li>
+    <li><b>August stays quiet.</b> No other promos before the sale, so 29% lands as the event of the year.</li>
+  </ul>
+</div>
+
+<h2><span class="num">02</span>Why this shape</h2>
+<div class="h2sub">From two years of birthday sale data across both stores</div>
 <div class="grid">
-  <div class="stat"><div class="k">$19.8k</div><div class="l">DKBS'25 email rev (8 sends)</div></div>
-  <div class="stat"><div class="k">58%</div><div class="l">of rev from early access alone</div></div>
-  <div class="stat"><div class="k">$68</div><div class="l">DKBS'25 AOV</div></div>
-  <div class="stat"><div class="k">$29.6k</div><div class="l">Summer Sale '26 (15 sends)</div></div>
-</div>
-<div class="card">
-  <p>DKBS'25 was front-loaded and had no runway: no tease phase, no waitlist, follow-ups fizzled after day one. Summer Sale '26 proved the fix: daily angle rotation plus a hard close (its two closing sends alone did $7k, 24% of total). This plan adds anticipation on the front and structure in the middle and end.</p>
+  <div class="stat"><div class="k">Day 1</div><div class="l">has carried 58–74% of past sales → we make it bigger on purpose</div></div>
+  <div class="stat"><div class="k">Early access</div><div class="l">best-performing send type of the year, both stores</div></div>
+  <div class="stat"><div class="k">Gift boxes</div><div class="l">#2 send of the entire year in India</div></div>
+  <div class="stat"><div class="k">The close</div><div class="l">never held before → this year it's a planned event</div></div>
 </div>
 
-<div class="assume"><strong>Assumption:</strong> "abc" is a placeholder for the select products the extra 5% stacks on. Confirm SKUs; structure works either way. The extra 5% appears exactly three times: waitlist early access, one mid-sale 24h flash, final call.</div>
+<h2><span class="num">03</span>The offer, in one look</h2>
+<div class="offer">
+  <div class="o"><div class="t">Everyone</div><div class="d">Flat <b>29% off sitewide</b>, Aug 29 – Sep 5. The only advertised number.</div></div>
+  <div class="o"><div class="t">Waitlist</div><div class="d">First access on opening morning + a <b>secret extra 5%</b> by surprise email, Sep 4–5.</div></div>
+  <div class="o"><div class="t">Free gifts</div><div class="d"><b>GWP tiers by cart value</b>, live all sale + one 24-hour free-gift deal mid-week.</div></div>
+  <div class="o"><div class="t">Subscribers</div><div class="d">Next order <b>auto-upgraded to 29%</b>. Nothing to do, no code, no reason to cancel.</div></div>
+</div>
 
-<h2><span class="num">1</span>Waitlist (live ~Aug 13, two weeks out)</h2>
+<h2><span class="num">04</span>Waitlist — August's #1 priority</h2>
 <div class="card">
   <ul>
-    <li><strong>Klaviyo full-page popup</strong>, site-wide. New list: <code>DKBS'26 Waitlist</code>.</li>
-    <li>Hook: don't reveal 29%. "Diipa's birthday sale. our biggest of the year. waitlist gets in first, plus a little extra." The extra 5% is the waitlist perk — occasion #1.</li>
-    <li>Popup rules: show once per visitor, suppress on cart/checkout, suppress existing waitlist members, mobile-first.</li>
-    <li>Push existing list to join via 2 emails + 1 SMS. Subscribers who join = self-selected high-intent segment to hit hardest during the sale without burning the full file.</li>
+    <li>Full-page popup on both stores from <b>Aug 3</b> (Alia recommended), live through the sale.</li>
+    <li>Copy: "the biggest sale of the year is coming." No number, no dates.</li>
+    <li>A link-page twin of the popup for social bios and ads — paid + organic traffic on it all month.</li>
+    <li>India popup also captures phone for WhatsApp opt-in.</li>
+    <li>Free gifts teased on the popup: "gifts unlock as your cart grows."</li>
   </ul>
 </div>
 
-<h2><span class="num">2</span>Tease arc (Aug 13–27)</h2>
-<table>
-  <tr><th>Date</th><th>Send</th><th>Angle</th></tr>
-  <tr><td>Aug 13</td><td>Popup live + email 1</td><td>"something is coming" — waitlist push</td></tr>
-  <tr><td>Aug 18</td><td>Diipa-led email</td><td>birthday story, founder voice, lowercase, waitlist CTA</td></tr>
-  <tr><td>Aug 22</td><td>Email 3</td><td>tease the scale: "the biggest discount we've ever run", still no number</td></tr>
-  <tr><td>Aug 26</td><td>Email 4</td><td>reveal date + what's included, waitlist last call (in first + extra 5%)</td></tr>
-  <tr><td>Aug 27</td><td>SMS + short email</td><td>"tomorrow. waitlist opens first."</td></tr>
+<h2><span class="num">05</span>Tease — Aug 13–28</h2>
+<table id="teaseTable">
+  <tr><th>Date</th><th>Send</th><th>Angle</th><th>US</th><th>IN</th><th></th></tr>
+  <tr data-date="2026-08-13"><td>Aug 13</td><td>Email 1</td><td>"something is coming" — join the waitlist</td><td class="ch">email</td><td class="ch">email</td><td></td></tr>
+  <tr data-date="2026-08-18"><td>Aug 18</td><td>Diipa email</td><td>birthday story, founder voice</td><td class="ch">email</td><td class="ch">email</td><td></td></tr>
+  <tr data-date="2026-08-22"><td>Aug 22</td><td>Email 3</td><td>"the biggest discount we've ever run" — still no number</td><td class="ch">email</td><td class="ch">email</td><td></td></tr>
+  <tr data-date="2026-08-26"><td>Aug 26</td><td>Email 4</td><td>date reveal + waitlist last call</td><td class="ch">email</td><td class="ch">email + WA</td><td></td></tr>
+  <tr data-date="2026-08-28"><td>Aug 28</td><td>Offer reveal</td><td>29% revealed: "tomorrow. waitlist goes first."</td><td class="ch">email + SMS</td><td class="ch">email + WA</td><td></td></tr>
 </table>
 
-<h2><span class="num">3</span>Sale arc (Aug 28 – Sep 5)</h2>
-<table>
-  <tr><th>Date</th><th>Send</th><th>Angle / audience</th><th>Extra 5%</th></tr>
-  <tr><td>Aug 28 AM</td><td>Waitlist early access</td><td>waitlist only, first dibs</td><td><span class="tag hot">occasion 1</span></td></tr>
-  <tr><td>Aug 28 PM</td><td>Public launch</td><td>engaged file</td><td>—</td></tr>
-  <tr><td>Aug 29</td><td>Resend + follow-up</td><td>unopened resend, non-waitlist angle</td><td>—</td></tr>
-  <tr><td>Aug 30</td><td>Champi spotlight</td><td>myth-bust angle (locked strategy)</td><td>—</td></tr>
-  <tr><td>Aug 31</td><td>Bundles / gift boxes</td><td>did $1.8k on 7.5k recips last year</td><td>—</td></tr>
-  <tr><td>Sep 1</td><td>Mid-sale spike</td><td>24h flash, extra 5% on select products</td><td><span class="tag hot">occasion 2</span></td></tr>
-  <tr><td>Sep 2</td><td>Never-purchased</td><td>clinical-number angle</td><td>—</td></tr>
-  <tr><td>Sep 4</td><td>48h warning</td><td>"final call for extra 5%" unlock</td><td><span class="tag hot">occasion 3</span></td></tr>
-  <tr><td>Sep 5</td><td>Ends tonight</td><td>AM email + PM SMS</td><td>final hours</td></tr>
+<h2><span class="num">06</span>Sale week — Aug 29 – Sep 5</h2>
+<div class="legend">
+  <span class="tp anchor">anchor</span> big production &nbsp;·&nbsp;
+  <span class="tp spot">spotlight</span> product story at 29% &nbsp;·&nbsp;
+  <span class="tp deal">deal</span> 24-hr mechanic, CRM-only code &nbsp;·&nbsp;
+  <span class="tp story">story</span> founder voice &nbsp;·&nbsp;
+  <span class="tp close">close</span> final push
+</div>
+<table id="saleTable">
+  <tr><th>Day</th><th>Campaign</th><th>What goes out</th><th>Type</th><th>US</th><th>IN</th><th></th></tr>
+  <tr data-date="2026-08-29"><td>Aug 29 · 9am</td><td>Waitlist early access</td><td>waitlist shops first, on Diipa's birthday itself</td><td><span class="tp anchor">anchor</span></td><td class="ch">email + SMS</td><td class="ch">email + WA</td><td></td></tr>
+  <tr data-date="2026-08-29"><td>Aug 29 · 10am</td><td>Public launch</td><td>sale opens wide, one hour later</td><td><span class="tp anchor">anchor</span></td><td class="ch">email</td><td class="ch">email</td><td></td></tr>
+  <tr data-date="2026-08-29"><td>Aug 29</td><td>Subscriber upgrade (US)</td><td>"your next order is already 29% off — and the whole shelf is open"</td><td><span class="tp story">story</span></td><td class="ch">email</td><td class="ch">—</td><td></td></tr>
+  <tr data-date="2026-08-30"><td>Aug 30</td><td>Diipa's birthday BTS</td><td>text-led email, photos of how she celebrated · from diipa@indewild.com · early-access resend layered under</td><td><span class="tp story">story</span></td><td class="ch">email</td><td class="ch">email</td><td></td></tr>
+  <tr data-date="2026-08-31"><td>Aug 31</td><td>Gift boxes day</td><td>the proven favorite, both markets</td><td><span class="tp spot">spotlight</span></td><td class="ch">email</td><td class="ch">email + WA</td><td></td></tr>
+  <tr data-date="2026-09-01"><td>Sep 1</td><td>Champi day</td><td>best price of the year — "three bottles = sorted till her next birthday"</td><td><span class="tp spot">spotlight</span></td><td class="ch">email</td><td class="ch">email</td><td></td></tr>
+  <tr data-date="2026-09-02"><td>Sep 2</td><td>Free gift day</td><td>24 hrs: spend over X, free DLT · CRM-only code</td><td><span class="tp deal">deal</span></td><td class="ch">email + SMS</td><td class="ch">email + WA</td><td></td></tr>
+  <tr data-date="2026-09-03"><td>Sep 3</td><td>Moonlight Serum day</td><td>stock-up framing + the anti-greying story</td><td><span class="tp spot">spotlight</span></td><td class="ch">email</td><td class="ch">email</td><td></td></tr>
+  <tr data-date="2026-09-04"><td>Sep 4 · day</td><td>First time on sale, ever</td><td>Slick Stick, Hair &amp; Body Mist, S&amp;C — never discounted before</td><td><span class="tp spot">spotlight</span></td><td class="ch">email</td><td class="ch">email + WA</td><td></td></tr>
+  <tr data-date="2026-09-04"><td>Sep 4 · eve</td><td>Secret 5% drop</td><td>waitlist inboxes only: "you waited — here's what nobody else gets" · + cart-abandoner blast</td><td><span class="tp deal">deal</span></td><td class="ch">email</td><td class="ch">email + WA</td><td></td></tr>
+  <tr data-date="2026-09-05"><td>Sep 5 · am</td><td>Last day</td><td>product-led final push: bestsellers, gifts, "everything ends tonight"</td><td><span class="tp close">close</span></td><td class="ch">email</td><td class="ch">email + WA</td><td></td></tr>
+  <tr data-date="2026-09-05"><td>Sep 5 · eve</td><td>Final hours</td><td>short + sharp, last call</td><td><span class="tp close">close</span></td><td class="ch">email + SMS</td><td class="ch">email + WA</td><td></td></tr>
 </table>
 
-<h2><span class="num">4</span>Standing rules (applied throughout)</h2>
+<h2><span class="num">07</span>After the sale</h2>
+<table>
+  <tr><th>Day</th><th>Send</th><th>What goes out</th></tr>
+  <tr data-date="2026-09-07"><td>Sep 6–7</td><td>Diipa thank-you</td><td>"what a birthday" — warm, no selling · both stores</td></tr>
+  <tr data-date="2026-09-08"><td>Week after</td><td>Survey + wrap</td><td>purchaser/non-purchaser surveys · full performance wrap report</td></tr>
+</table>
+
+<h2><span class="num">08</span>Always on during the sale</h2>
+<div class="duo">
+  <div class="card">
+    <ul>
+      <li><b>Welcome A</b> — waitlist joiners: you're in → sale is live. 2 emails.</li>
+      <li><b>Welcome B</b> — joins during the sale: sale is on → social proof. 2 emails.</li>
+      <li><b>Abandoned checkout</b> — gift ladder: "you're X away from a free gift." One email per tier · WhatsApp mirror in India.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <ul>
+      <li><b>Evergreen flows adjusted:</b> welcome held (its 10% code clashes with 29%).</li>
+      <li>Browse abandonment → "it's 29% off till Sep 5."</li>
+      <li>Post-purchase promos held; subscription pitch queued for after the sale.</li>
+      <li>Replenishment overlaid: "restock time — at 29% off."</li>
+    </ul>
+  </div>
+</div>
+
+<h2><span class="num">09</span>Every message, every channel</h2>
 <div class="card">
   <ul>
-    <li>Active subscribers excluded from all promo sends (no cannibalizing the sub base).</li>
-    <li>SMS: straight apostrophes only, "Inde" not "indē", links auto-shortened. One credit per send where possible.</li>
-    <li>Verification via profile-based previews with real trigger events (no US test number available).</li>
+    <li>Free gifts mentioned in every single message, all channels, tease through close.</li>
+    <li>Each sale email ends with a one-line teaser for tomorrow — trains daily opens across 8 days.</li>
+    <li>US: email leads, SMS at the four urgency moments. India: email carries volume, WhatsApp owns urgency and the close.</li>
+    <li>One design system, built once, localized per store (~70% shared assets).</li>
   </ul>
 </div>
 
-<h2><span class="num">5</span>Flags</h2>
-<div class="flag"><strong>Discount stacking.</strong> Shopify can't stack two % discounts unless discount combinations is enabled. Cleanest: extra-5% windows run a separate 34% code. Also decide 34% flat vs 5% off the discounted price (~32.6%). Needs a check with Praveen.</div>
-<div class="flag"><strong>Labor Day.</strong> Sep 5 is the Saturday of Labor Day weekend (Labor Day is Sep 7). Last year Labor Day sends did $3.6k. Option: quiet 48h encore Sep 6–7 to non-purchasers.</div>
-<div class="flag"><strong>India.</strong> Mirror the arc on Klaviyo email + Bitespeed WhatsApp. Birthday/heritage framing lands natively there. Don't copy US copy.</div>
+<h2><span class="num">10</span>What we need to lock</h2>
+<div class="need"><b>GWP LIST</b> — gifts + cart-value tiers per store. Sets the gift ladder and free gift day.</div>
+<div class="need"><b>SUBSCRIBER UPGRADE</b> — approve the one-cycle price match (~450 subscribers, small capped cost, removes any reason to cancel).</div>
+<div class="need"><b>DISCOUNT SETUP</b> — stacking config check on both stores so the secret 5% applies cleanly.</div>
+<div class="need"><b>SOCIAL PUSH</b> — who drives Diipa's socials to the waitlist page through August.</div>
+<div class="need"><b>STOCK CHECK</b> — Champi, gift boxes, and GWP inventory for 8 days at sale pace.</div>
 
-<footer>Prepared by Grovae · Source: IW US campaign data (May 2025 – Jun 2026), DKBS'25 + Summer Sale '26 benchmarks · Jul 23, 2026</footer>
+<footer>Prepared by Grovae · built on two years of birthday-sale performance data from both stores · this page updates itself: countdowns and send statuses track today's date</footer>
+
+<script>
+(function(){
+  var POPUP = new Date(2026,7,3);
+  var TEASE = new Date(2026,7,13);
+  var SALE_START = new Date(2026,7,29);
+  var SALE_END = new Date(2026,8,5,23,59,59);
+  var TL_START = POPUP, TL_END = SALE_END;
+  function startOfDay(d){ return new Date(d.getFullYear(), d.getMonth(), d.getDate()); }
+  function daysBetween(a,b){ return Math.round((startOfDay(b)-startOfDay(a))/86400000); }
+  function fmtDays(n){ return n === 1 ? "1 day" : n + " days"; }
+  function update(){
+    var now = new Date(); var today = startOfDay(now);
+    var el = document.getElementById('cdPopup');
+    var dPopup = daysBetween(now, POPUP);
+    el.textContent = dPopup > 0 ? fmtDays(dPopup) : (today <= startOfDay(SALE_END) ? "live" : "done");
+    el = document.getElementById('cdStart');
+    var dStart = daysBetween(now, SALE_START);
+    el.textContent = dStart > 0 ? fmtDays(dStart) : (now <= SALE_END ? "live" : "done");
+    el = document.getElementById('cdEnd');
+    if (now > SALE_END) { el.textContent = "ended"; }
+    else if (now >= SALE_START) {
+      var hrs = Math.max(0, Math.floor((SALE_END - now)/3600000));
+      el.textContent = hrs >= 48 ? fmtDays(Math.ceil(hrs/24)) : hrs + " hrs";
+    } else { el.textContent = fmtDays(daysBetween(now, SALE_END)); }
+    var phase, banner;
+    if (now < POPUP) { phase = "PREP"; banner = "Popup, link page and ads go live Aug 3. Locking gifts, flows and builds."; }
+    else if (now < TEASE) { phase = "WAITLIST BUILD"; banner = "Ads + social driving the waitlist. No price revealed."; }
+    else if (now < SALE_START) { phase = "TEASE"; banner = "Email tease running. Offer reveals Aug 28. Sale opens Aug 29, waitlist first."; }
+    else if (now <= SALE_END) { phase = "SALE LIVE"; banner = "29% live on both stores. One message a day. Secret 5% drops Sep 4."; }
+    else { phase = "WRAPPED"; banner = "Sale ended Sep 5. Thank-you, surveys and wrap report in motion."; }
+    document.getElementById('phasePill').textContent = phase;
+    document.getElementById('phaseBanner').innerHTML = "<b>" + phase + "</b> — " + banner;
+    var marker = document.getElementById('nowMarker');
+    if (now >= TL_START && now <= TL_END) {
+      marker.style.left = ((now - TL_START) / (TL_END - TL_START) * 100).toFixed(2) + "%";
+      marker.style.display = "block";
+    } else { marker.style.display = "none"; }
+    var remaining = 0, total = 0;
+    document.querySelectorAll("tr[data-date]").forEach(function(tr){
+      var p = tr.getAttribute("data-date").split("-");
+      var d = new Date(+p[0], +p[1]-1, +p[2]);
+      var cell = tr.cells[tr.cells.length-1];
+      if (!cell || tr.cells.length < 4) return;
+      total++;
+      var cls, label;
+      if (+d === +today) { cls = "today"; label = "TODAY"; remaining++; }
+      else if (d < today) { cls = "done"; label = "DONE"; }
+      else { cls = "up"; label = "UPCOMING"; remaining++; }
+      cell.innerHTML = '<span class="st ' + cls + '">' + label + '</span>';
+    });
+    document.getElementById('sendsLeft').textContent = remaining + " / " + total;
+  }
+  update(); setInterval(update, 60000);
+})();
+</script>
 
 </div>
 </body>
