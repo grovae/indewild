@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>indē wild — H1 2026 · what worked, what didn't</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap');
+:root{
+  --ink-1:#101213; --ink-2:#565B5C; --ink-3:#8A8F90;
+  --bg-page:#F4F5F5; --surface:#FFFFFF; --surface-sunken:#ECEEEE; --surface-ink:#101213;
+  --border-1:#DCDEDE; --border-2:#C6C9C9;
+  --green-800:#143C30; --green-700:#1B4D3E; --green-600:#2F6A57; --green-400:#5C9083;
+  --green-200:#A8C4BC; --green-100:#D5E2DE; --green-50:#EAF1EE;
+  --success:#1B4D3E; --success-bg:#EAF1EE;
+  --warn:#8F6A1E; --warn-bg:#F4EBD7;
+  --danger:#A03A30; --danger-bg:#F6E4E1;
+  --tint-green:rgba(27,77,62,.055); --tint-border-green:rgba(27,77,62,.20);
+  --tint-danger:rgba(160,58,48,.055); --tint-border-danger:rgba(160,58,48,.18);
+  --font-sans:'Instrument Sans','Helvetica Neue',Arial,sans-serif;
+  --font-mono:'Spline Sans Mono','IBM Plex Mono',monospace;
+  --tl:.15em;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);background:var(--bg-page);color:var(--ink-1);
+  -webkit-font-smoothing:antialiased;line-height:1.5}
+.wrap{max-width:1080px;margin:0 auto;background:var(--surface);
+  border-left:1px solid var(--border-1);border-right:1px solid var(--border-1)}
+.lbl{font-family:var(--font-mono);font-size:10px;letter-spacing:var(--tl);
+  text-transform:uppercase;color:var(--ink-3);display:block}
+
+header{padding:44px 48px 36px}
+.mark{display:inline-flex;align-items:center;gap:10px;margin-bottom:32px}
+.mark i{width:12px;height:12px;background:var(--green-700);display:block}
+.mark b{font-weight:700;font-size:18px;letter-spacing:-.04em}
+h1{font-size:46px;font-weight:600;letter-spacing:-.045em;line-height:1.02;margin:12px 0 18px}
+.dek{font-size:16.5px;line-height:1.65;color:var(--ink-2);max-width:60ch}
+.dek b{color:var(--ink-1);font-weight:600}
+
+.finds{display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--border-1);border-bottom:1px solid var(--border-1)}
+.find{padding:26px 28px 30px}
+.find+.find{border-left:1px solid var(--border-1)}
+.find .k{font-size:31px;font-weight:600;letter-spacing:-.035em;line-height:1;margin:14px 0 10px;color:var(--green-700)}
+.find .k.bad{color:var(--danger)}
+.find p{font-size:13.5px;line-height:1.58;color:var(--ink-2)}
+.find p b{color:var(--ink-1);font-weight:600}
+
+.badge{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:2px;
+  font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.badge i{width:6px;height:6px;border-radius:50%;background:currentColor;display:block}
+.b-ok{background:var(--success-bg);color:var(--success)}
+.b-warn{background:var(--warn-bg);color:var(--warn)}
+
+section{border-bottom:1px solid var(--border-1)}
+.strip{display:grid;grid-template-columns:190px repeat(4,1fr);
+  border-bottom:1px solid var(--border-1)}
+.cell{padding:22px 24px}
+.cell+.cell{border-left:1px solid var(--border-1)}
+.cell.name{display:flex;flex-direction:column;justify-content:center;gap:10px;background:var(--surface-sunken)}
+.cell.name h2{font-size:23px;font-weight:600;letter-spacing:-.03em}
+.cell .v{font-size:27px;font-weight:600;letter-spacing:-.03em;line-height:1;margin-bottom:9px;
+  display:flex;align-items:baseline;gap:8px}
+.cell .v em{font-family:var(--font-mono);font-size:11.5px;font-style:normal;font-weight:400}
+.up{color:var(--success)} .dn{color:var(--danger)}
+
+.cblock{padding:30px 48px 32px}
+.chead{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:24px;flex-wrap:wrap}
+.legend{display:flex;gap:18px;font-family:var(--font-mono);font-size:11px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.legend u{width:10px;height:10px;display:block;text-decoration:none}
+.chart{display:flex;align-items:flex-end;gap:22px;height:140px;border-bottom:1px solid var(--border-2)}
+.bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;height:100%}
+.bar .cap{font-family:var(--font-mono);font-size:11px;color:var(--ink-1);text-align:center;margin-bottom:7px}
+.stack{display:flex;flex-direction:column-reverse}
+.stack u{display:block;width:100%;text-decoration:none}
+.xaxis{display:flex;gap:22px;margin-top:10px}
+.xaxis span{flex:1;text-align:center;font-family:var(--font-mono);font-size:10.5px;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.cnote{margin-top:22px;padding:14px 16px;font-size:13.5px;line-height:1.6;color:var(--ink-2);
+  background:var(--tint-green);border:1px solid var(--tint-border-green)}
+.cnote b{color:var(--ink-1);font-weight:600}
+
+.cards{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border-1)}
+.tcard{padding:28px 48px 32px}
+.tcard+.tcard{border-left:1px solid var(--border-1)}
+.tcard .lbl{margin-bottom:20px}
+.tcard.win .lbl{color:var(--green-700)}
+.tcard.miss .lbl{color:var(--danger)}
+.pt{padding:15px 0;border-top:1px solid var(--border-1)}
+.pt:first-of-type{border-top:none;padding-top:0}
+.pt .h{font-size:14.5px;font-weight:600;letter-spacing:-.01em;margin-bottom:6px;
+  display:flex;align-items:baseline;gap:10px}
+.pt .h em{font-family:var(--font-mono);font-size:12.5px;font-style:normal;font-weight:500;white-space:nowrap}
+.tcard.win em{color:var(--green-700)}
+.tcard.miss em{color:var(--danger)}
+.pt p{font-size:13px;line-height:1.58;color:var(--ink-2)}
+
+.dark{background:var(--surface-ink);color:#F4F5F5;padding:46px 48px}
+.dark .lbl{color:var(--green-400)}
+.dark h2{font-size:34px;font-weight:600;letter-spacing:-.04em;line-height:1.14;margin:16px 0 18px;max-width:24ch}
+.dark .sub{font-size:15px;color:#A8ADAE;line-height:1.7;max-width:74ch}
+.rows{margin-top:34px;border-top:1px solid #2A2D2E}
+.r{display:grid;grid-template-columns:250px 1fr 210px;align-items:center;gap:26px;
+  padding:17px 0;border-bottom:1px solid #2A2D2E}
+.r:last-child{border-bottom:none}
+.r .nm{font-size:14px;line-height:1.4;font-weight:500}
+.r .nm small{display:block;font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;
+  text-transform:uppercase;color:#8A8F90;margin-top:5px;font-weight:400}
+.gt{height:12px;background:#24282A;position:relative}
+.gt u{display:block;height:100%;text-decoration:none}
+.r .amt{font-family:var(--font-mono);font-size:13.5px;text-align:right;font-weight:500}
+.r .amt small{display:block;font-size:10.5px;color:#8A8F90;margin-top:4px;font-weight:400}
+
+.next{padding:38px 48px 20px}
+.plan{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--border-1)}
+.p{padding:22px 22px 28px}
+.p+.p{border-left:1px solid var(--border-1)}
+.p .num{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;color:var(--green-700);display:block;margin-bottom:14px}
+.p h4{font-size:14.5px;font-weight:600;letter-spacing:-.01em;line-height:1.3;margin-bottom:8px}
+.p p{font-size:12.5px;line-height:1.55;color:var(--ink-2)}
+footer{padding:20px 48px;background:var(--surface-sunken);border-top:1px solid var(--border-1)}
+.foot2{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media(max-width:900px){
+  .finds,.plan{grid-template-columns:1fr 1fr}
+  .strip{grid-template-columns:1fr 1fr}
+  .find,.cell,.p{border-left:none;border-top:1px solid var(--border-1)}
+  .cards{grid-template-columns:1fr}
+  .tcard+.tcard{border-left:none;border-top:1px solid var(--border-1)}
+  .r{grid-template-columns:1fr;gap:8px}.r .amt{text-align:left}
+  header,.cblock,.tcard,.dark,.next,footer{padding-left:22px;padding-right:22px}
+  h1{font-size:32px}.dark h2{font-size:25px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ══ HEADER ══ -->
+<header>
+  <span class="mark"><i></i><b>Grovae</b></span>
+  <span class="lbl">indē wild · H1 2026 · US + India</span>
+  <h1>What worked,<br>what didn't</h1>
+  <div class="dek">Six months, two stores, three channels. Judged on revenue alone the half reads as one good sale and a lot of noise. Judged properly, <b>the messages explaining our products are doing better than the sales numbers suggest, and we keep stopping short of asking for the sale.</b></div>
+</header>
+
+<div class="finds">
+  <div class="find">
+    <span class="lbl">Finding 01</span>
+    <div class="k">2× the reads</div>
+    <p><b>Messages explaining the product get read twice as much</b> as messages with an offer — 36.6% against 18.5%. They are the best-read thing we send. Sales figures can't show that, so they look like failures on a revenue report.</p>
+  </div>
+  <div class="find">
+    <span class="lbl">Finding 02</span>
+    <div class="k bad">2%</div>
+    <p><b>We explain the product to everyone, then ask almost nobody to buy.</b> In June India told 77,515 people about the product and offered 1,542 of them a deal. The US did the same with Champi hair oil. Both times the small offer was the best send of the month.</p>
+  </div>
+  <div class="find">
+    <span class="lbl">Finding 03</span>
+    <div class="k">26 of 28</div>
+    <p><b>Reach is not the constraint.</b> Offer sends were profitable 26 times out of 28 — including to 100K and 196K people. Big sends are not the problem we thought they were.</p>
+  </div>
+</div>
+
+<!-- ══ US ══ -->
+<section>
+  <div class="strip">
+    <div class="cell name"><h2>US store</h2><span class="badge b-warn"><i></i>Sale-led</span></div>
+    <div class="cell"><div class="v">$752K</div><span class="lbl">Store revenue</span></div>
+    <div class="cell"><div class="v">$69.6K</div><span class="lbl">CRM revenue · 9.3%</span></div>
+    <div class="cell"><div class="v">57%</div><span class="lbl">Of campaigns · Summer Sale</span></div>
+    <div class="cell"><div class="v">466<em class="up">↑ 348%</em></div><span class="lbl">Active subscribers</span></div>
+  </div>
+
+  <div class="cblock">
+    <div class="chead">
+      <span class="lbl">CRM revenue by month · $K</span>
+      <div class="legend"><span><u style="background:var(--green-700)"></u>Email + SMS</span></div>
+    </div>
+    <div class="chart">
+      <div class="bar"><span class="cap">7.7</span><u style="height:30%;background:var(--green-200)"></u></div>
+      <div class="bar"><span class="cap">6.7</span><u style="height:26%;background:var(--green-200)"></u></div>
+      <div class="bar"><span class="cap">8.0</span><u style="height:31%;background:var(--green-200)"></u></div>
+      <div class="bar"><span class="cap">25.8</span><u style="height:100%;background:var(--green-700)"></u></div>
+      <div class="bar"><span class="cap">17.3</span><u style="height:67%;background:var(--green-600)"></u></div>
+      <div class="bar"><span class="cap">4.0</span><u style="height:16%;background:var(--green-100)"></u></div>
+    </div>
+    <div class="xaxis"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span></div>
+    <div class="cnote"><b>The half was one sale and four quiet months.</b> Outside April and May the US ran at about $6.6K of CRM revenue a month. That baseline is the number to move, not the peak.</div>
+  </div>
+
+  <div class="cards">
+    <div class="tcard win">
+      <span class="lbl">What worked</span>
+      <div class="pt"><div class="h">The Summer Sale had a real structure <em>$31.5K</em></div>
+        <p>Waitlist, early access, then a dated close. The closing phase returned 22% of the sale on its own. This is the only campaign shape this half that produced at scale, and it is the template for DKBS'26.</p></div>
+      <div class="pt"><div class="h">Subscriptions compounded <em>104 → 466</em></div>
+        <p>The one part of the account that grew without a promotion behind it. Recurring orders up 4x, and June reversed May's first negative month.</p></div>
+      <div class="pt"><div class="h">Flows track traffic reliably <em>$48 / 1K sessions</em></div>
+        <p>Flow revenue held between $35 and $58 per thousand sessions every single month. The plumbing is sound and predictable — which means added depth should convert straight through.</p></div>
+    </div>
+    <div class="tcard miss">
+      <span class="lbl">What didn't</span>
+      <div class="pt"><div class="h">Flows are thin, not broken <em>$0.22</em></div>
+        <p>Per new customer, across 9,067 of them, from every post-purchase flow combined. Welcome earns $373 a month against roughly 4,800 opt-ins. The gap is coverage and depth, not deliverability or setup.</p></div>
+      <div class="pt"><div class="h">Champi never got a real offer <em>235K → 3,774</em></div>
+        <p>Five emails about Champi hair oil went to 235,000 inboxes in June. The only Champi deal went to 3,774 people, and it got the best clicks of the month and 27% of June's revenue. We built the interest and never asked for the sale.</p></div>
+      <div class="pt"><div class="h">February bought a bad cohort <em>$32 AOV</em></div>
+        <p>2,083 new orders at half the usual basket, and still the worst LTV on record at $28 by month 4 against $54 for January. Worth understanding before repeating whatever drove it.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ INDIA ══ -->
+<section>
+  <div class="strip">
+    <div class="cell name"><h2>India store</h2><span class="badge b-ok"><i></i>WhatsApp-carried</span></div>
+    <div class="cell"><div class="v">₹7.72 Cr</div><span class="lbl">Store revenue</span></div>
+    <div class="cell"><div class="v">₹50.3L</div><span class="lbl">CRM revenue · 6.5%</span></div>
+    <div class="cell"><div class="v">₹17.4L<em class="up">4.15x</em></div><span class="lbl">WhatsApp net of cost</span></div>
+    <div class="cell"><div class="v">27.2%<em class="dn">&lt; 30%</em></div><span class="lbl">Repeat rate</span></div>
+  </div>
+
+  <div class="cblock">
+    <div class="chead">
+      <span class="lbl">CRM revenue by month · ₹ lakh</span>
+      <div class="legend">
+        <span><u style="background:var(--green-700)"></u>Email · Klaviyo</span>
+        <span><u style="background:var(--green-400)"></u>WhatsApp + SMS · Bitespeed</span>
+      </div>
+    </div>
+    <div class="chart">
+      <div class="bar"><span class="cap">11.4</span><div class="stack" style="height:88%"><u style="height:100%;background:var(--green-700)"></u></div></div>
+      <div class="bar"><span class="cap">10.5</span><div class="stack" style="height:81%"><u style="height:99%;background:var(--green-700)"></u><u style="height:1%;background:var(--green-400)"></u></div></div>
+      <div class="bar"><span class="cap">3.3</span><div class="stack" style="height:25%"><u style="height:5%;background:var(--green-700)"></u><u style="height:95%;background:var(--green-400)"></u></div></div>
+      <div class="bar"><span class="cap">13.0</span><div class="stack" style="height:100%"><u style="height:2%;background:var(--green-700)"></u><u style="height:98%;background:var(--green-400)"></u></div></div>
+      <div class="bar"><span class="cap">7.0</span><div class="stack" style="height:54%"><u style="height:8%;background:var(--green-700)"></u><u style="height:92%;background:var(--green-400)"></u></div></div>
+      <div class="bar"><span class="cap">5.2</span><div class="stack" style="height:40%"><u style="height:90%;background:var(--green-700)"></u><u style="height:10%;background:var(--green-400)"></u></div></div>
+    </div>
+    <div class="xaxis"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span></div>
+    <div class="cnote"><b>The Klaviyo pause was not a CRM blackout.</b> Email went dark Feb 17 to May 31, but WhatsApp ran a full Summer Sale through it and April became the strongest CRM month of the half. The tracker only records WhatsApp from June, so H1 has been understated by about ₹23L.</div>
+  </div>
+
+  <div class="cards">
+    <div class="tcard win">
+      <span class="lbl">What worked</span>
+      <div class="pt"><div class="h">WhatsApp is a primary channel now <em>₹17.4L net</em></div>
+        <p>Net of ₹5.5L in send cost, across 49 broadcasts. Profitable in every month except June. It should be budgeted and planned as a lead channel, not a supplement.</p></div>
+      <div class="pt"><div class="h">Big sends paid, when they carried an offer <em>₹5.1L net</em></div>
+        <p>The single biggest contributor was Summer Sale early access to 100,000 existing customers. Every size band was net positive. The instinct to cut reach is the wrong lesson from this half.</p></div>
+      <div class="pt"><div class="h">Retries are doing real work <em>5.30x</em></div>
+        <p>The second-attempt pass returned ₹5.0L net on its own, at a better multiple than the original send. Worth treating as a deliberate part of the plan rather than a fallback.</p></div>
+    </div>
+    <div class="tcard miss">
+      <span class="lbl">What didn't</span>
+      <div class="pt"><div class="h">The June run never got an offer <em>77,515 → 1,542</em></div>
+        <p>Ten messages about MSS went to 77,515 people and a third read them. Then the only deal of the month went to 1,542 people and made 11x what it cost to send. We had everyone's attention and asked two percent of them to buy.</p></div>
+      <div class="pt"><div class="h">Three April sends can't be judged at all <em>193K reach</em></div>
+        <p>Three unnamed broadcasts went to 193,000 people two days before Summer Sale carrying no link, so nothing can attribute to them by design. If that was deliberate pre-sale warming it needs a name and a measure. Right now ₹70K of spend is unreadable.</p></div>
+      <div class="pt"><div class="h">Email's three dark months are unmeasurable <em>Feb 17 – May 31</em></div>
+        <p>No Brevo attribution was captured, so we cannot say whether email underperformed or simply went unrecorded. We should not read those months either way.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PATTERN ══ -->
+<div class="dark">
+  <span class="lbl">The pattern in both stores</span>
+  <h2>We tell everyone about the product. Almost nobody gets a reason to buy.</h2>
+  <div class="sub">June, both stores, same shape. A run of messages explaining the product went to the whole list, and plenty of people read them. Then the one message with an actual offer in it went to a tiny slice. Both times that small offer was the best send of the month. Explaining the product is working. We just stop short of asking for the sale.</div>
+  <div class="rows">
+    <div class="r">
+      <div class="nm">India · told about the product<small>10 messages · a third read them</small></div>
+      <div class="gt"><u style="width:100%;background:var(--green-400)"></u></div>
+      <div class="amt">77,515 people</div>
+    </div>
+    <div class="r">
+      <div class="nm">India · given an offer<small>Buy one get one · made 11x what it cost to send</small></div>
+      <div class="gt"><u style="width:2%;background:#C4564A"></u></div>
+      <div class="amt">1,542 people</div>
+    </div>
+    <div class="r">
+      <div class="nm">US · told about Champi hair oil<small>5 emails · myths, claims, reviews</small></div>
+      <div class="gt"><u style="width:100%;background:var(--green-400)"></u></div>
+      <div class="amt">234,985 people</div>
+    </div>
+    <div class="r">
+      <div class="nm">US · given an offer<small>Hair wrap back in stock · best clicks of the month</small></div>
+      <div class="gt"><u style="width:1.6%;background:#C4564A"></u></div>
+      <div class="amt">3,774 people</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ H2 ══ -->
+<div class="next">
+  <span class="lbl">What we change in H2</span>
+</div>
+<div class="plan">
+  <div class="p"><span class="num">01</span><h4>End every run with an offer</h4><p>If we spend a month explaining a product, the deal at the end goes to everyone who heard it. Not two percent of them.</p></div>
+  <div class="p"><span class="num">02</span><h4>Judge those messages on reads</h4><p>They exist to build interest, so reads and unsubscribes tell us if they worked. Sales figures never will.</p></div>
+  <div class="p"><span class="num">03</span><h4>Fix WhatsApp delivery</h4><p>36% first-attempt delivery is the cheapest available gain. Template health and window timing before new creative.</p></div>
+  <div class="p"><span class="num">04</span><h4>Deepen US post-purchase</h4><p>$0.22 per new customer across 9,067 of them. Flows already scale with traffic — there just aren't enough of them.</p></div>
+  <div class="p"><span class="num">05</span><h4>Run DKBS'26 on the sale shape</h4><p>Waitlist, early access, dated close — the one structure that produced at scale, on email and WhatsApp together.</p></div>
+</div>
+
+<footer>
+  <div class="foot2">
+    <span class="lbl">Grovae · indē wild · Jan 1 – Jun 30, 2026</span>
+    <span class="lbl">Shopify · Klaviyo · Recharge · Bitespeed</span>
+  </div>
+  <div style="font-size:11.5px;color:var(--ink-3);line-height:1.6;margin-top:14px;max-width:80ch">
+    Net contribution is Bitespeed revenue less send cost; cost data exists only for India WhatsApp and SMS, so US figures are revenue-only and not directly comparable. WhatsApp journey revenue is cumulative per journey in the export, not date-scoped, and is excluded from every total here. India email for Feb 17 – May 31 is unattributed. Three April WhatsApp broadcasts carried no link, so no revenue can attribute to them either way; they are excluded from the offer and content groupings above.
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
