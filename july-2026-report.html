@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>indē wild — July 2026 retention report</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap');
+:root{
+  --ink-1:#101213;--ink-2:#565B5C;--ink-3:#8A8F90;
+  --bg-page:#F4F5F5;--surface:#FFFFFF;--surface-sunken:#ECEEEE;--surface-ink:#101213;
+  --border-1:#DCDEDE;--border-2:#C6C9C9;
+  --green-800:#143C30;--green-700:#1B4D3E;--green-600:#2F6A57;--green-400:#5C9083;
+  --green-200:#A8C4BC;--green-100:#D5E2DE;--green-50:#EAF1EE;
+  --success:#1B4D3E;--success-bg:#EAF1EE;--warn:#8F6A1E;--warn-bg:#F4EBD7;
+  --danger:#A03A30;--danger-bg:#F6E4E1;
+  --tint-green:rgba(27,77,62,.05);--tint-border-green:rgba(27,77,62,.18);
+  --font-sans:'Instrument Sans','Helvetica Neue',Arial,sans-serif;
+  --font-mono:'Spline Sans Mono','IBM Plex Mono',monospace;--tl:.14em;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);background:var(--bg-page);color:var(--ink-1);
+  -webkit-font-smoothing:antialiased;line-height:1.5}
+.wrap{max-width:1060px;margin:0 auto;background:var(--surface);
+  border-left:1px solid var(--border-1);border-right:1px solid var(--border-1)}
+.lbl{font-family:var(--font-mono);font-size:10px;letter-spacing:var(--tl);
+  text-transform:uppercase;color:var(--ink-3);display:block}
+
+header{padding:44px 44px 34px}
+.mark{display:inline-flex;align-items:center;gap:10px;margin-bottom:30px}
+.mark i{width:12px;height:12px;background:var(--green-700);display:block}
+.mark b{font-weight:700;font-size:18px;letter-spacing:-.04em}
+.htop{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+h1{font-size:42px;font-weight:600;letter-spacing:-.045em;line-height:1.02;margin-top:10px}
+.per{font-size:13px;color:var(--ink-2);text-align:right;line-height:1.7}
+.per b{color:var(--ink-1)}
+
+.verd{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border-1);
+  border-bottom:1px solid var(--border-1)}
+.vc{padding:24px 28px 26px}
+.vc+.vc{border-left:1px solid var(--border-1)}
+.vc h3{font-size:17px;font-weight:600;letter-spacing:-.02em;margin:10px 0 8px}
+.vc p{font-size:13.5px;line-height:1.6;color:var(--ink-2)}
+
+.sbar{padding:30px 44px 20px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.sbar h2{font-size:27px;font-weight:600;letter-spacing:-.035em}
+.sbar span.cur{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.1em}
+
+.mg{display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--border-1);border-bottom:1px solid var(--border-1)}
+.m{padding:20px 24px 22px}
+.m+.m{border-left:1px solid var(--border-1)}
+.m .lbl{margin-bottom:12px}
+.m .v{font-size:27px;font-weight:600;letter-spacing:-.032em;line-height:1;margin-bottom:10px}
+.m .d{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-2)}
+.m .d .u{color:var(--success)} .m .d .w{color:var(--danger)} .m .d .f{color:var(--ink-3)}
+.ctx{padding:16px 44px 20px;font-size:13px;line-height:1.6;color:var(--ink-2);
+  border-bottom:1px solid var(--border-1)}
+
+.two{display:grid;grid-template-columns:340px 1fr;border-bottom:1px solid var(--border-1)}
+.crm{padding:26px 28px 28px;border-right:1px solid var(--border-1);background:var(--tint-green)}
+.crm .big{font-size:34px;font-weight:600;letter-spacing:-.035em;line-height:1;color:var(--green-700);margin:12px 0 8px}
+.crm .sh{font-family:var(--font-mono);font-size:12px;color:var(--ink-2);margin-bottom:20px}
+.ln{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  padding:9px 0;border-top:1px solid rgba(16,18,19,.09);font-size:13px}
+.ln:first-of-type{border-top:none}
+.ln .n{font-family:var(--font-mono);font-size:12.5px;font-weight:500}
+.tr{padding:26px 32px 28px}
+.chart{display:flex;align-items:flex-end;gap:13px;height:118px;
+  border-bottom:1px solid var(--border-2);margin-top:20px}
+.bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;height:100%}
+.bar .cap{font-family:var(--font-mono);font-size:10.5px;text-align:center;margin-bottom:6px;color:var(--ink-2)}
+.bar .cap.on{color:var(--ink-1);font-weight:500}
+.stk{display:flex;flex-direction:column-reverse}
+.stk u,.bar>u{display:block;width:100%;text-decoration:none}
+.xa{display:flex;gap:13px;margin-top:8px}
+.xa div{flex:1;text-align:center}
+.xa .mo{font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.xa .pc{font-family:var(--font-mono);font-size:10.5px;color:var(--ink-2);margin-top:4px}
+.xa div.on .mo,.xa div.on .pc{color:var(--ink-1);font-weight:500}
+.axlab{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);margin-top:10px;text-align:right}
+.leg{display:flex;gap:16px;margin-top:12px;font-family:var(--font-mono);font-size:10.5px;color:var(--ink-2)}
+.leg span{display:inline-flex;align-items:center;gap:6px}
+.leg u{width:9px;height:9px;display:block;text-decoration:none}
+
+.tw{padding:26px 44px 32px;border-bottom:1px solid var(--border-1)}
+table{width:100%;border-collapse:collapse;margin-top:16px}
+th{font-family:var(--font-mono);font-size:10px;letter-spacing:var(--tl);text-transform:uppercase;
+  color:var(--ink-3);font-weight:400;text-align:right;padding:0 0 10px;border-bottom:1px solid var(--border-2)}
+th:first-child{text-align:left}
+td{padding:11px 0;border-bottom:1px solid var(--border-1);text-align:right;
+  font-family:var(--font-mono);font-size:12.5px}
+td:first-child{text-align:left;font-family:var(--font-sans);font-size:13.5px;font-weight:500}
+td .ch{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-3);margin-left:8px;font-weight:400}
+tr:last-child td{border-bottom:none}
+td.rev{font-weight:500;color:var(--green-700)}
+
+.nx{padding:36px 44px 20px}
+.nx h2{font-size:26px;font-weight:600;letter-spacing:-.035em;margin:12px 0 10px}
+.nx p.in{font-size:14px;line-height:1.65;color:var(--ink-2);max-width:72ch}
+.tl{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border-1);
+  border-bottom:1px solid var(--border-1);margin-top:26px}
+.tl div{padding:20px 22px 24px}
+.tl div+div{border-left:1px solid var(--border-1)}
+.tl .dt{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;color:var(--green-700);
+  display:block;margin-bottom:10px}
+.tl h4{font-size:14.5px;font-weight:600;letter-spacing:-.01em;margin-bottom:6px}
+.tl p{font-size:12.5px;line-height:1.55;color:var(--ink-2)}
+.shape{padding:28px 44px 34px}
+.shape .lbl{margin-bottom:16px}
+.si{padding:13px 0;border-top:1px solid var(--border-1);display:grid;
+  grid-template-columns:190px 1fr;gap:22px;align-items:baseline}
+.si:first-of-type{border-top:none;padding-top:0}
+.si .k{font-size:13.5px;font-weight:600;letter-spacing:-.01em}
+.si .k em{display:block;font-family:var(--font-mono);font-size:11.5px;font-style:normal;
+  font-weight:500;color:var(--green-700);margin-top:4px}
+.si p{font-size:13px;line-height:1.6;color:var(--ink-2)}
+
+
+.costs{margin-top:18px;padding-top:14px;border-top:1px solid rgba(16,18,19,.14)}
+.clbl{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);display:block;margin-bottom:10px}
+.cr{display:flex;justify-content:space-between;align-items:baseline;gap:10px;
+  font-size:12.5px;color:var(--ink-2);margin-top:8px}
+.cr .cn{font-family:var(--font-mono);font-size:12px;color:var(--danger)}
+.cb{font-family:var(--font-mono);font-size:10.5px;margin-top:2px}
+.cb.good{color:var(--green-600)} .cb.poor{color:var(--ink-3)}
+footer{padding:20px 44px;background:var(--surface-sunken);border-top:1px solid var(--border-1)}
+.fnote{font-size:11.5px;color:var(--ink-3);line-height:1.6;margin-top:12px;max-width:92ch}
+@media(max-width:900px){
+  .verd,.mg,.two,.tl{grid-template-columns:1fr}
+  .vc+.vc,.m+.m,.crm,.tl div+div{border-left:none;border-top:1px solid var(--border-1)}
+  .si{grid-template-columns:1fr;gap:6px}
+  header,.sbar,.ctx,.tw,.nx,.shape,footer{padding-left:22px;padding-right:22px}
+  h1{font-size:31px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="mark"><i></i><b>Grovae</b></span>
+  <div class="htop">
+    <div>
+      <span class="lbl">indē wild · retention &amp; lifecycle</span>
+      <h1>July 2026<br>retention report</h1>
+    </div>
+    <div class="per"><b>1 – 31 July 2026</b><br>compared with June 2026<br>
+      <span style="font-family:var(--font-mono);font-size:11px">US + India</span></div>
+  </div>
+</header>
+
+<div class="verd">
+  <div class="vc">
+    <span class="lbl">US store · the month in short</span>
+    <h3>Email and SMS doubled their contribution.</h3>
+    <p>Retention revenue went from $4.0K to $8.2K, taking it to 10.7% of store revenue — back to where we ran during the Summer Sale. The 4th July Sale did most of the work, and SMS returned to the mix after two months out.</p>
+  </div>
+  <div class="vc">
+    <span class="lbl">India store · the month in short</span>
+    <h3>Our highest share of revenue this year.</h3>
+    <p>Email and WhatsApp both ran at full strength for the first time since the platform migration. Retention revenue rose 54% to ₹8.35L, or 13.8% of store revenue — ahead of January's 12.5%.</p>
+  </div>
+</div>
+
+<!-- ══════════════ US ══════════════ -->
+<div class="sbar"><h2>US store</h2><span class="cur">All figures in USD</span></div>
+
+<div class="mg">
+  <div class="m"><span class="lbl">Store revenue</span><div class="v">$76,585</div>
+    <div class="d">June <b>$78,013</b> · <span class="w">−1.8%</span></div></div>
+  <div class="m"><span class="lbl">Orders</span><div class="v">1,547</div>
+    <div class="d">June <b>1,547</b> · <span class="f">no change</span></div></div>
+  <div class="m"><span class="lbl">Average order value</span><div class="v">$49.51</div>
+    <div class="d">June <b>$50.43</b> · <span class="f">−1.8%</span></div></div>
+  <div class="m"><span class="lbl">Sessions</span><div class="v">65,105</div>
+    <div class="d">June <b>28,439</b> · <span class="u">+129%</span></div></div>
+</div>
+<div class="ctx">Store revenue and orders both held steady month on month. Sessions roughly doubled while orders stayed at 1,547,
+  so site conversion moved from 5.4% to 2.4% — noted here as context for the retention numbers below, since a larger
+  browsing base changes what our flows have to work with.</div>
+
+<div class="two">
+  <div class="crm">
+    <span class="lbl">Revenue from email &amp; SMS</span>
+    <div class="big">$8,208</div>
+    <div class="sh">10.7% of store revenue · June 5.2%</div>
+    <div class="ln"><span>Campaigns</span><span class="n">$7,016</span></div>
+    <div class="ln"><span>Automated flows</span><span class="n">$1,192</span></div>
+    <div class="ln"><span>Email</span><span class="n">$6,878</span></div>
+    <div class="ln"><span>SMS</span><span class="n">$1,330</span></div>
+    <div class="ln"><span>Orders from CRM</span><span class="n">131</span></div>
+    <div class="ln"><span>Active subscribers</span><span class="n">528 <span style="color:var(--success)">+62</span></span></div>
+  </div>
+  <div class="tr">
+    <span class="lbl">Revenue from email &amp; SMS · by month</span>
+    <div class="chart">
+      <div class="bar"><span class="cap">7.7</span><u style="height:30%;background:var(--green-200)"></u></div>
+      <div class="bar"><span class="cap">6.7</span><u style="height:26%;background:var(--green-200)"></u></div>
+      <div class="bar"><span class="cap">8.0</span><u style="height:31%;background:var(--green-200)"></u></div>
+      <div class="bar"><span class="cap">25.8</span><u style="height:100%;background:var(--green-400)"></u></div>
+      <div class="bar"><span class="cap">17.3</span><u style="height:67%;background:var(--green-400)"></u></div>
+      <div class="bar"><span class="cap">4.0</span><u style="height:16%;background:var(--green-100)"></u></div>
+      <div class="bar"><span class="cap on">8.2</span><u style="height:32%;background:var(--green-700)"></u></div>
+    </div>
+    <div class="xa">
+      <div><div class="mo">Jan</div><div class="pc">7.5%</div></div>
+      <div><div class="mo">Feb</div><div class="pc">7.6%</div></div>
+      <div><div class="mo">Mar</div><div class="pc">8.0%</div></div>
+      <div><div class="mo">Apr</div><div class="pc">11.3%</div></div>
+      <div><div class="mo">May</div><div class="pc">11.2%</div></div>
+      <div><div class="mo">Jun</div><div class="pc">5.2%</div></div>
+      <div class="on"><div class="mo">Jul</div><div class="pc">10.7%</div></div>
+    </div>
+    <div class="axlab">Bars: revenue in $000s · Below: share of store revenue</div>
+    <p style="font-size:13px;color:var(--ink-2);margin-top:14px;line-height:1.6">
+      April and May were the Summer Sale, which is why those bars are tall. July's $8.2K is a smaller number
+      but a similar share of a smaller month &mdash; 10.7% against April's 11.3%.</p>
+  </div>
+</div>
+
+<div class="tw">
+  <span class="lbl">What earned the most · July</span>
+  <table>
+    <tr><th>Send</th><th>Recipients</th><th>Orders</th><th>Revenue</th></tr>
+    <tr><td>4th July Sale<span class="ch">Email</span></td><td>27,773</td><td>29</td><td class="rev">$1,920</td></tr>
+    <tr><td>Flash Sale · Grow &amp; Repair Duo<span class="ch">Email</span></td><td>29,482</td><td>15</td><td class="rev">$881</td></tr>
+    <tr><td>4th July Sale<span class="ch">SMS</span></td><td>6,375</td><td>11</td><td class="rev">$766</td></tr>
+    <tr><td>Bond Repair Explained<span class="ch">Email</span></td><td>52,839</td><td>13</td><td class="rev">$765</td></tr>
+    <tr><td>SMS Nudge · Part 2<span class="ch">Email</span></td><td>52,548</td><td>8</td><td class="rev">$526</td></tr>
+  </table>
+  <p style="font-size:13px;color:var(--ink-2);margin-top:18px;line-height:1.6">
+    The 4th July Sale returned <b style="color:var(--ink-1)">$2,874</b> across three sends &mdash; 41% of campaign
+    revenue for the month. SMS came back on after two months and earned $1,330 from four sends.</p>
+</div>
+
+<!-- ══════════════ INDIA ══════════════ -->
+<div class="sbar"><h2>India store</h2><span class="cur">All figures in INR</span></div>
+
+<div class="mg">
+  <div class="m"><span class="lbl">Store revenue</span><div class="v">₹60.6L</div>
+    <div class="d">June <b>₹56.1L</b> · <span class="u">+8.2%</span></div></div>
+  <div class="m"><span class="lbl">Orders</span><div class="v">3,967</div>
+    <div class="d">June <b>3,001</b> · <span class="u">+32.2%</span></div></div>
+  <div class="m"><span class="lbl">Average order value</span><div class="v">₹1,528</div>
+    <div class="d">June <b>₹1,868</b> · <span class="w">−18.2%</span></div></div>
+  <div class="m"><span class="lbl">Sessions</span><div class="v">227,306</div>
+    <div class="d">June <b>509,483</b> · <span class="f">−55.4%</span></div></div>
+</div>
+<div class="ctx">A third fewer sessions than June converted into a third more orders, so site conversion came back to 1.75%
+  from June's unusually low 0.59%. Basket size fell with the month's discounting — three flash sales and a
+  buy-one-get-one inside four weeks.</div>
+
+<div class="two">
+  <div class="crm">
+    <span class="lbl">Revenue from email &amp; WhatsApp</span>
+    <div class="big">₹8.35L</div>
+    <div class="sh">13.8% of store revenue · June 9.7%</div>
+    <div class="ln"><span>Email campaigns</span><span class="n">₹3.03L</span></div>
+    <div class="ln"><span>Email automated flows</span><span class="n">₹2.78L</span></div>
+    <div class="ln"><span>WhatsApp broadcasts</span><span class="n">₹2.49L</span></div>
+    <div class="ln"><span>SMS broadcast</span><span class="n">₹5,543</span></div>
+    <div class="ln"><span>Orders from CRM</span><span class="n">358</span></div>
+    <div class="costs">
+      <span class="clbl">Less send cost · charged per message</span>
+      <div class="cr"><span>WhatsApp</span><span class="cn">−₹1,09,251</span></div>
+      <div class="cb good">₹2.28 back per ₹1 spent</div>
+      <div class="cr"><span>SMS</span><span class="cn">−₹31,186</span></div>
+      <div class="cb poor">₹0.18 back per ₹1 spent</div>
+    </div>
+  </div>
+  <div class="tr">
+    <span class="lbl">Revenue from email &amp; WhatsApp · by month</span>
+    <div class="chart">
+      <div class="bar"><span class="cap">11.4</span><div class="stk" style="height:88%"><u style="height:100%;background:var(--green-700)"></u></div></div>
+      <div class="bar"><span class="cap">10.5</span><div class="stk" style="height:81%"><u style="height:99%;background:var(--green-700)"></u><u style="height:1%;background:var(--green-400)"></u></div></div>
+      <div class="bar"><span class="cap">3.3</span><div class="stk" style="height:25%"><u style="height:5%;background:var(--green-700)"></u><u style="height:95%;background:var(--green-400)"></u></div></div>
+      <div class="bar"><span class="cap">13.0</span><div class="stk" style="height:100%"><u style="height:2%;background:var(--green-700)"></u><u style="height:98%;background:var(--green-400)"></u></div></div>
+      <div class="bar"><span class="cap">7.0</span><div class="stk" style="height:54%"><u style="height:8%;background:var(--green-700)"></u><u style="height:92%;background:var(--green-400)"></u></div></div>
+      <div class="bar"><span class="cap">5.4</span><div class="stk" style="height:42%"><u style="height:86%;background:var(--green-700)"></u><u style="height:14%;background:var(--green-400)"></u></div></div>
+      <div class="bar"><span class="cap on">8.4</span><div class="stk" style="height:64%"><u style="height:70%;background:var(--green-700)"></u><u style="height:30%;background:var(--green-400)"></u></div></div>
+    </div>
+    <div class="xa">
+      <div><div class="mo">Jan</div><div class="pc">12.5%</div></div>
+      <div><div class="mo">Feb</div><div class="pc">10.5%</div></div>
+      <div><div class="mo">Mar</div><div class="pc">3.2%</div></div>
+      <div><div class="mo">Apr</div><div class="pc">5.3%</div></div>
+      <div><div class="mo">May</div><div class="pc">3.9%</div></div>
+      <div><div class="mo">Jun</div><div class="pc">9.7%</div></div>
+      <div class="on"><div class="mo">Jul</div><div class="pc">13.8%</div></div>
+    </div>
+    <div class="axlab">Bars: revenue in ₹ lakh · Below: share of store revenue</div>
+    <div class="leg">
+      <span><u style="background:var(--green-700)"></u>Email</span>
+      <span><u style="background:var(--green-400)"></u>WhatsApp &amp; SMS</span>
+    </div>
+    <p style="font-size:13px;color:var(--ink-2);margin-top:12px;line-height:1.6">
+      April's bar is taller because store revenue was ₹2.42Cr that month, so ₹13L was only a 5.3% share.
+      July is the highest share of the year.</p>
+  </div>
+</div>
+
+<div class="tw">
+  <span class="lbl">What earned the most · July</span>
+  <table>
+    <tr><th>Send</th><th>Recipients</th><th>Orders</th><th>Revenue</th></tr>
+    <tr><td>B1G1 Glazed Jalebi<span class="ch">WhatsApp</span></td><td>39,870</td><td>82</td><td class="rev">₹1,00,873</td></tr>
+    <tr><td>B1G1 Free Glazed Jalebi<span class="ch">Email</span></td><td>37,093</td><td>70</td><td class="rev">₹87,275</td></tr>
+    <tr><td>Ice Ice Baby Launch<span class="ch">Email</span></td><td>88,637</td><td>51</td><td class="rev">₹75,144</td></tr>
+    <tr><td>Ice Ice Baby Launch<span class="ch">WhatsApp</span></td><td>56,907</td><td>38</td><td class="rev">₹60,114</td></tr>
+    <tr><td>Monsoon Push<span class="ch">WhatsApp</span></td><td>73,913</td><td>25</td><td class="rev">₹55,341</td></tr>
+    <tr><td>Flash Sale · Grow &amp; Repair Duo<span class="ch">Email</span></td><td>49,886</td><td>19</td><td class="rev">₹36,845</td></tr>
+  </table>
+  <p style="font-size:13px;color:var(--ink-2);margin-top:18px;line-height:1.6">
+    A product launch and a free-product offer produced <b style="color:var(--ink-1)">₹3.23L</b> between them, 39% of
+    the month's retention revenue. Running each across email and WhatsApp together earned roughly double what either
+    channel returned on its own.</p>
+</div>
+
+<!-- ══════════════ NEXT ══════════════ -->
+<div class="nx">
+  <span class="lbl">Where August is going</span>
+  <h2>Everything now points at the Birthday Sale.</h2>
+  <p class="in">DKBS'26 runs 29 August to 5 September across both stores. Plans are with the team, copy and design are in
+    production, and WhatsApp templates go to Bitespeed for approval ahead of each phase. Base discount is 29%, with 34%
+    held for the waitlist. US subscribers get a one-cycle renewal match.</p>
+</div>
+<div class="tl">
+  <div><span class="dt">AUG 5 – 18</span><h4>Business as usual</h4>
+    <p>Rakhi sale 15–18 August, fragrance launch on the 10th, Champi Essentials Kit. Light and targeted so the list is fresh going in.</p></div>
+  <div><span class="dt">AUG 19 – 28</span><h4>Waitlist and tease</h4>
+    <p>Waitlist popup goes live on the 19th. Ten days of teasing to build the early-access audience before anything is revealed.</p></div>
+  <div><span class="dt">AUG 29 – SEP 5</span><h4>The sale</h4>
+    <p>Early access at 9am on the 29th, then a daily deal window each day: Diipa's picks, birthday mystery box, Champi day, MSS day.</p></div>
+  <div><span class="dt">SEP 6 – 7</span><h4>Thank you and wrap</h4>
+    <p>Diipa thank-you sends, post-sale survey to buyers, and a full read on what each phase returned.</p></div>
+</div>
+
+<div class="shape">
+  <span class="lbl">What July taught us that changes the plan</span>
+  <div class="si">
+    <div class="k">Offers beat education<em>₹3.23L from two sends</em></div>
+    <p>The launch and the free-product offer out-earned every explainer send in both stores. DKBS is built around a
+      different concrete offer each day rather than a run-up of product education.</p>
+  </div>
+  <div class="si">
+    <div class="k">Two channels, one moment<em>Roughly 2× the return</em></div>
+    <p>Ice Ice Baby and the B1G1 each ran on email and WhatsApp together and earned about double what either channel
+      managed alone. Every DKBS deal day will run both.</p>
+  </div>
+  <div class="si">
+    <div class="k">Full-list sends are expensive<em>2,116 US unsubscribes</em></div>
+    <p>Four US sends to roughly 52,000 people each cost between 264 and 384 unsubscribes and returned under $530 apiece.
+      For DKBS we're reserving full-base sends for two days only and segmenting the rest, so the list is in good shape
+      going into the sale.</p>
+  </div>
+  <div class="si">
+    <div class="k">SMS behaves differently by market<em>$1,330 US · ₹0.18 per ₹1 India</em></div>
+    <p>US SMS came back on after two months and earned $1,330 from four sends, more per person messaged than email.
+      India's one SMS blast reached 155,928 handsets and returned ₹5,543 against ₹31,186 of send cost. US SMS stays
+      in the DKBS plan; India stays on WhatsApp, where every rupee spent came back as ₹2.28.</p>
+  </div>
+</div>
+
+<footer>
+  <span class="lbl">Grovae · indē wild · July 2026</span>
+  <div class="fnote">
+    Store figures from the Shopify Total sales report. Email, SMS and flow revenue from Klaviyo, attributed on Placed
+    Order. Subscriptions from Recharge. WhatsApp and SMS revenue from Bitespeed. Send cost is calculated as
+    delivered messages × our rate card — ₹0.80 per delivered WhatsApp message, ₹0.20 per SMS — rather than Bitespeed's
+    reported cost field, which mis-states individual broadcasts. WhatsApp automation revenue and the cost of automated
+    journeys are both excluded — that export is cumulative per journey and cannot be isolated to a single month, so the
+    India revenue figure is understated and journey send cost is not counted here.
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
