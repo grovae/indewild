@@ -76,7 +76,7 @@ h1{font-size:44px;font-weight:600;letter-spacing:-0.045em;line-height:1.03;margi
 .market h2{font-size:25px;font-weight:600;letter-spacing:-0.03em;line-height:1.18;margin:8px 0 10px}
 .lede{font-size:14.5px;color:var(--ink-2)}
 
-.strip{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border-1);background:var(--surface);margin-bottom:16px}
+.strip{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border-1);background:var(--surface);margin-bottom:16px}
 .metric{padding:18px 20px;border-left:1px solid var(--border-1);min-width:0}
 .metric:first-child{border-left:none}
 .mval{font-size:26px;font-weight:600;letter-spacing:-0.03em;line-height:1.15}
@@ -149,6 +149,21 @@ footer{border-top:1px solid var(--border-1);padding-top:26px;margin-top:44px}
 footer p{font-size:11.5px;color:var(--ink-3);line-height:1.7}
 footer b{color:var(--ink-2);font-weight:500}
 
+@media (max-width:1460px){
+  .strip{grid-template-columns:repeat(2,1fr)}
+  .metric:nth-child(3){border-left:none}
+  .metric:nth-child(n+3){border-top:1px solid var(--border-1)}
+}
+@media (max-width:1180px){
+  .strip{grid-template-columns:repeat(4,1fr)}
+  .metric:nth-child(3){border-left:1px solid var(--border-1)}
+  .metric:nth-child(n+3){border-top:none}
+}
+@media (max-width:900px){
+  .strip{grid-template-columns:repeat(2,1fr)}
+  .metric:nth-child(3){border-left:none}
+  .metric:nth-child(n+3){border-top:1px solid var(--border-1)}
+}
 @media (max-width:1180px){
   .markets{grid-template-columns:1fr;gap:44px}
   .fgrid{grid-template-columns:1fr}
@@ -181,8 +196,8 @@ footer b{color:var(--ink-2);font-weight:500}
 <div class="topbar"><div class="in">
   <span class="mark"><i></i><span>Grovae</span></span>
   <span class="tbmeta">
-    <span class="badge"><i></i>Live · day 3 of 9</span>
-    <span class="stamp">Refreshed 30 August 2026 · 13:32 IST / 04:02 EDT</span>
+    <span class="badge"><i></i>Live · day 7 of 9</span>
+    <span class="stamp">Refreshed 3 September 2026 · 17:48 IST / 08:18 EDT</span>
   </span>
 </div></div>
 
@@ -197,13 +212,13 @@ footer b{color:var(--ink-2);font-weight:500}
   <div class="topline">
     <div class="tl">
       <div class="tlk">India</div>
-      <div class="tlv">Live · ₹97.0 L so far</div>
-      <div class="tln">Opened 29 August · 6 days still to run</div>
+      <div class="tlv">Live · ₹2.83 Cr so far</div>
+      <div class="tln">Opened 29 August · 2 days still to run</div>
     </div>
     <div class="tl">
       <div class="tlk">United States</div>
-      <div class="tlv">Live · $42,676 so far</div>
-      <div class="tln">Launched 29 August · 6 days still to run</div>
+      <div class="tlv">Live · $94,179 so far</div>
+      <div class="tln">Launched 29 August · 2 days still to run</div>
     </div>
   </div>
 
@@ -229,10 +244,10 @@ footer b{color:var(--ink-2);font-weight:500}
 <section class="market" data-mk="IN">
   <div class="mhead">
     <div class="eyebrow">India</div>
-    <h2>India is live, with six of the nine days still to run</h2>
-    <p class="lede">The sale opened on 29 August and closed that day at ₹71.2 L. Today is the second selling day and still running. In 2024 and 2025 the sale opened on the 28th, so this year the curve starts a day later and spreads across nine days instead of three or four.</p>
+    <h2>India has already passed last year’s full sale, with two days to go</h2>
+    <p class="lede">₹2.83 Cr through seven days, against ₹2.75 Cr for the whole of last year’s four-day sale. Orders are running lower but baskets are bigger, so the revenue is coming from higher-value carts rather than more of them. Two days remain.</p>
   </div>
-  <div class="strip"><div class="metric"><div class="mval accent">₹97.0 L</div><div class="mlab">Sale revenue · to date</div></div><div class="metric"><div class="mval">4,832</div><div class="mlab">Orders · to date</div></div><div class="metric"><div class="mval">₹9.8 L</div><div class="mlab">CRM revenue · to date</div><div class="mnote">Email campaigns + flows</div></div></div>
+  <div class="strip"><div class="metric"><div class="mval accent">₹2.83 Cr</div><div class="mlab">Sale revenue · to date</div></div><div class="metric"><div class="mval">14,982</div><div class="mlab">Orders · to date</div></div><div class="metric"><div class="mval">₹1,888</div><div class="mlab">Average order value</div><div class="mnote">+31% vs 2025</div></div><div class="metric"><div class="mval">₹35.1 L</div><div class="mlab">CRM revenue · to date</div><div class="mnote">Email campaigns + flows</div></div></div>
   <div class="panel">
     <div class="phead"><div class="ptitle" data-charttitle>Daily sale revenue</div>
       <div class="pmeta">Same scale across years</div></div>
@@ -241,29 +256,29 @@ footer b{color:var(--ink-2);font-weight:500}
     <div class="cap">The last 2026 bar is today, still in progress. India’s volume lands after 18:00 IST.</div>
   </div>
   <div class="panel">
-    <div class="phead"><div class="ptitle">29 August, the same date each year</div>
-      <div class="pmeta">Like for like</div></div>
-    <div class="cmp"><div class="ccol"><div class="cy">2024</div><div class="cv">₹80.2 L</div><div class="cn">Sale running since the 28th</div></div><div class="ccol"><div class="cy">2025</div><div class="cv">₹1.36 Cr</div><div class="cn">Sale running since the 28th</div></div><div class="ccol hi"><div class="cy">2026</div><div class="cv now">₹71.2 L</div><div class="cn">Opening day, now closed</div></div></div>
-    <div class="cap">Both earlier years were already selling on the 28th, so by the 29th they were on their second day. For 2026 the 29th was opening day.</div>
+    <div class="phead"><div class="ptitle">Where 2026 stands against finished sales</div>
+      <div class="pmeta">Sale revenue</div></div>
+    <div class="cmp"><div class="ccol"><div class="cy">2024 · full</div><div class="cv">₹1.28 Cr</div><div class="cn">Finished sale · 3 days</div></div><div class="ccol"><div class="cy">2025 · full</div><div class="cv">₹2.75 Cr</div><div class="cn">Finished sale · 4 days</div></div><div class="ccol hi"><div class="cy">2026 · to date</div><div class="cv now">₹2.83 Cr</div><div class="cn">103% of last year’s total, with two days still to run</div></div></div>
+    <div class="cap">Each year is anchored to 28 August. 2024 and 2025 are complete sales; 2026 is still running, so its figure is a floor rather than a final number.</div>
   </div>
   <div class="panel">
     <div class="phead"><div class="ptitle">Sale windows, year on year</div></div>
     <div class="tblwrap"><table>
       <thead><tr><th>Year</th><th>Window</th><th>Sale revenue</th><th>Orders</th><th>CRM revenue</th><th>CRM share</th><th>Campaigns</th></tr></thead>
-      <tbody><tr><th scope="row">2024</th><td>3 days</td><td>₹1,27,61,748</td><td>7,575</td><td>₹17,27,738</td><td>13.5%</td><td>4</td></tr><tr><th scope="row">2025</th><td>4 days</td><td>₹2,75,15,813</td><td>19,057</td><td>₹28,67,828</td><td>10.4%</td><td>4</td></tr><tr class="now"><th scope="row">2026</th><td>9 days <span class="tag">3 of 9 so far</span></td><td>₹97,04,194</td><td>4,832</td><td>₹9,83,325</td><td>10.1%</td><td>4</td></tr></tbody></table></div>
+      <tbody><tr><th scope="row">2024</th><td>3 days</td><td>₹1,27,61,748</td><td>7,575</td><td>₹17,27,738</td><td>13.5%</td><td>4</td></tr><tr><th scope="row">2025</th><td>4 days</td><td>₹2,75,15,813</td><td>19,057</td><td>₹28,67,828</td><td>10.4%</td><td>4</td></tr><tr class="now"><th scope="row">2026</th><td>9 days <span class="tag">7 of 9 so far</span></td><td>₹2,82,86,441</td><td>14,982</td><td>₹35,14,841</td><td>12.4%</td><td>9</td></tr></tbody></table></div>
     <div class="scrollhint">Scroll sideways for the CRM columns</div>
-    <div class="cap">2024 and 2025 are finished sales. 2026 is 3 days into a 9-day window, so its totals are still building.</div>
+    <div class="cap">2024 and 2025 are finished sales. 2026 is 7 days into a 9-day window, so its totals are still building.</div>
   </div>
-  <div class="next"><div class="nlab">What happens next</div><div class="ntext">Six selling days remain, including two weekends. Today’s figure keeps building through the evening.</div></div>
+  <div class="next"><div class="nlab">What happens next</div><div class="ntext">Two selling days remain. The sale closes on 5 September.</div></div>
 </section>
 
 <section class="market" data-mk="US">
   <div class="mhead">
     <div class="eyebrow">United States</div>
-    <h2>The US sale is live, with email and SMS both out</h2>
-    <p class="lede">The launch went out on 29 August to 32,611 email subscribers and 5,787 on SMS, and that day closed at $35,199. Today is still running. At nine days this is the longest birthday sale window the US store has run — four days in 2024, six in 2025.</p>
+    <h2>The US is at 81% of last year’s total, with two days still to run</h2>
+    <p class="lede">$94,179 through seven days. Last year’s sale finished at $116,237 across six days with the Labor Day extension; this year’s window runs nine, and two of them are still ahead. Average order value is ahead of last year.</p>
   </div>
-  <div class="strip"><div class="metric"><div class="mval accent">$42,676</div><div class="mlab">Sale revenue · to date</div></div><div class="metric"><div class="mval">647</div><div class="mlab">Orders · to date</div></div><div class="metric"><div class="mval">$6,436</div><div class="mlab">CRM revenue · to date</div><div class="mnote">Launch email + SMS</div></div></div>
+  <div class="strip"><div class="metric"><div class="mval accent">$94,179</div><div class="mlab">Sale revenue · to date</div></div><div class="metric"><div class="mval">1,454</div><div class="mlab">Orders · to date</div></div><div class="metric"><div class="mval">$64.77</div><div class="mlab">Average order value</div><div class="mnote">+4% vs 2025</div></div><div class="metric"><div class="mval">$17,423</div><div class="mlab">CRM revenue · to date</div><div class="mnote">Launch email + SMS, then the sequence</div></div></div>
   <div class="panel">
     <div class="phead"><div class="ptitle" data-charttitle>Daily sale revenue</div>
       <div class="pmeta">Same scale across years</div></div>
@@ -272,25 +287,25 @@ footer b{color:var(--ink-2);font-weight:500}
     <div class="cap">The 28 August bar is trading before the sale opened. The last bar is today, still in progress.</div>
   </div>
   <div class="panel">
-    <div class="phead"><div class="ptitle">29 August, the same date each year</div>
-      <div class="pmeta">Like for like</div></div>
-    <div class="cmp"><div class="ccol"><div class="cy">2024</div><div class="cv">$52,503</div><div class="cn">Sale running since the 28th</div></div><div class="ccol"><div class="cy">2025</div><div class="cv">$36,308</div><div class="cn">Sale running since the 28th</div></div><div class="ccol hi"><div class="cy">2026</div><div class="cv now">$35,199</div><div class="cn">Opening day, now closed</div></div></div>
-    <div class="cap">2024 and 2025 were both already selling by the 29th. For 2026 the 29th was launch day, so the earlier figures are the benchmark rather than a like-for-like total.</div>
+    <div class="phead"><div class="ptitle">Where 2026 stands against finished sales</div>
+      <div class="pmeta">Sale revenue</div></div>
+    <div class="cmp"><div class="ccol"><div class="cy">2024 · full</div><div class="cv">$96,852</div><div class="cn">Finished sale · 4 days</div></div><div class="ccol"><div class="cy">2025 · full</div><div class="cv">$116,237</div><div class="cn">Finished sale · 6 days</div></div><div class="ccol hi"><div class="cy">2026 · to date</div><div class="cv now">$94,179</div><div class="cn">81% of last year’s total, with two days still to run</div></div></div>
+    <div class="cap">Each year is anchored to 28 August. 2024 and 2025 are complete sales; 2026 is still running, so its figure is a floor rather than a final number.</div>
   </div>
   <div class="panel">
     <div class="phead"><div class="ptitle">Sale windows, year on year</div></div>
     <div class="tblwrap"><table>
       <thead><tr><th>Year</th><th>Window</th><th>Sale revenue</th><th>Orders</th><th>CRM revenue</th><th>CRM share</th><th>Campaigns</th></tr></thead>
-      <tbody><tr><th scope="row">2024</th><td>4 days</td><td>$96,852</td><td>1,366</td><td>$31,594</td><td>32.6%</td><td>5</td></tr><tr><th scope="row">2025</th><td>6 days</td><td>$116,237</td><td>1,868</td><td>$31,767</td><td>27.3%</td><td>12</td></tr><tr class="now"><th scope="row">2026</th><td>9 days <span class="tag">3 of 9 so far</span></td><td>$42,676</td><td>647</td><td>$6,436</td><td>15.1%</td><td>2</td></tr></tbody></table></div>
+      <tbody><tr><th scope="row">2024</th><td>4 days</td><td>$96,852</td><td>1,366</td><td>$31,594</td><td>32.6%</td><td>5</td></tr><tr><th scope="row">2025</th><td>6 days</td><td>$116,237</td><td>1,868</td><td>$31,767</td><td>27.3%</td><td>12</td></tr><tr class="now"><th scope="row">2026</th><td>9 days <span class="tag">7 of 9 so far</span></td><td>$94,179</td><td>1,454</td><td>$17,423</td><td>18.5%</td><td>7</td></tr></tbody></table></div>
     <div class="scrollhint">Scroll sideways for the CRM columns</div>
-    <div class="cap">2024 and 2025 are finished sales. The 2026 row covers 3 days of a 9-day window, so its totals and CRM share are still building.</div>
+    <div class="cap">2024 and 2025 are finished sales. The 2026 row covers 7 days of a 9-day window, so its totals and CRM share are still building.</div>
   </div>
-  <div class="next"><div class="nlab">What happens next</div><div class="ntext">Six days remain after today, with the rest of the campaign sequence still to run.</div></div>
+  <div class="next"><div class="nlab">What happens next</div><div class="ntext">Two days remain, including the final push. The sale closes on 5 September.</div></div>
 </section>
 </div>
 
 <footer>
-  <div class="flab">Method · refreshed 30 August 2026 · 13:32 IST / 04:02 EDT</div>
+  <div class="flab">Method · refreshed 3 September 2026 · 17:48 IST / 08:18 EDT</div>
   <div class="fgrid">
     <p><b>Where the numbers come from.</b> Sale revenue and orders are Klaviyo’s Placed Order metric,
     bucketed to local calendar days — IST for India, Eastern for the US. India 2024 and 2025 reconcile
@@ -315,7 +330,7 @@ footer b{color:var(--ink-2);font-weight:500}
 
 <script>
 (function(){
-  var DATA={"IN": {"2024": [509054, 8019914, 4232780], "2025": [3675164, 13623657, 6238618, 3978374], "2026": [270193, 7124071, 2309930]}, "US": {"2024": [11304, 52503, 24440, 8605], "2025": [27666, 36308, 18385, 10742, 19099, 4036], "2026": [3202, 35199, 4275]}}, META={"days": ["28 Aug", "29 Aug", "30 Aug", "31 Aug", "1 Sep", "2 Sep", "3 Sep", "4 Sep", "5 Sep"], "elapsed": 3, "win": {"IN": {"2024": "28\u201330 Aug \u00b7 3 days", "2025": "28\u201331 Aug \u00b7 4 days", "2026": "28 Aug \u2013 5 Sep \u00b7 9 days"}, "US": {"2024": "28\u201331 Aug \u00b7 4 days", "2025": "28 Aug \u2013 2 Sep \u00b7 6 days", "2026": "28 Aug \u2013 5 Sep \u00b7 9 days"}}};
+  var DATA={"IN": {"2024": [509054, 8019914, 4232780], "2025": [3675164, 13623657, 6238618, 3978374], "2026": [270193, 7124071, 4744959, 3709081, 4246113, 4826185, 3365838]}, "US": {"2024": [11304, 52503, 24440, 8605], "2025": [27666, 36308, 18385, 10742, 19099, 4036], "2026": [3202, 35199, 22814, 14320, 7341, 9334, 1970]}}, META={"days": ["28 Aug", "29 Aug", "30 Aug", "31 Aug", "1 Sep", "2 Sep", "3 Sep", "4 Sep", "5 Sep"], "elapsed": 7, "win": {"IN": {"2024": "28\u201330 Aug \u00b7 3 days", "2025": "28\u201331 Aug \u00b7 4 days", "2026": "28 Aug \u2013 5 Sep \u00b7 9 days"}, "US": {"2024": "28\u201331 Aug \u00b7 4 days", "2025": "28 Aug \u2013 2 Sep \u00b7 6 days", "2026": "28 Aug \u2013 5 Sep \u00b7 9 days"}}};
   var YEARS=['2024','2025','2026'],
       FILL={'2024':'#A8C4BC','2025':'#5C9083','2026':'#1B4D3E'},
       DAYS=META.days, ELAPSED=META.elapsed, WIN=META.win,
