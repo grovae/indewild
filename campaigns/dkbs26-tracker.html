@@ -67,21 +67,30 @@ h1{font-size:44px;font-weight:600;letter-spacing:-0.045em;line-height:1.03;margi
 .pmeta{font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-3)}
 
 /* contribution bars */
-.contrib{display:flex;flex-direction:column;gap:14px}
-.crow{display:grid;grid-template-columns:44px 1fr 56px;grid-template-areas:"y b p" ". m m";align-items:center;gap:4px 12px}
-.cyr{grid-area:y;font-family:var(--font-mono);font-size:12px;color:var(--ink-2)}
+.contrib{display:flex;flex-direction:column;gap:18px}
+.crow{display:grid;grid-template-columns:44px 1fr 56px;gap:5px 12px;padding:4px 6px;margin:-4px -6px;
+  cursor:default;transition:background 120ms ease-out}
+.crow:hover{background:var(--surface-sunken)}
+.cyr{grid-column:1;grid-row:1;font-family:var(--font-mono);font-size:12px;color:var(--ink-2);align-self:center}
 .crow.now .cyr{color:var(--green-700);font-weight:500}
-.cbar{grid-area:b;display:flex;height:26px;background:var(--surface-sunken)}
+.cbar{grid-column:2;grid-row:1;display:flex;height:26px;background:var(--surface-sunken)}
 .cb{height:100%;display:block;min-width:1px}
 .cb.email{background:var(--green-700)}
 .cb.wa{background:var(--green-400)}
-.cpct{grid-area:p;text-align:right;font-size:16px;font-weight:600;letter-spacing:-0.02em}
+.cpct{grid-column:3;grid-row:1;text-align:right;font-size:16px;font-weight:600;letter-spacing:-0.02em;align-self:center}
 .crow.now .cpct{color:var(--green-700)}
-.cmeta{grid-area:m;font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.06em;color:var(--ink-3)}
+.csub{grid-column:2/4;grid-row:2;display:flex;align-items:center;gap:9px;min-width:0}
+.cabsbar{flex:0 0 110px;height:5px;background:var(--surface-sunken);display:block}
+.cabsbar i{display:block;height:100%;min-width:1px;background:var(--green-200)}
+.crow.now .cabsbar i{background:var(--green-600)}
+.cabs{font-family:var(--font-mono);font-size:10px;letter-spacing:0.03em;color:var(--ink-2);white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis}
+.cmeta{grid-column:2/4;grid-row:3;font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.05em;color:var(--ink-3)}
 
 /* channel split */
 .channels{display:flex;flex-direction:column;gap:12px}
-.chrow{display:grid;grid-template-columns:150px 1fr auto 40px;align-items:center;gap:12px}
+.chrow{display:grid;grid-template-columns:150px 1fr auto 40px;align-items:center;gap:12px;padding:4px 6px;margin:-4px -6px;cursor:default;transition:background 120ms ease-out}
+.chrow:hover{background:var(--surface-sunken)}
 .chlab{font-size:13px;color:var(--ink-2)}
 .chbar{height:14px;background:var(--surface-sunken)}
 .chfill{height:100%;background:var(--green-700);display:block}
@@ -95,6 +104,19 @@ table{width:100%;border-collapse:collapse;font-size:12.5px}
 thead th{background:var(--surface-sunken);text-align:left;padding:9px 10px;font-family:var(--font-mono);font-size:9.5px;
   letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-2);font-weight:500;white-space:nowrap}
 tbody td{padding:9px 10px;border-top:1px solid var(--border-1);vertical-align:middle}
+tbody tr{transition:background 120ms ease-out}
+tbody tr:hover{background:var(--green-50)}
+th.sortable{cursor:pointer;user-select:none;position:relative}
+th.sortable:hover{color:var(--ink-1)}
+th.num{text-align:right}
+th.sortable::after{content:'';opacity:0}
+th.sorted-asc::after,th.sorted-desc::after{content:' \2191';opacity:1;color:var(--green-700)}
+th.sorted-desc::after{content:' \2193'}
+#tip{position:fixed;z-index:90;pointer-events:none;opacity:0;transition:opacity 110ms ease-out;
+  background:var(--surface-ink);color:#F4F5F5;padding:9px 12px;border-radius:2px;
+  font-family:var(--font-mono);font-size:10.5px;line-height:1.6;white-space:nowrap;max-width:340px}
+#tip b{font-family:var(--font-sans);font-size:13px;font-weight:600;display:block;margin-bottom:3px;white-space:normal}
+#tip.on{opacity:1}
 .sname{font-size:12.5px;min-width:190px}
 .smeta{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);white-space:nowrap}
 .snum{font-family:var(--font-mono);font-size:11.5px;text-align:right;white-space:nowrap}
@@ -147,7 +169,7 @@ footer b{color:var(--ink-2);font-weight:500}
   <span class="mark"><i></i><span>Grovae</span></span>
   <span class="tbmeta">
     <span class="badge"><i></i>Live · day 7 of 9</span>
-    <span class="stamp">Refreshed 3 September 2026 · 18:18 IST / 08:48 EDT</span>
+    <span class="stamp">Refreshed 3 September 2026 · 18:30 IST / 09:00 EDT</span>
   </span>
 </div></div>
 
@@ -181,21 +203,23 @@ footer b{color:var(--ink-2);font-weight:500}
   <div class="panel">
     <div class="phead"><div class="ptitle">Retention share of sale revenue</div>
       <div class="pmeta">Year on year</div></div>
-    <div class="contrib"><div class="crow"><div class="cyr">2024</div><div class="cbar"><div class="cb email" style="width:60.42%"></div></div><div class="cpct">11.8%</div><div class="cmeta">email only</div></div><div class="crow"><div class="cyr">2025</div><div class="cbar"><div class="cb email" style="width:53.56%"></div></div><div class="cpct">10.4%</div><div class="cmeta">email only</div></div><div class="crow now"><div class="cyr">2026</div><div class="cbar"><div class="cb email" style="width:63.72%"></div><div class="cb wa" style="width:36.28%"></div></div><div class="cpct">19.5%</div><div class="cmeta">email 12.4% + WhatsApp 7.1%</div></div></div>
+    <div class="contrib"><div class="crow" data-tip="2024|Retention ₹17,73,397 of ₹1,50,52,969 sale|11.8% of sale revenue"><div class="cyr">2024</div><div class="cbar"><div class="cb email" style="width:60.42%"></div></div><div class="cpct">11.8%</div><div class="csub"><span class="cabsbar"><i style="width:32.15%"></i></span><span class="cabs">₹17.7 L retention of ₹1.51 Cr sale</span></div><div class="cmeta">email only</div></div><div class="crow" data-tip="2025|Retention ₹28,98,748 of ₹2,77,55,056 sale|10.4% of sale revenue"><div class="cyr">2025</div><div class="cbar"><div class="cb email" style="width:53.56%"></div></div><div class="cpct">10.4%</div><div class="csub"><span class="cabsbar"><i style="width:52.55%"></i></span><span class="cabs">₹29.0 L retention of ₹2.78 Cr sale</span></div><div class="cmeta">retention +63% · store +84% vs 2024</div></div><div class="crow now" data-tip="2026|Retention ₹55,15,729 of ₹2,82,86,441 sale|19.5% of sale revenue"><div class="cyr">2026</div><div class="cbar"><div class="cb email" style="width:63.72%"></div><div class="cb wa" style="width:36.28%"></div></div><div class="cpct">19.5%</div><div class="csub"><span class="cabsbar"><i style="width:100.00%"></i></span><span class="cabs">₹55.2 L retention of ₹2.83 Cr sale</span></div><div class="cmeta">email 12.4% + WhatsApp 7.1% · retention +90% · store +2% vs 2025 · still running</div></div></div>
     <div class="cap">Bars show retention revenue as a share of sale revenue. 2024 and 2025 are email only — there was no WhatsApp programme then — so the darker segment is the like-for-like comparison and WhatsApp sits on top.</div>
   </div>
 
   <div class="panel">
     <div class="phead"><div class="ptitle">Where the revenue came from</div>
       <div class="pmeta">2026 to date</div></div>
-    <div class="channels"><div class="chrow"><div class="chlab">Email campaigns</div><div class="chbar"><div class="chfill" style="width:43.67%"></div></div><div class="chval">₹24,08,859</div><div class="chpct">44%</div></div><div class="chrow"><div class="chlab">WhatsApp campaigns</div><div class="chbar"><div class="chfill wa" style="width:34.85%"></div></div><div class="chval">₹19,21,992</div><div class="chpct">35%</div></div><div class="chrow"><div class="chlab">Email flows</div><div class="chbar"><div class="chfill" style="width:20.05%"></div></div><div class="chval">₹11,05,982</div><div class="chpct">20%</div></div><div class="chrow"><div class="chlab">WhatsApp automations</div><div class="chbar"><div class="chfill wa" style="width:1.43%"></div></div><div class="chval">₹78,897</div><div class="chpct">1%</div></div></div>
+    <div class="channels"><div class="chrow" data-tip="Email campaigns|₹24,08,859|43.7% of retention revenue"><div class="chlab">Email campaigns</div><div class="chbar"><div class="chfill" style="width:43.67%"></div></div><div class="chval">₹24,08,859</div><div class="chpct">44%</div></div><div class="chrow" data-tip="WhatsApp campaigns|₹19,21,992|34.8% of retention revenue"><div class="chlab">WhatsApp campaigns</div><div class="chbar"><div class="chfill wa" style="width:34.85%"></div></div><div class="chval">₹19,21,992</div><div class="chpct">35%</div></div><div class="chrow" data-tip="Email flows|₹11,05,982|20.1% of retention revenue"><div class="chlab">Email flows</div><div class="chbar"><div class="chfill" style="width:20.05%"></div></div><div class="chval">₹11,05,982</div><div class="chpct">20%</div></div><div class="chrow" data-tip="WhatsApp automations|₹78,897|1.4% of retention revenue"><div class="chlab">WhatsApp automations</div><div class="chbar"><div class="chfill wa" style="width:1.43%"></div></div><div class="chval">₹78,897</div><div class="chpct">1%</div></div></div>
   </div>
 
   <div class="panel">
     <div class="phead"><div class="ptitle">Every send, ranked by revenue</div><div class="segs"><button type="button" data-f="all" aria-pressed="true">All</button><button type="button" data-f="email" aria-pressed="false">Email</button><button type="button" data-f="wa" aria-pressed="false">WhatsApp</button></div></div>
     <div class="tblwrap"><table class="sends">
-      <thead><tr><th>Send</th><th>Date</th><th>Channel</th><th>Audience</th><th></th><th>Revenue</th></tr></thead>
-      <tbody><tr data-ch="wa"><td class="sname">IN | DK Birthday Sale | Launch</td><td class="smeta">29 Aug</td><td class="smeta">WhatsApp</td><td class="snum">28,991</td><td class="sbarc"><span class="sbar wa" style="width:100.0%"></span></td><td class="snum srev">₹6,16,422</td></tr><tr data-ch="email"><td class="sname">IN | DK Birthday Sale | Launch</td><td class="smeta">29 Aug</td><td class="smeta">Email</td><td class="snum">119,538</td><td class="sbarc"><span class="sbar email" style="width:96.3%"></span></td><td class="snum srev">₹5,93,586</td></tr><tr data-ch="wa"><td class="sname">IN | Birthday Mystery Box</td><td class="smeta">31 Aug</td><td class="smeta">WhatsApp</td><td class="snum">28,036</td><td class="sbarc"><span class="sbar wa" style="width:73.6%"></span></td><td class="snum srev">₹4,53,581</td></tr><tr data-ch="email"><td class="sname">IN | DK Birthday Sale Launch | Text Based</td><td class="smeta">30 Aug</td><td class="smeta">Email</td><td class="snum">91,136</td><td class="sbarc"><span class="sbar email" style="width:72.4%"></span></td><td class="snum srev">₹4,46,164</td></tr><tr data-ch="email"><td class="sname">IN | DK Birthday Sale | Flash Sale | OG DLT</td><td class="smeta">2 Sep</td><td class="smeta">Email</td><td class="snum">54,050</td><td class="sbarc"><span class="sbar email" style="width:54.1%"></span></td><td class="snum srev">₹3,33,640</td></tr><tr data-ch="email"><td class="sname">IN | Birthday Mystery Box </td><td class="smeta">31 Aug</td><td class="smeta">Email</td><td class="snum">99,083</td><td class="sbarc"><span class="sbar email" style="width:47.8%"></span></td><td class="snum srev">₹2,94,390</td></tr><tr data-ch="email"><td class="sname">IN | Dolly Flash sale</td><td class="smeta">1 Sep</td><td class="smeta">Email</td><td class="snum">77,225</td><td class="sbarc"><span class="sbar email" style="width:42.1%"></span></td><td class="snum srev">₹2,59,262</td></tr><tr data-ch="wa"><td class="sname">IN | DK Birthday Sale | Launch | 1st time</td><td class="smeta">29 Aug</td><td class="smeta">WhatsApp</td><td class="snum">25,982</td><td class="sbarc"><span class="sbar wa" style="width:36.5%"></span></td><td class="snum srev">₹2,25,084</td></tr><tr data-ch="wa"><td class="sname">IN | DK birthday Sale | Grow & Repair Flash Sale</td><td class="smeta">1 Sep</td><td class="smeta">WhatsApp</td><td class="snum">37,348</td><td class="sbarc"><span class="sbar wa" style="width:29.3%"></span></td><td class="snum srev">₹1,80,521</td></tr><tr data-ch="email"><td class="sname">IN | DK Birthday Sale | Flash Sale | Grow & Repair Duo</td><td class="smeta">1 Sep</td><td class="smeta">Email</td><td class="snum">49,772</td><td class="sbarc"><span class="sbar email" style="width:28.8%"></span></td><td class="snum srev">₹1,77,797</td></tr><tr data-ch="wa"><td class="sname">IN | Flash Sale | Free OG DLT</td><td class="smeta">2 Sep</td><td class="smeta">WhatsApp</td><td class="snum">50,866</td><td class="sbarc"><span class="sbar wa" style="width:27.4%"></span></td><td class="snum srev">₹1,68,977</td></tr><tr data-ch="email"><td class="sname">IN | DK Birthday Sale | Launch</td><td class="smeta">29 Aug</td><td class="smeta">Email</td><td class="snum">4,423</td><td class="sbarc"><span class="sbar email" style="width:22.1%"></span></td><td class="snum srev">₹1,36,452</td></tr><tr data-ch="wa"><td class="sname">IN | DK Birthday Sale | Launch | Prospects</td><td class="smeta">29 Aug</td><td class="smeta">WhatsApp</td><td class="snum">23,756</td><td class="sbarc"><span class="sbar wa" style="width:17.2%"></span></td><td class="snum srev">₹1,05,882</td></tr><tr data-ch="email"><td class="sname">IN | DK Birthday Sale | Flash Sale | S&C</td><td class="smeta">3 Sep</td><td class="smeta">Email</td><td class="snum">105,454</td><td class="sbarc"><span class="sbar email" style="width:16.0%"></span></td><td class="snum srev">₹98,355</td></tr><tr data-ch="email"><td class="sname">IN | Sleek Back Set</td><td class="smeta">30 Aug</td><td class="smeta">Email</td><td class="snum">7,228</td><td class="sbarc"><span class="sbar email" style="width:11.2%"></span></td><td class="snum srev">₹69,213</td></tr><tr data-ch="wa"><td class="sname">IN | DK Birthday Sale | Flash Sale | S&C</td><td class="smeta">3 Sep</td><td class="smeta">WhatsApp</td><td class="snum">58,160</td><td class="sbarc"><span class="sbar wa" style="width:10.4%"></span></td><td class="snum srev">₹64,099</td></tr><tr data-ch="wa"><td class="sname">IN | Flash Sale indē dolly</td><td class="smeta">1 Sep</td><td class="smeta">WhatsApp</td><td class="snum">17,474</td><td class="sbarc"><span class="sbar wa" style="width:9.2%"></span></td><td class="snum srev">₹56,594</td></tr><tr data-ch="wa"><td class="sname">IN | Sleek Back Set Launch</td><td class="smeta">30 Aug</td><td class="smeta">WhatsApp</td><td class="snum">8,322</td><td class="sbarc"><span class="sbar wa" style="width:7.0%"></span></td><td class="snum srev">₹42,950</td></tr><tr data-ch="wa"><td class="sname">IN | DK Birthday Sale | Launch | Other D2C Brands</td><td class="smeta">30 Aug</td><td class="smeta">WhatsApp</td><td class="snum">2,792</td><td class="sbarc"><span class="sbar wa" style="width:1.2%"></span></td><td class="snum srev">₹7,254</td></tr><tr data-ch="wa"><td class="sname">IN | Other Skincare Brands | inr500_inr1000 | DLT Push</td><td class="smeta">30 Aug</td><td class="smeta">WhatsApp</td><td class="snum">4,615</td><td class="sbarc"><span class="sbar wa" style="width:0.1%"></span></td><td class="snum srev">₹628</td></tr></tbody></table></div>
+      <thead><tr><th data-sort="0" class="sortable">Send</th><th data-sort="1" class="sortable">Date</th>
+        <th data-sort="2" class="sortable">Channel</th><th data-sort="3" class="sortable num">Audience</th><th></th>
+        <th data-sort="5" class="sortable num sorted-desc">Revenue</th></tr></thead>
+      <tbody><tr data-ch="wa" data-tip="IN | DK Birthday Sale | Launch|WhatsApp · 29 Aug|₹6,16,422 from 28,991 reached"><td class="sname" data-s="in | dk birthday sale | launch">IN | DK Birthday Sale | Launch</td><td class="smeta" data-s="2026-08-29">29 Aug</td><td class="smeta" data-s="WhatsApp">WhatsApp</td><td class="snum" data-s="28991">28,991</td><td class="sbarc"><span class="sbar wa" style="width:100.0%"></span></td><td class="snum srev" data-s="616422">₹6,16,422</td></tr><tr data-ch="email" data-tip="IN | DK Birthday Sale | Launch|Email · 29 Aug|₹5,93,586 from 119,538 reached"><td class="sname" data-s="in | dk birthday sale | launch">IN | DK Birthday Sale | Launch</td><td class="smeta" data-s="2026-08-29">29 Aug</td><td class="smeta" data-s="Email">Email</td><td class="snum" data-s="119538">119,538</td><td class="sbarc"><span class="sbar email" style="width:96.3%"></span></td><td class="snum srev" data-s="593586">₹5,93,586</td></tr><tr data-ch="wa" data-tip="IN | Birthday Mystery Box|WhatsApp · 31 Aug|₹4,53,581 from 28,036 reached"><td class="sname" data-s="in | birthday mystery box">IN | Birthday Mystery Box</td><td class="smeta" data-s="2026-08-31">31 Aug</td><td class="smeta" data-s="WhatsApp">WhatsApp</td><td class="snum" data-s="28036">28,036</td><td class="sbarc"><span class="sbar wa" style="width:73.6%"></span></td><td class="snum srev" data-s="453580">₹4,53,581</td></tr><tr data-ch="email" data-tip="IN | DK Birthday Sale Launch | Text Based|Email · 30 Aug|₹4,46,164 from 91,136 reached"><td class="sname" data-s="in | dk birthday sale launch | text based">IN | DK Birthday Sale Launch | Text Based</td><td class="smeta" data-s="2026-08-30">30 Aug</td><td class="smeta" data-s="Email">Email</td><td class="snum" data-s="91136">91,136</td><td class="sbarc"><span class="sbar email" style="width:72.4%"></span></td><td class="snum srev" data-s="446164">₹4,46,164</td></tr><tr data-ch="email" data-tip="IN | DK Birthday Sale | Flash Sale | OG DLT|Email · 2 Sep|₹3,33,640 from 54,050 reached"><td class="sname" data-s="in | dk birthday sale | flash sale | og dlt">IN | DK Birthday Sale | Flash Sale | OG DLT</td><td class="smeta" data-s="2026-09-02">2 Sep</td><td class="smeta" data-s="Email">Email</td><td class="snum" data-s="54050">54,050</td><td class="sbarc"><span class="sbar email" style="width:54.1%"></span></td><td class="snum srev" data-s="333640">₹3,33,640</td></tr><tr data-ch="email" data-tip="IN | Birthday Mystery Box |Email · 31 Aug|₹2,94,390 from 99,083 reached"><td class="sname" data-s="in | birthday mystery box ">IN | Birthday Mystery Box </td><td class="smeta" data-s="2026-08-31">31 Aug</td><td class="smeta" data-s="Email">Email</td><td class="snum" data-s="99083">99,083</td><td class="sbarc"><span class="sbar email" style="width:47.8%"></span></td><td class="snum srev" data-s="294390">₹2,94,390</td></tr><tr data-ch="email" data-tip="IN | Dolly Flash sale|Email · 1 Sep|₹2,59,262 from 77,225 reached"><td class="sname" data-s="in | dolly flash sale">IN | Dolly Flash sale</td><td class="smeta" data-s="2026-09-01">1 Sep</td><td class="smeta" data-s="Email">Email</td><td class="snum" data-s="77225">77,225</td><td class="sbarc"><span class="sbar email" style="width:42.1%"></span></td><td class="snum srev" data-s="259262">₹2,59,262</td></tr><tr data-ch="wa" data-tip="IN | DK Birthday Sale | Launch | 1st time|WhatsApp · 29 Aug|₹2,25,084 from 25,982 reached"><td class="sname" data-s="in | dk birthday sale | launch | 1st time">IN | DK Birthday Sale | Launch | 1st time</td><td class="smeta" data-s="2026-08-29">29 Aug</td><td class="smeta" data-s="WhatsApp">WhatsApp</td><td class="snum" data-s="25982">25,982</td><td class="sbarc"><span class="sbar wa" style="width:36.5%"></span></td><td class="snum srev" data-s="225083">₹2,25,084</td></tr><tr data-ch="wa" data-tip="IN | DK birthday Sale | Grow & Repair Flash Sale|WhatsApp · 1 Sep|₹1,80,521 from 37,348 reached"><td class="sname" data-s="in | dk birthday sale | grow & repair flash sale">IN | DK birthday Sale | Grow & Repair Flash Sale</td><td class="smeta" data-s="2026-09-01">1 Sep</td><td class="smeta" data-s="WhatsApp">WhatsApp</td><td class="snum" data-s="37348">37,348</td><td class="sbarc"><span class="sbar wa" style="width:29.3%"></span></td><td class="snum srev" data-s="180521">₹1,80,521</td></tr><tr data-ch="email" data-tip="IN | DK Birthday Sale | Flash Sale | Grow & Repair Duo|Email · 1 Sep|₹1,77,797 from 49,772 reached"><td class="sname" data-s="in | dk birthday sale | flash sale | grow & repair duo">IN | DK Birthday Sale | Flash Sale | Grow & Repair Duo</td><td class="smeta" data-s="2026-09-01">1 Sep</td><td class="smeta" data-s="Email">Email</td><td class="snum" data-s="49772">49,772</td><td class="sbarc"><span class="sbar email" style="width:28.8%"></span></td><td class="snum srev" data-s="177797">₹1,77,797</td></tr><tr data-ch="wa" data-tip="IN | Flash Sale | Free OG DLT|WhatsApp · 2 Sep|₹1,68,977 from 50,866 reached"><td class="sname" data-s="in | flash sale | free og dlt">IN | Flash Sale | Free OG DLT</td><td class="smeta" data-s="2026-09-02">2 Sep</td><td class="smeta" data-s="WhatsApp">WhatsApp</td><td class="snum" data-s="50866">50,866</td><td class="sbarc"><span class="sbar wa" style="width:27.4%"></span></td><td class="snum srev" data-s="168977">₹1,68,977</td></tr><tr data-ch="email" data-tip="IN | DK Birthday Sale | Launch|Email · 29 Aug|₹1,36,452 from 4,423 reached"><td class="sname" data-s="in | dk birthday sale | launch">IN | DK Birthday Sale | Launch</td><td class="smeta" data-s="2026-08-29">29 Aug</td><td class="smeta" data-s="Email">Email</td><td class="snum" data-s="4423">4,423</td><td class="sbarc"><span class="sbar email" style="width:22.1%"></span></td><td class="snum srev" data-s="136452">₹1,36,452</td></tr><tr data-ch="wa" data-tip="IN | DK Birthday Sale | Launch | Prospects|WhatsApp · 29 Aug|₹1,05,882 from 23,756 reached"><td class="sname" data-s="in | dk birthday sale | launch | prospects">IN | DK Birthday Sale | Launch | Prospects</td><td class="smeta" data-s="2026-08-29">29 Aug</td><td class="smeta" data-s="WhatsApp">WhatsApp</td><td class="snum" data-s="23756">23,756</td><td class="sbarc"><span class="sbar wa" style="width:17.2%"></span></td><td class="snum srev" data-s="105882">₹1,05,882</td></tr><tr data-ch="email" data-tip="IN | DK Birthday Sale | Flash Sale | S&C|Email · 3 Sep|₹98,355 from 105,454 reached"><td class="sname" data-s="in | dk birthday sale | flash sale | s&c">IN | DK Birthday Sale | Flash Sale | S&C</td><td class="smeta" data-s="2026-09-03">3 Sep</td><td class="smeta" data-s="Email">Email</td><td class="snum" data-s="105454">105,454</td><td class="sbarc"><span class="sbar email" style="width:16.0%"></span></td><td class="snum srev" data-s="98355">₹98,355</td></tr><tr data-ch="email" data-tip="IN | Sleek Back Set|Email · 30 Aug|₹69,213 from 7,228 reached"><td class="sname" data-s="in | sleek back set">IN | Sleek Back Set</td><td class="smeta" data-s="2026-08-30">30 Aug</td><td class="smeta" data-s="Email">Email</td><td class="snum" data-s="7228">7,228</td><td class="sbarc"><span class="sbar email" style="width:11.2%"></span></td><td class="snum srev" data-s="69213">₹69,213</td></tr><tr data-ch="wa" data-tip="IN | DK Birthday Sale | Flash Sale | S&C|WhatsApp · 3 Sep|₹64,099 from 58,160 reached"><td class="sname" data-s="in | dk birthday sale | flash sale | s&c">IN | DK Birthday Sale | Flash Sale | S&C</td><td class="smeta" data-s="2026-09-03">3 Sep</td><td class="smeta" data-s="WhatsApp">WhatsApp</td><td class="snum" data-s="58160">58,160</td><td class="sbarc"><span class="sbar wa" style="width:10.4%"></span></td><td class="snum srev" data-s="64099">₹64,099</td></tr><tr data-ch="wa" data-tip="IN | Flash Sale indē dolly|WhatsApp · 1 Sep|₹56,594 from 17,474 reached"><td class="sname" data-s="in | flash sale indē dolly">IN | Flash Sale indē dolly</td><td class="smeta" data-s="2026-09-01">1 Sep</td><td class="smeta" data-s="WhatsApp">WhatsApp</td><td class="snum" data-s="17474">17,474</td><td class="sbarc"><span class="sbar wa" style="width:9.2%"></span></td><td class="snum srev" data-s="56593">₹56,594</td></tr><tr data-ch="wa" data-tip="IN | Sleek Back Set Launch|WhatsApp · 30 Aug|₹42,950 from 8,322 reached"><td class="sname" data-s="in | sleek back set launch">IN | Sleek Back Set Launch</td><td class="smeta" data-s="2026-08-30">30 Aug</td><td class="smeta" data-s="WhatsApp">WhatsApp</td><td class="snum" data-s="8322">8,322</td><td class="sbarc"><span class="sbar wa" style="width:7.0%"></span></td><td class="snum srev" data-s="42949">₹42,950</td></tr><tr data-ch="wa" data-tip="IN | DK Birthday Sale | Launch | Other D2C Brands|WhatsApp · 30 Aug|₹7,254 from 2,792 reached"><td class="sname" data-s="in | dk birthday sale | launch | other d2c brands">IN | DK Birthday Sale | Launch | Other D2C Brands</td><td class="smeta" data-s="2026-08-30">30 Aug</td><td class="smeta" data-s="WhatsApp">WhatsApp</td><td class="snum" data-s="2792">2,792</td><td class="sbarc"><span class="sbar wa" style="width:1.2%"></span></td><td class="snum srev" data-s="7254">₹7,254</td></tr><tr data-ch="wa" data-tip="IN | Other Skincare Brands | inr500_inr1000 | DLT Push|WhatsApp · 30 Aug|₹628 from 4,615 reached"><td class="sname" data-s="in | other skincare brands | inr500_inr1000 | dlt push">IN | Other Skincare Brands | inr500_inr1000 | DLT Push</td><td class="smeta" data-s="2026-08-30">30 Aug</td><td class="smeta" data-s="WhatsApp">WhatsApp</td><td class="snum" data-s="4615">4,615</td><td class="sbarc"><span class="sbar wa" style="width:0.1%"></span></td><td class="snum srev" data-s="628">₹628</td></tr></tbody></table></div>
   </div>
 
   <div class="panel ctxpanel">
@@ -212,21 +236,23 @@ footer b{color:var(--ink-2);font-weight:500}
   <div class="panel">
     <div class="phead"><div class="ptitle">Retention share of sale revenue</div>
       <div class="pmeta">Year on year</div></div>
-    <div class="contrib"><div class="crow"><div class="cyr">2024</div><div class="cbar"><div class="cb email" style="width:100.00%"></div></div><div class="cpct">32.6%</div><div class="cmeta">email only</div></div><div class="crow"><div class="cyr">2025</div><div class="cbar"><div class="cb email" style="width:83.29%"></div></div><div class="cpct">27.2%</div><div class="cmeta">email only</div></div><div class="crow now"><div class="cyr">2026</div><div class="cbar"><div class="cb email" style="width:56.71%"></div></div><div class="cpct">18.5%</div><div class="cmeta">email only · two days still to run</div></div></div>
+    <div class="contrib"><div class="crow" data-tip="2024|Retention $31,594 of $96,852 sale|32.6% of sale revenue"><div class="cyr">2024</div><div class="cbar"><div class="cb email" style="width:100.00%"></div></div><div class="cpct">32.6%</div><div class="csub"><span class="cabsbar"><i style="width:100.00%"></i></span><span class="cabs">$31.6k retention of $96.9k sale</span></div><div class="cmeta">email only</div></div><div class="crow" data-tip="2025|Retention $30,484 of $112,200 sale|27.2% of sale revenue"><div class="cyr">2025</div><div class="cbar"><div class="cb email" style="width:83.29%"></div></div><div class="cpct">27.2%</div><div class="csub"><span class="cabsbar"><i style="width:96.48%"></i></span><span class="cabs">$30.5k retention of $112.2k sale</span></div><div class="cmeta">retention -4% · store +16% vs 2024</div></div><div class="crow now" data-tip="2026|Retention $17,423 of $94,179 sale|18.5% of sale revenue"><div class="cyr">2026</div><div class="cbar"><div class="cb email" style="width:56.71%"></div></div><div class="cpct">18.5%</div><div class="csub"><span class="cabsbar"><i style="width:55.15%"></i></span><span class="cabs">$17.4k retention of $94.2k sale</span></div><div class="cmeta">retention -43% · store -16% vs 2025 · still running</div></div></div>
     <div class="cap">Bars show retention revenue as a share of sale revenue. All three years are email and SMS only; the US store has no WhatsApp programme.</div>
   </div>
 
   <div class="panel">
     <div class="phead"><div class="ptitle">Where the revenue came from</div>
       <div class="pmeta">2026 to date</div></div>
-    <div class="channels"><div class="chrow"><div class="chlab">Email campaigns</div><div class="chbar"><div class="chfill" style="width:94.15%"></div></div><div class="chval">$16,404</div><div class="chpct">94%</div></div><div class="chrow"><div class="chlab">Email flows</div><div class="chbar"><div class="chfill" style="width:5.85%"></div></div><div class="chval">$1,019</div><div class="chpct">6%</div></div></div>
+    <div class="channels"><div class="chrow" data-tip="Email campaigns|$16,404|94.2% of retention revenue"><div class="chlab">Email campaigns</div><div class="chbar"><div class="chfill" style="width:94.15%"></div></div><div class="chval">$16,404</div><div class="chpct">94%</div></div><div class="chrow" data-tip="Email flows|$1,019|5.8% of retention revenue"><div class="chlab">Email flows</div><div class="chbar"><div class="chfill" style="width:5.85%"></div></div><div class="chval">$1,019</div><div class="chpct">6%</div></div></div>
   </div>
 
   <div class="panel">
     <div class="phead"><div class="ptitle">Every send, ranked by revenue</div></div>
     <div class="tblwrap"><table class="sends">
-      <thead><tr><th>Send</th><th>Date</th><th>Channel</th><th>Audience</th><th></th><th>Revenue</th></tr></thead>
-      <tbody><tr data-ch="email"><td class="sname">US | DK Birthday Sale | Launch</td><td class="smeta">29 Aug</td><td class="smeta">Email</td><td class="snum">32,616</td><td class="sbarc"><span class="sbar email" style="width:100.0%"></span></td><td class="snum srev">$6,000</td></tr><tr data-ch="email"><td class="sname">US | DK Birthday Sale | Launch | Text Based</td><td class="smeta">30 Aug</td><td class="smeta">Email</td><td class="snum">50,973</td><td class="sbarc"><span class="sbar email" style="width:51.9%"></span></td><td class="snum srev">$3,115</td></tr><tr data-ch="email"><td class="sname">US | DK Birthday Sale | Flash Sale | Free OG DLT</td><td class="smeta">2 Sep</td><td class="smeta">Email</td><td class="snum">52,680</td><td class="sbarc"><span class="sbar email" style="width:33.9%"></span></td><td class="snum srev">$2,034</td></tr><tr data-ch="sms"><td class="sname">US | DK Birthday Sale | Launch</td><td class="smeta">29 Aug</td><td class="smeta">SMS</td><td class="snum">5,787</td><td class="sbarc"><span class="sbar sms" style="width:33.4%"></span></td><td class="snum srev">$2,004</td></tr><tr data-ch="email"><td class="sname">US | The Birthday Mystery Box</td><td class="smeta">31 Aug</td><td class="smeta">Email</td><td class="snum">51,217</td><td class="sbarc"><span class="sbar email" style="width:31.6%"></span></td><td class="snum srev">$1,897</td></tr><tr data-ch="email"><td class="sname">US | DK Birthday Sale | Grow & Repair Flash Sale</td><td class="smeta">1 Sep</td><td class="smeta">Email</td><td class="snum">15,038</td><td class="sbarc"><span class="sbar email" style="width:14.9%"></span></td><td class="snum srev">$894</td></tr><tr data-ch="sms"><td class="sname">US | DK Birthday Sale | Flash Sale OG DLT Free</td><td class="smeta">2 Sep</td><td class="smeta">SMS</td><td class="snum">871</td><td class="sbarc"><span class="sbar sms" style="width:7.7%"></span></td><td class="snum srev">$460</td></tr></tbody></table></div>
+      <thead><tr><th data-sort="0" class="sortable">Send</th><th data-sort="1" class="sortable">Date</th>
+        <th data-sort="2" class="sortable">Channel</th><th data-sort="3" class="sortable num">Audience</th><th></th>
+        <th data-sort="5" class="sortable num sorted-desc">Revenue</th></tr></thead>
+      <tbody><tr data-ch="email" data-tip="US | DK Birthday Sale | Launch|Email · 29 Aug|$6,000 from 32,616 reached"><td class="sname" data-s="us | dk birthday sale | launch">US | DK Birthday Sale | Launch</td><td class="smeta" data-s="2026-08-29">29 Aug</td><td class="smeta" data-s="Email">Email</td><td class="snum" data-s="32616">32,616</td><td class="sbarc"><span class="sbar email" style="width:100.0%"></span></td><td class="snum srev" data-s="6000">$6,000</td></tr><tr data-ch="email" data-tip="US | DK Birthday Sale | Launch | Text Based|Email · 30 Aug|$3,115 from 50,973 reached"><td class="sname" data-s="us | dk birthday sale | launch | text based">US | DK Birthday Sale | Launch | Text Based</td><td class="smeta" data-s="2026-08-30">30 Aug</td><td class="smeta" data-s="Email">Email</td><td class="snum" data-s="50973">50,973</td><td class="sbarc"><span class="sbar email" style="width:51.9%"></span></td><td class="snum srev" data-s="3115">$3,115</td></tr><tr data-ch="email" data-tip="US | DK Birthday Sale | Flash Sale | Free OG DLT|Email · 2 Sep|$2,034 from 52,680 reached"><td class="sname" data-s="us | dk birthday sale | flash sale | free og dlt">US | DK Birthday Sale | Flash Sale | Free OG DLT</td><td class="smeta" data-s="2026-09-02">2 Sep</td><td class="smeta" data-s="Email">Email</td><td class="snum" data-s="52680">52,680</td><td class="sbarc"><span class="sbar email" style="width:33.9%"></span></td><td class="snum srev" data-s="2034">$2,034</td></tr><tr data-ch="sms" data-tip="US | DK Birthday Sale | Launch|SMS · 29 Aug|$2,004 from 5,787 reached"><td class="sname" data-s="us | dk birthday sale | launch">US | DK Birthday Sale | Launch</td><td class="smeta" data-s="2026-08-29">29 Aug</td><td class="smeta" data-s="SMS">SMS</td><td class="snum" data-s="5787">5,787</td><td class="sbarc"><span class="sbar sms" style="width:33.4%"></span></td><td class="snum srev" data-s="2004">$2,004</td></tr><tr data-ch="email" data-tip="US | The Birthday Mystery Box|Email · 31 Aug|$1,897 from 51,217 reached"><td class="sname" data-s="us | the birthday mystery box">US | The Birthday Mystery Box</td><td class="smeta" data-s="2026-08-31">31 Aug</td><td class="smeta" data-s="Email">Email</td><td class="snum" data-s="51217">51,217</td><td class="sbarc"><span class="sbar email" style="width:31.6%"></span></td><td class="snum srev" data-s="1897">$1,897</td></tr><tr data-ch="email" data-tip="US | DK Birthday Sale | Grow & Repair Flash Sale|Email · 1 Sep|$894 from 15,038 reached"><td class="sname" data-s="us | dk birthday sale | grow & repair flash sale">US | DK Birthday Sale | Grow & Repair Flash Sale</td><td class="smeta" data-s="2026-09-01">1 Sep</td><td class="smeta" data-s="Email">Email</td><td class="snum" data-s="15038">15,038</td><td class="sbarc"><span class="sbar email" style="width:14.9%"></span></td><td class="snum srev" data-s="894">$894</td></tr><tr data-ch="sms" data-tip="US | DK Birthday Sale | Flash Sale OG DLT Free|SMS · 2 Sep|$460 from 871 reached"><td class="sname" data-s="us | dk birthday sale | flash sale og dlt free">US | DK Birthday Sale | Flash Sale OG DLT Free</td><td class="smeta" data-s="2026-09-02">2 Sep</td><td class="smeta" data-s="SMS">SMS</td><td class="snum" data-s="871">871</td><td class="sbarc"><span class="sbar sms" style="width:7.7%"></span></td><td class="snum srev" data-s="460">$460</td></tr></tbody></table></div>
   </div>
 
   <div class="panel ctxpanel">
@@ -238,7 +264,7 @@ footer b{color:var(--ink-2);font-weight:500}
 </div>
 
 <footer>
-  <div class="flab">Method · refreshed 3 September 2026 · 18:18 IST / 08:48 EDT</div>
+  <div class="flab">Method · refreshed 3 September 2026 · 18:30 IST / 09:00 EDT</div>
   <div class="fgrid">
     <p><b>What counts as retention revenue.</b> Klaviyo campaign and flow attributed revenue, plus Bitespeed
     WhatsApp campaign and automation revenue for India. Share of sale is that figure over Placed Order revenue
@@ -254,21 +280,68 @@ footer b{color:var(--ink-2);font-weight:500}
   </div>
 </footer>
 </div>
+<div id="tip" role="status"></div>
 
 <script>
 (function(){
+  /* ---- channel filter ---- */
   document.querySelectorAll('.market').forEach(function(m){
-    var segs=m.querySelectorAll('.segs button'); if(!segs.length)return;
+    var segs=m.querySelectorAll('.segs button');
     segs.forEach(function(b){
       b.addEventListener('click',function(){
         segs.forEach(function(o){o.setAttribute('aria-pressed',String(o===b));});
         var f=b.dataset.f;
         m.querySelectorAll('table.sends tbody tr').forEach(function(tr){
-          var ch=tr.dataset.ch, show = f==='all' || (f==='email' ? (ch==='email'||ch==='sms') : ch===f);
+          var ch=tr.dataset.ch,
+              show = f==='all' || (f==='email' ? (ch==='email'||ch==='sms') : ch===f);
           tr.style.display = show ? '' : 'none';
         });
       });
     });
+  });
+
+  /* ---- sortable send tables ---- */
+  document.querySelectorAll('table.sends').forEach(function(tb){
+    var body=tb.tBodies[0];
+    tb.querySelectorAll('th.sortable').forEach(function(th){
+      th.addEventListener('click',function(){
+        var i=+th.dataset.sort,
+            desc=!th.classList.contains('sorted-desc'),
+            rows=[].slice.call(body.rows);
+        rows.sort(function(a,b){
+          var x=a.cells[i].dataset.s, y=b.cells[i].dataset.s,
+              nx=parseFloat(x), ny=parseFloat(y),
+              num=!isNaN(nx)&&!isNaN(ny)&&/^[-0-9.]+$/.test(x)&&/^[-0-9.]+$/.test(y),
+              r = num ? nx-ny : String(x).localeCompare(String(y));
+          return desc ? -r : r;
+        });
+        rows.forEach(function(r){body.appendChild(r);});
+        tb.querySelectorAll('th').forEach(function(o){o.classList.remove('sorted-asc','sorted-desc');});
+        th.classList.add(desc?'sorted-desc':'sorted-asc');
+      });
+    });
+  });
+
+  /* ---- tooltips ---- */
+  var tip=document.getElementById('tip');
+  function show(el){
+    var parts=(el.dataset.tip||'').split('|');
+    tip.innerHTML='<b>'+parts[0]+'</b>'+parts.slice(1).join('<br>');
+    tip.classList.add('on');
+  }
+  document.addEventListener('mouseover',function(e){
+    var el=e.target.closest&&e.target.closest('[data-tip]');
+    if(el)show(el);
+  });
+  document.addEventListener('mouseout',function(e){
+    if(e.target.closest&&e.target.closest('[data-tip]'))tip.classList.remove('on');
+  });
+  document.addEventListener('mousemove',function(e){
+    if(!tip.classList.contains('on'))return;
+    var x=e.clientX+16,y=e.clientY+16;
+    if(x+tip.offsetWidth>window.innerWidth-12)x=e.clientX-tip.offsetWidth-16;
+    if(y+tip.offsetHeight>window.innerHeight-12)y=e.clientY-tip.offsetHeight-16;
+    tip.style.left=x+'px';tip.style.top=Math.max(8,y)+'px';
   });
 })();
 </script>
