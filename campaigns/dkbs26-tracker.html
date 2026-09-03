@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>indē wild — DK Birthday Sale 2026 · live tracker</title>
+<title>indē wild — DK Birthday Sale 2026 · retention performance</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap');
 :root{
@@ -17,131 +17,106 @@
   --font-mono:'Spline Sans Mono','IBM Plex Mono',monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--font-sans);background:var(--bg-page);color:var(--ink-1);
-  line-height:1.6;-webkit-font-smoothing:antialiased}
+body{font-family:var(--font-sans);background:var(--bg-page);color:var(--ink-1);line-height:1.6;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1680px;margin:0 auto;padding:0 32px 72px}
 
-/* sticky bar */
-.topbar{position:sticky;top:0;z-index:40;background:var(--bg-page);
-  border-bottom:1px solid var(--border-1);padding:14px 0;margin-bottom:0}
-.topbar .in{max-width:1680px;margin:0 auto;padding:0 32px;display:flex;align-items:center;
-  justify-content:space-between;gap:16px;flex-wrap:wrap}
+.topbar{position:sticky;top:0;z-index:40;background:var(--bg-page);border-bottom:1px solid var(--border-1);padding:14px 0}
+.topbar .in{max-width:1680px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .mark{display:inline-flex;align-items:center;gap:10px}
 .mark i{width:12px;height:12px;background:var(--green-700);display:block}
 .mark span{font-weight:700;font-size:17px;letter-spacing:-0.04em}
 .tbmeta{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.badge{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;background:var(--green-50);
-  color:var(--green-700);border-radius:2px;font-family:var(--font-mono);font-size:10px;
-  letter-spacing:0.08em;text-transform:uppercase}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;background:var(--green-50);color:var(--green-700);
+  border-radius:2px;font-family:var(--font-mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase}
 .badge i{width:6px;height:6px;border-radius:50%;background:currentColor;display:block}
 .stamp{font-family:var(--font-mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-3)}
 
-header{padding:40px 0 8px}
+header{padding:40px 0 0}
 .eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink-3)}
 h1{font-size:44px;font-weight:600;letter-spacing:-0.045em;line-height:1.03;margin:10px 0 12px}
-.sub{font-size:16px;color:var(--ink-2);max-width:640px}
+.sub{font-size:16px;color:var(--ink-2);max-width:660px}
 
-.topline{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border-1);
-  background:var(--surface);margin:28px 0 0}
-.tl{padding:22px 26px;border-left:1px solid var(--border-1)}
-.tl:first-child{border-left:none}
-.tlk{font-family:var(--font-mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink-3)}
-.tlv{font-size:22px;font-weight:600;letter-spacing:-0.03em;margin-top:8px;line-height:1.2}
-.tln{font-size:13px;color:var(--ink-2);margin-top:6px}
+/* hero: the two numbers that matter */
+.hero{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border-1);background:var(--surface);margin:30px 0 0}
+.hcol{padding:26px 28px;border-left:1px solid var(--border-1)}
+.hcol:first-child{border-left:none}
+.hk{font-family:var(--font-mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink-3)}
+.hrow{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;margin-top:10px}
+.hv{font-size:40px;font-weight:600;letter-spacing:-0.04em;line-height:1;color:var(--green-700)}
+.hs{font-size:22px;font-weight:600;letter-spacing:-0.03em;line-height:1}
+.hn{font-size:13px;color:var(--ink-2);margin-top:10px}
+.hlab{font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-3);margin-top:6px}
 
-/* controls */
-.controls{display:flex;align-items:center;gap:26px;flex-wrap:wrap;
-  border:1px solid var(--border-1);border-top:none;background:var(--surface);padding:14px 26px}
-.cgroup{display:flex;align-items:center;gap:10px}
-.clab{font-family:var(--font-mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink-3)}
-.seg{display:inline-flex;border:1px solid var(--border-2);border-radius:2px;overflow:hidden}
-.seg button{appearance:none;border:none;background:var(--surface);color:var(--ink-2);
-  font-family:var(--font-sans);font-size:12.5px;font-weight:500;padding:7px 14px;cursor:pointer;
-  transition:background 150ms ease-out,color 150ms ease-out}
-.seg button+button{border-left:1px solid var(--border-2)}
-.seg button:hover{background:var(--surface-sunken)}
-.seg button[aria-pressed="true"]{background:var(--green-700);color:#fff}
-.chip{appearance:none;border:1px solid var(--border-2);background:var(--surface);border-radius:2px;
-  font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;padding:6px 11px;cursor:pointer;
-  color:var(--ink-2);display:inline-flex;align-items:center;gap:7px;transition:background 150ms ease-out}
-.chip:hover{background:var(--surface-sunken)}
-.chip i{width:9px;height:9px;display:block}
-.chip[aria-pressed="false"]{color:var(--ink-3);opacity:.55}
-.chip[aria-pressed="false"] i{background:var(--border-2) !important}
-
-/* market columns */
-.markets{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px;align-items:start}
+.markets{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:36px;align-items:start}
 .market{min-width:0}
 .mhead{padding-bottom:18px}
-.market h2{font-size:25px;font-weight:600;letter-spacing:-0.03em;line-height:1.18;margin:8px 0 10px}
+.market h2{font-size:24px;font-weight:600;letter-spacing:-0.03em;line-height:1.2;margin:8px 0 10px}
 .lede{font-size:14.5px;color:var(--ink-2)}
 
 .strip{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border-1);background:var(--surface);margin-bottom:16px}
-.metric{padding:18px 20px;border-left:1px solid var(--border-1);min-width:0}
+.metric{padding:18px 18px;border-left:1px solid var(--border-1);min-width:0}
 .metric:first-child{border-left:none}
-.mval{font-size:26px;font-weight:600;letter-spacing:-0.03em;line-height:1.15}
+.mval{font-size:24px;font-weight:600;letter-spacing:-0.03em;line-height:1.15}
 .mval.accent{color:var(--green-700)}
-.mlab{font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.13em;text-transform:uppercase;color:var(--ink-3);margin-top:8px}
-.mnote{font-size:11.5px;color:var(--ink-3);margin-top:6px;line-height:1.4}
+.mlab{font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-3);margin-top:8px}
+.mnote{font-size:11.5px;color:var(--ink-3);margin-top:5px}
 
 .panel{background:var(--surface);border:1px solid var(--border-1);padding:22px;margin-bottom:16px}
-.phead{display:flex;align-items:baseline;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+.phead{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:18px}
 .ptitle{font-size:14px;font-weight:600}
 .pmeta{font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-3)}
 
-.cmp{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border-1)}
-.ccol{padding:16px 18px;border-left:1px solid var(--border-1);min-width:0}
-.ccol:first-child{border-left:none}
-.ccol.hi{background:var(--tint-green)}
-.cy{font-family:var(--font-mono);font-size:10px;letter-spacing:0.15em;color:var(--ink-3)}
-.cv{font-size:22px;font-weight:600;letter-spacing:-0.03em;margin-top:6px;line-height:1.2}
-.cv.now{color:var(--green-700)}
-.cn{font-size:11.5px;color:var(--ink-3);margin-top:6px;line-height:1.4}
+/* contribution bars */
+.contrib{display:flex;flex-direction:column;gap:14px}
+.crow{display:grid;grid-template-columns:44px 1fr 56px;grid-template-areas:"y b p" ". m m";align-items:center;gap:4px 12px}
+.cyr{grid-area:y;font-family:var(--font-mono);font-size:12px;color:var(--ink-2)}
+.crow.now .cyr{color:var(--green-700);font-weight:500}
+.cbar{grid-area:b;display:flex;height:26px;background:var(--surface-sunken)}
+.cb{height:100%;display:block;min-width:1px}
+.cb.email{background:var(--green-700)}
+.cb.wa{background:var(--green-400)}
+.cpct{grid-area:p;text-align:right;font-size:16px;font-weight:600;letter-spacing:-0.02em}
+.crow.now .cpct{color:var(--green-700)}
+.cmeta{grid-area:m;font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.06em;color:var(--ink-3)}
 
-/* chart */
-.chartscroll{width:100%}
-.lanes{width:100%}
-.lane{padding:10px 0 14px;border-top:1px solid var(--border-1)}
-.lane:first-child{border-top:none;padding-top:0}
-.lhead{display:flex;align-items:baseline;gap:10px;margin-bottom:8px}
-.ly{font-family:var(--font-mono);font-size:12px;font-weight:500}
-.lane.now .ly{color:var(--green-700)}
-.lw{font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-3)}
-.ltrack{height:84px;display:flex;align-items:flex-end;gap:6px}
-.slot{flex:1;min-width:0;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center}
-.vlab{font-family:var(--font-mono);font-size:9px;color:var(--ink-2);white-space:nowrap;margin-bottom:4px;line-height:1}
-.fill{width:100%;max-width:48px;display:block;cursor:default;transition:outline-color 120ms ease-out;
-  outline:2px solid transparent;outline-offset:1px}
-.fill:hover{outline-color:var(--ink-1)}
-.fill.partial{opacity:.72;border-top:2px solid var(--green-700)}
-.tocome{width:100%;max-width:48px;height:2px;background:var(--surface-sunken);display:block}
-.none{width:100%;height:0;display:block}
-.xaxis{display:flex;gap:6px;border-top:1px solid var(--border-1);padding-top:8px;margin-top:2px}
-.xc{flex:1;min-width:0;text-align:center;font-family:var(--font-mono);font-size:9.5px;color:var(--ink-3);white-space:nowrap}
-.xc.on{color:var(--green-700)}
-.cap{font-size:11.5px;color:var(--ink-3);margin-top:14px;line-height:1.55}
+/* channel split */
+.channels{display:flex;flex-direction:column;gap:12px}
+.chrow{display:grid;grid-template-columns:150px 1fr auto 40px;align-items:center;gap:12px}
+.chlab{font-size:13px;color:var(--ink-2)}
+.chbar{height:14px;background:var(--surface-sunken)}
+.chfill{height:100%;background:var(--green-700);display:block}
+.chfill.wa{background:var(--green-400)}
+.chval{font-size:13px;font-weight:500;white-space:nowrap}
+.chpct{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);text-align:right}
 
-#tip{position:fixed;z-index:80;pointer-events:none;opacity:0;transition:opacity 120ms ease-out;
-  background:var(--surface-ink);color:var(--text-on-ink,#F4F5F5);padding:8px 11px;border-radius:2px;
-  font-family:var(--font-mono);font-size:11px;line-height:1.5;white-space:nowrap}
-#tip b{font-family:var(--font-sans);font-size:13px;font-weight:600;display:block;margin-top:2px}
-#tip.on{opacity:1}
-
+/* sends table */
 .tblwrap{overflow-x:auto}
 table{width:100%;border-collapse:collapse;font-size:12.5px}
-thead th{background:var(--surface-sunken);text-align:left;padding:9px 11px;font-family:var(--font-mono);
-  font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-2);font-weight:500;white-space:nowrap}
-tbody th,tbody td{padding:11px;border-top:1px solid var(--border-1);text-align:left;font-weight:400;white-space:nowrap}
-tbody th{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-2)}
-tr.now th,tr.now td{background:var(--tint-green);font-weight:500}
-.tag{font-family:var(--font-mono);font-size:9px;letter-spacing:0.06em;text-transform:uppercase;
-  color:var(--green-700);background:var(--green-50);padding:2px 6px;border-radius:2px;margin-left:6px}
-.scrollhint{display:none;font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.08em;
-  text-transform:uppercase;color:var(--ink-3);margin-top:10px}
+thead th{background:var(--surface-sunken);text-align:left;padding:9px 10px;font-family:var(--font-mono);font-size:9.5px;
+  letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-2);font-weight:500;white-space:nowrap}
+tbody td{padding:9px 10px;border-top:1px solid var(--border-1);vertical-align:middle}
+.sname{font-size:12.5px;min-width:190px}
+.smeta{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);white-space:nowrap}
+.snum{font-family:var(--font-mono);font-size:11.5px;text-align:right;white-space:nowrap}
+.srev{font-family:var(--font-sans);font-size:13px;font-weight:600}
+.sbarc{width:88px;min-width:88px}
+.sbar{display:block;height:8px;min-width:2px;background:var(--green-700)}
+.sbar.wa{background:var(--green-400)}
+.sbar.sms{background:var(--green-200)}
+.segs{display:inline-flex;border:1px solid var(--border-2);border-radius:2px;overflow:hidden}
+.segs button{appearance:none;border:none;background:var(--surface);color:var(--ink-2);font-family:var(--font-sans);
+  font-size:12px;font-weight:500;padding:5px 11px;cursor:pointer;transition:background 150ms ease-out}
+.segs button+button{border-left:1px solid var(--border-2)}
+.segs button:hover{background:var(--surface-sunken)}
+.segs button[aria-pressed="true"]{background:var(--green-700);color:#fff}
 
-.next{background:var(--tint-green);border:1px solid var(--tint-border-green);padding:18px 22px}
-.nlab{font-family:var(--font-mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--green-700);margin-bottom:8px}
-.ntext{font-size:13.5px;line-height:1.6}
+/* context panel, deliberately quiet */
+.ctxpanel{background:transparent;border-style:dashed}
+.ctxgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ctxl{font-family:var(--font-mono);font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-3)}
+.ctxv{font-size:18px;font-weight:500;margin-top:6px;color:var(--ink-2)}
+.ctxn{font-size:11.5px;color:var(--ink-3);margin-top:4px}
+.cap{font-size:11.5px;color:var(--ink-3);margin-top:14px;line-height:1.55}
 
 footer{border-top:1px solid var(--border-1);padding-top:26px;margin-top:44px}
 .flab{font-family:var(--font-mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px}
@@ -149,45 +124,20 @@ footer{border-top:1px solid var(--border-1);padding-top:26px;margin-top:44px}
 footer p{font-size:11.5px;color:var(--ink-3);line-height:1.7}
 footer b{color:var(--ink-2);font-weight:500}
 
-@media (max-width:1460px){
-  .strip{grid-template-columns:repeat(2,1fr)}
-  .metric:nth-child(3){border-left:none}
-  .metric:nth-child(n+3){border-top:1px solid var(--border-1)}
-}
-@media (max-width:1180px){
-  .strip{grid-template-columns:repeat(4,1fr)}
-  .metric:nth-child(3){border-left:1px solid var(--border-1)}
-  .metric:nth-child(n+3){border-top:none}
-}
-@media (max-width:900px){
-  .strip{grid-template-columns:repeat(2,1fr)}
-  .metric:nth-child(3){border-left:none}
-  .metric:nth-child(n+3){border-top:1px solid var(--border-1)}
-}
 @media (max-width:1180px){
   .markets{grid-template-columns:1fr;gap:44px}
   .fgrid{grid-template-columns:1fr}
   h1{font-size:34px}
 }
 @media (max-width:760px){
-  .wrap{padding:0 16px 56px}
-  .topbar .in{padding:0 16px}
-  h1{font-size:28px}
-  .topline{grid-template-columns:1fr}
-  .tl{border-left:none;border-top:1px solid var(--border-1)}
-  .tl:first-child{border-top:none}
-  .strip{grid-template-columns:1fr}
-  .metric{border-left:none;border-top:1px solid var(--border-1)}
-  .metric:first-child{border-top:none}
-  .cmp{grid-template-columns:1fr}
-  .ccol{border-left:none;border-top:1px solid var(--border-1)}
-  .ccol:first-child{border-top:none}
+  .wrap{padding:0 16px 56px} .topbar .in{padding:0 16px}
+  h1{font-size:28px} .hero{grid-template-columns:1fr}
+  .hcol{border-left:none;border-top:1px solid var(--border-1)} .hcol:first-child{border-top:none}
+  .strip{grid-template-columns:repeat(2,1fr)}
+  .metric:nth-child(3){border-left:none} .metric:nth-child(n+3){border-top:1px solid var(--border-1)}
+  .chrow{grid-template-columns:110px 1fr auto} .chpct{display:none}
+  .ctxgrid{grid-template-columns:1fr;gap:14px}
   .panel{padding:16px}
-  .chartscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px}
-  .lanes{min-width:620px}
-  .scrollhint{display:block}
-  .controls{padding:12px 16px;gap:16px}
-  .mval{font-size:22px}
 }
 </style>
 </head>
@@ -197,44 +147,27 @@ footer b{color:var(--ink-2);font-weight:500}
   <span class="mark"><i></i><span>Grovae</span></span>
   <span class="tbmeta">
     <span class="badge"><i></i>Live · day 7 of 9</span>
-    <span class="stamp">Refreshed 3 September 2026 · 17:56 IST / 08:26 EDT</span>
+    <span class="stamp">Refreshed 3 September 2026 · 18:18 IST / 08:48 EDT</span>
   </span>
 </div></div>
 
 <div class="wrap">
-
 <header>
   <div class="eyebrow">indē wild · retention · US + India</div>
-  <h1>DK Birthday Sale 2026</h1>
-  <p class="sub">How this year’s sale is tracking against 2024 and 2025 across both stores.
-  The sale runs 28 August to 5 September, and this page updates while it is live.</p>
+  <h1>DK Birthday Sale 2026 — retention performance</h1>
+  <p class="sub">What email, SMS and WhatsApp contributed to the sale, and how that compares with 2024 and
+  2025. The sale runs 28 August to 5 September, with two days still to run.</p>
 
-  <div class="topline">
-    <div class="tl">
-      <div class="tlk">India</div>
-      <div class="tlv">Live · ₹2.83 Cr so far</div>
-      <div class="tln">Opened 29 August · 2 days still to run</div>
+  <div class="hero">
+    <div class="hcol">
+      <div class="hk">India · retention revenue</div>
+      <div class="hrow"><span class="hv">₹55.2 L</span><span class="hs">19.5% of sale</span></div>
+      <div class="hlab">Email + WhatsApp · campaigns and automations</div>
     </div>
-    <div class="tl">
-      <div class="tlk">United States</div>
-      <div class="tlv">Live · $94,179 so far</div>
-      <div class="tln">Launched 29 August · 2 days still to run</div>
-    </div>
-  </div>
-
-  <div class="controls">
-    <div class="cgroup">
-      <span class="clab">View</span>
-      <span class="seg">
-        <button type="button" data-mode="daily" aria-pressed="true">Each day</button>
-        <button type="button" data-mode="cume" aria-pressed="false">Running total</button>
-      </span>
-    </div>
-    <div class="cgroup">
-      <span class="clab">Years</span>
-      <button type="button" class="chip" data-year="2024" aria-pressed="true"><i style="background:#A8C4BC"></i>2024</button>
-      <button type="button" class="chip" data-year="2025" aria-pressed="true"><i style="background:#5C9083"></i>2025</button>
-      <button type="button" class="chip" data-year="2026" aria-pressed="true"><i style="background:#1B4D3E"></i>2026</button>
+    <div class="hcol">
+      <div class="hk">United States · retention revenue</div>
+      <div class="hrow"><span class="hv">$17.4k</span><span class="hs">18.5% of sale</span></div>
+      <div class="hlab">Email + SMS · campaigns and automations</div>
     </div>
   </div>
 </header>
@@ -242,195 +175,101 @@ footer b{color:var(--ink-2);font-weight:500}
 <div class="markets">
 
 <section class="market" data-mk="IN">
-  <div class="mhead">
-    <div class="eyebrow">India</div>
-    <h2>India has already passed last year’s full sale, with two days to go</h2>
-    <p class="lede">₹2.83 Cr through seven days, against ₹2.75 Cr for the whole of last year’s four-day sale. Orders are running lower but baskets are bigger, so the revenue is coming from higher-value carts rather than more of them. Email and WhatsApp together have driven ₹55.2 L, or 19% of the sale. Two days remain.</p>
-  </div>
-  <div class="strip"><div class="metric"><div class="mval accent">₹2.83 Cr</div><div class="mlab">Sale revenue · to date</div></div><div class="metric"><div class="mval">14,982</div><div class="mlab">Orders · to date</div></div><div class="metric"><div class="mval">₹1,888</div><div class="mlab">Average order value</div><div class="mnote">+31% vs 2025</div></div><div class="metric"><div class="mval">₹55.2 L</div><div class="mlab">CRM revenue · to date</div><div class="mnote">Email ₹35.1 L + WhatsApp ₹20.0 L</div></div></div>
+  <div class="mhead"><div class="eyebrow">India</div><h2>Email and WhatsApp drove 19% of the sale, against 10% last year</h2><p class="lede">Retention revenue is ₹55.2 L so far. Email alone is running at 12.4% of sale revenue, ahead of last year on a like-for-like basis, and WhatsApp adds 7.1 points on top of that in its first birthday sale.</p></div>
+  <div class="strip"><div class="metric"><div class="mval accent">₹55.2 L</div><div class="mlab">Retention revenue</div></div><div class="metric"><div class="mval accent">19.5%</div><div class="mlab">Share of sale revenue</div><div class="mnote">10.4% last year</div></div><div class="metric"><div class="mval">₹43.3 L</div><div class="mlab">From campaigns</div></div><div class="metric"><div class="mval">₹11.8 L</div><div class="mlab">From automations</div></div></div>
+
   <div class="panel">
-    <div class="phead"><div class="ptitle" data-charttitle>Daily sale revenue</div>
-      <div class="pmeta">Same scale across years</div></div>
-    <div class="chartscroll"><div class="lanes" id="lanes-IN"></div></div>
-    <noscript><div class="cap">Interactive chart needs JavaScript. The tables below carry the same figures.</div></noscript>
-    <div class="cap">The last 2026 bar is today, still in progress. India’s volume lands after 18:00 IST.</div>
-  </div>
-  <div class="panel">
-    <div class="phead"><div class="ptitle">Where 2026 stands against finished sales</div>
-      <div class="pmeta">Sale revenue</div></div>
-    <div class="cmp"><div class="ccol"><div class="cy">2024 · full</div><div class="cv">₹1.28 Cr</div><div class="cn">Finished sale · 3 days</div></div><div class="ccol"><div class="cy">2025 · full</div><div class="cv">₹2.75 Cr</div><div class="cn">Finished sale · 4 days</div></div><div class="ccol hi"><div class="cy">2026 · to date</div><div class="cv now">₹2.83 Cr</div><div class="cn">103% of last year’s total, with two days still to run</div></div></div>
-    <div class="cap">Each year is anchored to 28 August. 2024 and 2025 are complete sales; 2026 is still running, so its figure is a floor rather than a final number.</div>
-  </div>
-  <div class="panel">
-    <div class="phead"><div class="ptitle">Sale windows, year on year</div></div>
-    <div class="tblwrap"><table>
-      <thead><tr><th>Year</th><th>Window</th><th>Sale revenue</th><th>Orders</th><th>Email CRM revenue</th><th>Email CRM share</th><th>Campaigns</th></tr></thead>
-      <tbody><tr><th scope="row">2024</th><td>3 days</td><td>₹1,27,61,748</td><td>7,575</td><td>₹17,27,738</td><td>13.5%</td><td>4</td></tr><tr><th scope="row">2025</th><td>4 days</td><td>₹2,75,15,813</td><td>19,057</td><td>₹28,67,828</td><td>10.4%</td><td>4</td></tr><tr class="now"><th scope="row">2026</th><td>9 days <span class="tag">7 of 9 so far</span></td><td>₹2,82,86,441</td><td>14,982</td><td>₹35,14,841</td><td>12.4%</td><td>9</td></tr></tbody></table></div>
-    <div class="scrollhint">Scroll sideways for the CRM columns</div>
-    <div class="cap">2024 and 2025 are finished sales. 2026 is 7 days into a 9-day window, so its totals are still building. These columns are email only, so the years stay comparable — 2024 and 2025 had no WhatsApp programme.</div>
-  </div>
-  
-  <div class="panel">
-    <div class="phead"><div class="ptitle">WhatsApp</div>
-      <div class="pmeta">Bitespeed · 28 Aug – 3 Sep</div></div>
-    <div class="cmp">
-      <div class="ccol hi"><div class="cy">Revenue</div><div class="cv now">₹20.0 L</div>
-        <div class="cn">7.1% of India sale revenue</div></div>
-      <div class="ccol"><div class="cy">Campaigns</div><div class="cv">11</div>
-        <div class="cn">286,342 messages delivered</div></div>
-      <div class="ccol"><div class="cy">Automations</div><div class="cv">₹78,897</div>
-        <div class="cn">Birthday sale flows only</div></div>
-    </div>
-    <div class="tblwrap"><table style="margin-top:16px">
-      <thead><tr><th>Send</th><th>Date</th><th>Delivered</th><th>Revenue</th></tr></thead>
-      <tbody><tr><th scope="row">IN | DK Birthday Sale | Launch</th><td>Aug 29, 2026</td><td>28,991</td><td>₹6,16,422</td></tr><tr><th scope="row">IN | Birthday Mystery Box</th><td>Aug 31, 2026</td><td>28,036</td><td>₹4,53,581</td></tr><tr><th scope="row">IN | DK Birthday Sale | Launch | 1st time</th><td>Aug 29, 2026</td><td>25,982</td><td>₹2,25,084</td></tr><tr><th scope="row">IN | DK birthday Sale | Grow & Repair Flash Sale</th><td>Sep 01, 2026</td><td>37,348</td><td>₹1,80,521</td></tr><tr><th scope="row">IN | Flash Sale | Free OG DLT</th><td>Sep 02, 2026</td><td>50,866</td><td>₹1,68,977</td></tr><tr><th scope="row">IN | DK Birthday Sale | Launch | Prospects</th><td>Aug 29, 2026</td><td>23,756</td><td>₹1,05,882</td></tr><tr><th scope="row">IN | DK Birthday Sale | Browse Abandonment |</th><td>—</td><td>—</td><td>₹5,346</td></tr><tr><th scope="row">IN | DK Birthday Flow | Welcome Flow</th><td>—</td><td>—</td><td>₹73,551</td></tr></tbody></table></div>
-    <div class="cap">Send cost was ₹2.3 L across the window, at ₹0.80 per delivered message.
-    Evergreen WhatsApp automations are not counted here: the export reports their revenue since each flow
-    went live rather than by date, so they cannot be tied to the sale window. The WhatsApp figure is
-    therefore a floor.</div>
+    <div class="phead"><div class="ptitle">Retention share of sale revenue</div>
+      <div class="pmeta">Year on year</div></div>
+    <div class="contrib"><div class="crow"><div class="cyr">2024</div><div class="cbar"><div class="cb email" style="width:60.42%"></div></div><div class="cpct">11.8%</div><div class="cmeta">email only</div></div><div class="crow"><div class="cyr">2025</div><div class="cbar"><div class="cb email" style="width:53.56%"></div></div><div class="cpct">10.4%</div><div class="cmeta">email only</div></div><div class="crow now"><div class="cyr">2026</div><div class="cbar"><div class="cb email" style="width:63.72%"></div><div class="cb wa" style="width:36.28%"></div></div><div class="cpct">19.5%</div><div class="cmeta">email 12.4% + WhatsApp 7.1%</div></div></div>
+    <div class="cap">Bars show retention revenue as a share of sale revenue. 2024 and 2025 are email only — there was no WhatsApp programme then — so the darker segment is the like-for-like comparison and WhatsApp sits on top.</div>
   </div>
 
-  <div class="next"><div class="nlab">What happens next</div><div class="ntext">Two selling days remain. The sale closes on 5 September.</div></div>
+  <div class="panel">
+    <div class="phead"><div class="ptitle">Where the revenue came from</div>
+      <div class="pmeta">2026 to date</div></div>
+    <div class="channels"><div class="chrow"><div class="chlab">Email campaigns</div><div class="chbar"><div class="chfill" style="width:43.67%"></div></div><div class="chval">₹24,08,859</div><div class="chpct">44%</div></div><div class="chrow"><div class="chlab">WhatsApp campaigns</div><div class="chbar"><div class="chfill wa" style="width:34.85%"></div></div><div class="chval">₹19,21,992</div><div class="chpct">35%</div></div><div class="chrow"><div class="chlab">Email flows</div><div class="chbar"><div class="chfill" style="width:20.05%"></div></div><div class="chval">₹11,05,982</div><div class="chpct">20%</div></div><div class="chrow"><div class="chlab">WhatsApp automations</div><div class="chbar"><div class="chfill wa" style="width:1.43%"></div></div><div class="chval">₹78,897</div><div class="chpct">1%</div></div></div>
+  </div>
+
+  <div class="panel">
+    <div class="phead"><div class="ptitle">Every send, ranked by revenue</div><div class="segs"><button type="button" data-f="all" aria-pressed="true">All</button><button type="button" data-f="email" aria-pressed="false">Email</button><button type="button" data-f="wa" aria-pressed="false">WhatsApp</button></div></div>
+    <div class="tblwrap"><table class="sends">
+      <thead><tr><th>Send</th><th>Date</th><th>Channel</th><th>Audience</th><th></th><th>Revenue</th></tr></thead>
+      <tbody><tr data-ch="wa"><td class="sname">IN | DK Birthday Sale | Launch</td><td class="smeta">29 Aug</td><td class="smeta">WhatsApp</td><td class="snum">28,991</td><td class="sbarc"><span class="sbar wa" style="width:100.0%"></span></td><td class="snum srev">₹6,16,422</td></tr><tr data-ch="email"><td class="sname">IN | DK Birthday Sale | Launch</td><td class="smeta">29 Aug</td><td class="smeta">Email</td><td class="snum">119,538</td><td class="sbarc"><span class="sbar email" style="width:96.3%"></span></td><td class="snum srev">₹5,93,586</td></tr><tr data-ch="wa"><td class="sname">IN | Birthday Mystery Box</td><td class="smeta">31 Aug</td><td class="smeta">WhatsApp</td><td class="snum">28,036</td><td class="sbarc"><span class="sbar wa" style="width:73.6%"></span></td><td class="snum srev">₹4,53,581</td></tr><tr data-ch="email"><td class="sname">IN | DK Birthday Sale Launch | Text Based</td><td class="smeta">30 Aug</td><td class="smeta">Email</td><td class="snum">91,136</td><td class="sbarc"><span class="sbar email" style="width:72.4%"></span></td><td class="snum srev">₹4,46,164</td></tr><tr data-ch="email"><td class="sname">IN | DK Birthday Sale | Flash Sale | OG DLT</td><td class="smeta">2 Sep</td><td class="smeta">Email</td><td class="snum">54,050</td><td class="sbarc"><span class="sbar email" style="width:54.1%"></span></td><td class="snum srev">₹3,33,640</td></tr><tr data-ch="email"><td class="sname">IN | Birthday Mystery Box </td><td class="smeta">31 Aug</td><td class="smeta">Email</td><td class="snum">99,083</td><td class="sbarc"><span class="sbar email" style="width:47.8%"></span></td><td class="snum srev">₹2,94,390</td></tr><tr data-ch="email"><td class="sname">IN | Dolly Flash sale</td><td class="smeta">1 Sep</td><td class="smeta">Email</td><td class="snum">77,225</td><td class="sbarc"><span class="sbar email" style="width:42.1%"></span></td><td class="snum srev">₹2,59,262</td></tr><tr data-ch="wa"><td class="sname">IN | DK Birthday Sale | Launch | 1st time</td><td class="smeta">29 Aug</td><td class="smeta">WhatsApp</td><td class="snum">25,982</td><td class="sbarc"><span class="sbar wa" style="width:36.5%"></span></td><td class="snum srev">₹2,25,084</td></tr><tr data-ch="wa"><td class="sname">IN | DK birthday Sale | Grow & Repair Flash Sale</td><td class="smeta">1 Sep</td><td class="smeta">WhatsApp</td><td class="snum">37,348</td><td class="sbarc"><span class="sbar wa" style="width:29.3%"></span></td><td class="snum srev">₹1,80,521</td></tr><tr data-ch="email"><td class="sname">IN | DK Birthday Sale | Flash Sale | Grow & Repair Duo</td><td class="smeta">1 Sep</td><td class="smeta">Email</td><td class="snum">49,772</td><td class="sbarc"><span class="sbar email" style="width:28.8%"></span></td><td class="snum srev">₹1,77,797</td></tr><tr data-ch="wa"><td class="sname">IN | Flash Sale | Free OG DLT</td><td class="smeta">2 Sep</td><td class="smeta">WhatsApp</td><td class="snum">50,866</td><td class="sbarc"><span class="sbar wa" style="width:27.4%"></span></td><td class="snum srev">₹1,68,977</td></tr><tr data-ch="email"><td class="sname">IN | DK Birthday Sale | Launch</td><td class="smeta">29 Aug</td><td class="smeta">Email</td><td class="snum">4,423</td><td class="sbarc"><span class="sbar email" style="width:22.1%"></span></td><td class="snum srev">₹1,36,452</td></tr><tr data-ch="wa"><td class="sname">IN | DK Birthday Sale | Launch | Prospects</td><td class="smeta">29 Aug</td><td class="smeta">WhatsApp</td><td class="snum">23,756</td><td class="sbarc"><span class="sbar wa" style="width:17.2%"></span></td><td class="snum srev">₹1,05,882</td></tr><tr data-ch="email"><td class="sname">IN | DK Birthday Sale | Flash Sale | S&C</td><td class="smeta">3 Sep</td><td class="smeta">Email</td><td class="snum">105,454</td><td class="sbarc"><span class="sbar email" style="width:16.0%"></span></td><td class="snum srev">₹98,355</td></tr><tr data-ch="email"><td class="sname">IN | Sleek Back Set</td><td class="smeta">30 Aug</td><td class="smeta">Email</td><td class="snum">7,228</td><td class="sbarc"><span class="sbar email" style="width:11.2%"></span></td><td class="snum srev">₹69,213</td></tr><tr data-ch="wa"><td class="sname">IN | DK Birthday Sale | Flash Sale | S&C</td><td class="smeta">3 Sep</td><td class="smeta">WhatsApp</td><td class="snum">58,160</td><td class="sbarc"><span class="sbar wa" style="width:10.4%"></span></td><td class="snum srev">₹64,099</td></tr><tr data-ch="wa"><td class="sname">IN | Flash Sale indē dolly</td><td class="smeta">1 Sep</td><td class="smeta">WhatsApp</td><td class="snum">17,474</td><td class="sbarc"><span class="sbar wa" style="width:9.2%"></span></td><td class="snum srev">₹56,594</td></tr><tr data-ch="wa"><td class="sname">IN | Sleek Back Set Launch</td><td class="smeta">30 Aug</td><td class="smeta">WhatsApp</td><td class="snum">8,322</td><td class="sbarc"><span class="sbar wa" style="width:7.0%"></span></td><td class="snum srev">₹42,950</td></tr><tr data-ch="wa"><td class="sname">IN | DK Birthday Sale | Launch | Other D2C Brands</td><td class="smeta">30 Aug</td><td class="smeta">WhatsApp</td><td class="snum">2,792</td><td class="sbarc"><span class="sbar wa" style="width:1.2%"></span></td><td class="snum srev">₹7,254</td></tr><tr data-ch="wa"><td class="sname">IN | Other Skincare Brands | inr500_inr1000 | DLT Push</td><td class="smeta">30 Aug</td><td class="smeta">WhatsApp</td><td class="snum">4,615</td><td class="sbarc"><span class="sbar wa" style="width:0.1%"></span></td><td class="snum srev">₹628</td></tr></tbody></table></div>
+  </div>
+
+  <div class="panel ctxpanel">
+    <div class="phead"><div class="ptitle">The sale itself</div><div class="pmeta">Context</div></div>
+    <div class="ctxgrid"><div class="ctx"><div class="ctxl">Sale revenue</div><div class="ctxv">₹2.83 Cr</div><div class="ctxn">₹2.78 Cr last year</div></div><div class="ctx"><div class="ctxl">Orders</div><div class="ctxv">14,982</div><div class="ctxn">19,205 last year</div></div><div class="ctx"><div class="ctxl">Average order value</div><div class="ctxv">₹1,888</div><div class="ctxn">+31% vs last year</div></div></div>
+    <div class="cap">Store performance is context for the share above, not the subject of this report.</div>
+  </div>
 </section>
 
 <section class="market" data-mk="US">
-  <div class="mhead">
-    <div class="eyebrow">United States</div>
-    <h2>The US is at 81% of last year’s total, with two days still to run</h2>
-    <p class="lede">$94,179 through seven days. Last year’s sale finished at $116,237 across six days with the Labor Day extension; this year’s window runs nine, and two of them are still ahead. Average order value is ahead of last year.</p>
-  </div>
-  <div class="strip"><div class="metric"><div class="mval accent">$94,179</div><div class="mlab">Sale revenue · to date</div></div><div class="metric"><div class="mval">1,454</div><div class="mlab">Orders · to date</div></div><div class="metric"><div class="mval">$64.77</div><div class="mlab">Average order value</div><div class="mnote">+4% vs 2025</div></div><div class="metric"><div class="mval">$17,423</div><div class="mlab">CRM revenue · to date</div><div class="mnote">Launch email + SMS, then the sequence</div></div></div>
+  <div class="mhead"><div class="eyebrow">United States</div><h2>Email and SMS drove 18% of the sale, with two days still to run</h2><p class="lede">Retention revenue is $17.4k so far from 7 sends, against 11 sends over the whole of last year’s sale. Share is behind the last two years and the remaining sends are where it closes.</p></div>
+  <div class="strip"><div class="metric"><div class="mval accent">$17.4k</div><div class="mlab">Retention revenue</div></div><div class="metric"><div class="mval accent">18.5%</div><div class="mlab">Share of sale revenue</div><div class="mnote">27.2% last year</div></div><div class="metric"><div class="mval">$16.4k</div><div class="mlab">From campaigns</div></div><div class="metric"><div class="mval">$1,019</div><div class="mlab">From automations</div></div></div>
+
   <div class="panel">
-    <div class="phead"><div class="ptitle" data-charttitle>Daily sale revenue</div>
-      <div class="pmeta">Same scale across years</div></div>
-    <div class="chartscroll"><div class="lanes" id="lanes-US"></div></div>
-    <noscript><div class="cap">Interactive chart needs JavaScript. The tables below carry the same figures.</div></noscript>
-    <div class="cap">The 28 August bar is trading before the sale opened. The last bar is today, still in progress.</div>
+    <div class="phead"><div class="ptitle">Retention share of sale revenue</div>
+      <div class="pmeta">Year on year</div></div>
+    <div class="contrib"><div class="crow"><div class="cyr">2024</div><div class="cbar"><div class="cb email" style="width:100.00%"></div></div><div class="cpct">32.6%</div><div class="cmeta">email only</div></div><div class="crow"><div class="cyr">2025</div><div class="cbar"><div class="cb email" style="width:83.29%"></div></div><div class="cpct">27.2%</div><div class="cmeta">email only</div></div><div class="crow now"><div class="cyr">2026</div><div class="cbar"><div class="cb email" style="width:56.71%"></div></div><div class="cpct">18.5%</div><div class="cmeta">email only · two days still to run</div></div></div>
+    <div class="cap">Bars show retention revenue as a share of sale revenue. All three years are email and SMS only; the US store has no WhatsApp programme.</div>
   </div>
+
   <div class="panel">
-    <div class="phead"><div class="ptitle">Where 2026 stands against finished sales</div>
-      <div class="pmeta">Sale revenue</div></div>
-    <div class="cmp"><div class="ccol"><div class="cy">2024 · full</div><div class="cv">$96,852</div><div class="cn">Finished sale · 4 days</div></div><div class="ccol"><div class="cy">2025 · full</div><div class="cv">$116,237</div><div class="cn">Finished sale · 6 days</div></div><div class="ccol hi"><div class="cy">2026 · to date</div><div class="cv now">$94,179</div><div class="cn">81% of last year’s total, with two days still to run</div></div></div>
-    <div class="cap">Each year is anchored to 28 August. 2024 and 2025 are complete sales; 2026 is still running, so its figure is a floor rather than a final number.</div>
+    <div class="phead"><div class="ptitle">Where the revenue came from</div>
+      <div class="pmeta">2026 to date</div></div>
+    <div class="channels"><div class="chrow"><div class="chlab">Email campaigns</div><div class="chbar"><div class="chfill" style="width:94.15%"></div></div><div class="chval">$16,404</div><div class="chpct">94%</div></div><div class="chrow"><div class="chlab">Email flows</div><div class="chbar"><div class="chfill" style="width:5.85%"></div></div><div class="chval">$1,019</div><div class="chpct">6%</div></div></div>
   </div>
+
   <div class="panel">
-    <div class="phead"><div class="ptitle">Sale windows, year on year</div></div>
-    <div class="tblwrap"><table>
-      <thead><tr><th>Year</th><th>Window</th><th>Sale revenue</th><th>Orders</th><th>CRM revenue</th><th>CRM share</th><th>Campaigns</th></tr></thead>
-      <tbody><tr><th scope="row">2024</th><td>4 days</td><td>$96,852</td><td>1,366</td><td>$31,594</td><td>32.6%</td><td>5</td></tr><tr><th scope="row">2025</th><td>6 days</td><td>$116,237</td><td>1,868</td><td>$31,767</td><td>27.3%</td><td>12</td></tr><tr class="now"><th scope="row">2026</th><td>9 days <span class="tag">7 of 9 so far</span></td><td>$94,179</td><td>1,454</td><td>$17,423</td><td>18.5%</td><td>7</td></tr></tbody></table></div>
-    <div class="scrollhint">Scroll sideways for the CRM columns</div>
-    <div class="cap">2024 and 2025 are finished sales. The 2026 row covers 7 days of a 9-day window, so its totals and CRM share are still building.</div>
+    <div class="phead"><div class="ptitle">Every send, ranked by revenue</div></div>
+    <div class="tblwrap"><table class="sends">
+      <thead><tr><th>Send</th><th>Date</th><th>Channel</th><th>Audience</th><th></th><th>Revenue</th></tr></thead>
+      <tbody><tr data-ch="email"><td class="sname">US | DK Birthday Sale | Launch</td><td class="smeta">29 Aug</td><td class="smeta">Email</td><td class="snum">32,616</td><td class="sbarc"><span class="sbar email" style="width:100.0%"></span></td><td class="snum srev">$6,000</td></tr><tr data-ch="email"><td class="sname">US | DK Birthday Sale | Launch | Text Based</td><td class="smeta">30 Aug</td><td class="smeta">Email</td><td class="snum">50,973</td><td class="sbarc"><span class="sbar email" style="width:51.9%"></span></td><td class="snum srev">$3,115</td></tr><tr data-ch="email"><td class="sname">US | DK Birthday Sale | Flash Sale | Free OG DLT</td><td class="smeta">2 Sep</td><td class="smeta">Email</td><td class="snum">52,680</td><td class="sbarc"><span class="sbar email" style="width:33.9%"></span></td><td class="snum srev">$2,034</td></tr><tr data-ch="sms"><td class="sname">US | DK Birthday Sale | Launch</td><td class="smeta">29 Aug</td><td class="smeta">SMS</td><td class="snum">5,787</td><td class="sbarc"><span class="sbar sms" style="width:33.4%"></span></td><td class="snum srev">$2,004</td></tr><tr data-ch="email"><td class="sname">US | The Birthday Mystery Box</td><td class="smeta">31 Aug</td><td class="smeta">Email</td><td class="snum">51,217</td><td class="sbarc"><span class="sbar email" style="width:31.6%"></span></td><td class="snum srev">$1,897</td></tr><tr data-ch="email"><td class="sname">US | DK Birthday Sale | Grow & Repair Flash Sale</td><td class="smeta">1 Sep</td><td class="smeta">Email</td><td class="snum">15,038</td><td class="sbarc"><span class="sbar email" style="width:14.9%"></span></td><td class="snum srev">$894</td></tr><tr data-ch="sms"><td class="sname">US | DK Birthday Sale | Flash Sale OG DLT Free</td><td class="smeta">2 Sep</td><td class="smeta">SMS</td><td class="snum">871</td><td class="sbarc"><span class="sbar sms" style="width:7.7%"></span></td><td class="snum srev">$460</td></tr></tbody></table></div>
   </div>
-  
-  <div class="next"><div class="nlab">What happens next</div><div class="ntext">Two days remain, including the final push. The sale closes on 5 September.</div></div>
+
+  <div class="panel ctxpanel">
+    <div class="phead"><div class="ptitle">The sale itself</div><div class="pmeta">Context</div></div>
+    <div class="ctxgrid"><div class="ctx"><div class="ctxl">Sale revenue</div><div class="ctxv">$94.2k</div><div class="ctxn">$112.2k last year</div></div><div class="ctx"><div class="ctxl">Orders</div><div class="ctxv">1,454</div><div class="ctxn">1,805 last year</div></div><div class="ctx"><div class="ctxl">Average order value</div><div class="ctxv">$65</div><div class="ctxn">+4% vs last year</div></div></div>
+    <div class="cap">Store performance is context for the share above, not the subject of this report.</div>
+  </div>
 </section>
 </div>
 
 <footer>
-  <div class="flab">Method · refreshed 3 September 2026 · 17:56 IST / 08:26 EDT</div>
+  <div class="flab">Method · refreshed 3 September 2026 · 18:18 IST / 08:48 EDT</div>
   <div class="fgrid">
-    <p><b>Where the numbers come from.</b> Sale revenue and orders are Klaviyo’s Placed Order metric,
-    bucketed to local calendar days — IST for India, Eastern for the US. India 2024 and 2025 reconcile
-    to the Shopify total sales export within 0.6%. CRM revenue is Klaviyo campaign and flow attributed
-    revenue across each sale window.</p>
-    <p><b>Sale windows.</b> India ran 28–30 August in 2024, 28–31 August in 2025, and 28 August to
-    5 September this year. The US ran 28–31 August in 2024, 28 August to 2 September in 2025 with the
-    Labor Day extension, and 28 August to 5 September this year.</p>
-    <p><b>Day one across years.</b> In 2024 both markets ran a preview on the 28th and in 2025 both opened
-    with early access that day. This year the 28th was warm-up only, so 2026 begins selling on the 29th.
-    Every year is anchored to 28 August so the days line up.</p>
-    <p><b>Today is still running.</b> The most recent bar in each chart, and every “to date” figure,
-    covers a day that has not finished. Both will rise before the next refresh.</p>
-    <p><b>WhatsApp, India only.</b> India’s WhatsApp figures come from Bitespeed and cover campaigns scheduled inside the sale window, plus the birthday-sale automations that went live during it. Evergreen automations are excluded because the export reports their revenue since each flow went live rather than by date, so the WhatsApp total is a floor. 2024 and 2025 had no WhatsApp programme — Bitespeed’s earliest broadcast is 27 February 2026 — so those years are email-only as a matter of fact, and the year-on-year table stays on email to keep the comparison honest. The US store has no WhatsApp.</p>
+    <p><b>What counts as retention revenue.</b> Klaviyo campaign and flow attributed revenue, plus Bitespeed
+    WhatsApp campaign and automation revenue for India. Share of sale is that figure over Placed Order revenue
+    for the same window, bucketed to local calendar days — IST for India, Eastern for the US.</p>
+    <p><b>Sale windows.</b> 2024 ran 28–31 August and 2025 ran 28 August to 1 September, both confirmed by the
+    indē wild team. 2026 runs 28 August to 5 September and is still open, so its figures are still building.</p>
+    <p><b>WhatsApp, India only.</b> Campaigns scheduled inside the window, plus the birthday-sale automations
+    that went live during it. Evergreen automations are excluded because the export reports revenue since each
+    flow went live rather than by date, so the WhatsApp total is a floor. 2024 and 2025 had no WhatsApp
+    programme, so the year-on-year comparison is email-only and shown as the darker bar segment.</p>
+    <p><b>Today is still running.</b> Every 2026 figure covers a day that has not finished and will rise before
+    the next refresh. Store revenue and orders appear only as the denominator for retention share.</p>
   </div>
 </footer>
-
 </div>
-<div id="tip" role="status"></div>
 
 <script>
 (function(){
-  var DATA={"IN": {"2024": [509054, 8019914, 4232780], "2025": [3675164, 13623657, 6238618, 3978374], "2026": [270193, 7124071, 4744959, 3709081, 4246113, 4826185, 3365838]}, "US": {"2024": [11304, 52503, 24440, 8605], "2025": [27666, 36308, 18385, 10742, 19099, 4036], "2026": [3202, 35199, 22814, 14320, 7341, 9334, 1970]}}, META={"days": ["28 Aug", "29 Aug", "30 Aug", "31 Aug", "1 Sep", "2 Sep", "3 Sep", "4 Sep", "5 Sep"], "elapsed": 7, "win": {"IN": {"2024": "28\u201330 Aug \u00b7 3 days", "2025": "28\u201331 Aug \u00b7 4 days", "2026": "28 Aug \u2013 5 Sep \u00b7 9 days"}, "US": {"2024": "28\u201331 Aug \u00b7 4 days", "2025": "28 Aug \u2013 2 Sep \u00b7 6 days", "2026": "28 Aug \u2013 5 Sep \u00b7 9 days"}}};
-  var YEARS=['2024','2025','2026'],
-      FILL={'2024':'#A8C4BC','2025':'#5C9083','2026':'#1B4D3E'},
-      DAYS=META.days, ELAPSED=META.elapsed, WIN=META.win,
-      BARMAX=62, BARMIN=3,
-      state={mode:'daily', years:{'2024':true,'2025':true,'2026':true}};
-
-  function grp(n){var s=String(Math.round(n));if(s.length<=3)return s;
-    var h=s.slice(0,-3),t=s.slice(-3),p=[];while(h.length>2){p.unshift(h.slice(-2));h=h.slice(0,-2);}
-    if(h)p.unshift(h);return p.join(',')+','+t;}
-  function full(mk,n){return mk==='IN'?('₹'+grp(n)):('$'+Math.round(n).toLocaleString('en-US'));}
-  function comp(mk,n){
-    if(mk==='IN'){if(n>=1e7)return '₹'+(n/1e7).toFixed(2)+' Cr';
-      if(n>=1e5)return '₹'+(n/1e5).toFixed(1)+' L';return '₹'+grp(n);}
-    return n>=1000?('$'+(n/1000).toFixed(1)+'k'):('$'+Math.round(n).toLocaleString('en-US'));}
-
-  function series(mk,y){
-    var d=DATA[mk][y];
-    if(state.mode==='daily')return d.slice();
-    var out=[],run=0;for(var i=0;i<d.length;i++){run+=d[i];out.push(run);}return out;}
-
-  function render(mk){
-    var vis=YEARS.filter(function(y){return state.years[y];}), peak=0;
-    vis.forEach(function(y){series(mk,y).forEach(function(v){if(v>peak)peak=v;});});
-    if(!peak)peak=1;
-    var html='';
-    YEARS.forEach(function(y){
-      if(!state.years[y])return;
-      var s=series(mk,y), slots='';
-      for(var i=0;i<DAYS.length;i++){
-        if(i<s.length){
-          var v=s[i], h=BARMIN+(v/peak)*(BARMAX-BARMIN),
-              part=(y==='2026'&&i===s.length-1)?' partial':'';
-          slots+='<div class="slot"><div class="vlab">'+comp(mk,v)+'</div>'+
-            '<div class="fill'+part+'" style="height:'+h.toFixed(1)+'px;background:'+FILL[y]+'"'+
-            ' data-t="'+y+' · '+DAYS[i]+(part?' · still running':'')+'" data-v="'+full(mk,v)+'"></div></div>';
-        } else if(y==='2026'){
-          slots+='<div class="slot"><div class="vlab"></div><div class="tocome"></div></div>';
-        } else {
-          slots+='<div class="slot"><div class="vlab"></div><div class="none"></div></div>';
-        }
-      }
-      html+='<div class="lane'+(y==='2026'?' now':'')+'"><div class="lhead"><span class="ly">'+y+
-            '</span><span class="lw">'+WIN[mk][y]+'</span></div><div class="ltrack">'+slots+'</div></div>';
+  document.querySelectorAll('.market').forEach(function(m){
+    var segs=m.querySelectorAll('.segs button'); if(!segs.length)return;
+    segs.forEach(function(b){
+      b.addEventListener('click',function(){
+        segs.forEach(function(o){o.setAttribute('aria-pressed',String(o===b));});
+        var f=b.dataset.f;
+        m.querySelectorAll('table.sends tbody tr').forEach(function(tr){
+          var ch=tr.dataset.ch, show = f==='all' || (f==='email' ? (ch==='email'||ch==='sms') : ch===f);
+          tr.style.display = show ? '' : 'none';
+        });
+      });
     });
-    var ax='';
-    for(var j=0;j<DAYS.length;j++)ax+='<div class="xc'+(j<ELAPSED?' on':'')+'">'+DAYS[j]+'</div>';
-    html+='<div class="xaxis">'+ax+'</div>';
-    document.getElementById('lanes-'+mk).innerHTML=html;
-    var t=document.querySelector('.market[data-mk="'+mk+'"] [data-charttitle]');
-    if(t)t.textContent=state.mode==='daily'?'Daily sale revenue':'Running total, day by day';
-  }
-  function renderAll(){render('IN');render('US');}
-
-  document.querySelectorAll('.seg button').forEach(function(b){
-    b.addEventListener('click',function(){
-      state.mode=b.dataset.mode;
-      document.querySelectorAll('.seg button').forEach(function(o){
-        o.setAttribute('aria-pressed',String(o===b));});
-      renderAll();});});
-
-  document.querySelectorAll('.chip').forEach(function(c){
-    c.addEventListener('click',function(){
-      var y=c.dataset.year, on=c.getAttribute('aria-pressed')==='true';
-      if(on&&YEARS.filter(function(k){return state.years[k];}).length===1)return;
-      state.years[y]=!on; c.setAttribute('aria-pressed',String(!on)); renderAll();});});
-
-  var tip=document.getElementById('tip');
-  document.addEventListener('mouseover',function(e){
-    var f=e.target.closest&&e.target.closest('.fill'); if(!f)return;
-    tip.innerHTML=f.dataset.t+'<b>'+f.dataset.v+'</b>'; tip.classList.add('on');});
-  document.addEventListener('mousemove',function(e){
-    if(!tip.classList.contains('on'))return;
-    var x=e.clientX+14,y=e.clientY-10;
-    if(x+tip.offsetWidth>window.innerWidth-10)x=e.clientX-tip.offsetWidth-14;
-    if(y<8)y=8;
-    tip.style.left=x+'px'; tip.style.top=y+'px';});
-  document.addEventListener('mouseout',function(e){
-    if(e.target.closest&&e.target.closest('.fill'))tip.classList.remove('on');});
-
-  renderAll();
+  });
 })();
 </script>
 </body>
