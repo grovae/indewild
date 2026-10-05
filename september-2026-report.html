@@ -8,137 +8,152 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap');
 :root{
   --ink-1:#101213;--ink-2:#565B5C;--ink-3:#8A8F90;
-  --bg-page:#F4F5F5;--surface:#FFFFFF;--surface-sunken:#ECEEEE;--surface-ink:#101213;
-  --border-1:#DCDEDE;--border-2:#C6C9C9;
-  --green-800:#143C30;--green-700:#1B4D3E;--green-600:#2F6A57;--green-400:#5C9083;
-  --green-200:#A8C4BC;--green-100:#D5E2DE;--green-50:#EAF1EE;
-  --success:#1B4D3E;--success-bg:#EAF1EE;--warn:#8F6A1E;--warn-bg:#F4EBD7;
-  --danger:#A03A30;--danger-bg:#F6E4E1;
-  --tint-green:rgba(27,77,62,.05);--tint-border-green:rgba(27,77,62,.18);
-  --font-sans:'Instrument Sans','Helvetica Neue',Arial,sans-serif;
-  --font-mono:'Spline Sans Mono','IBM Plex Mono',monospace;--tl:.14em;
+  --bg:#F4F5F5;--surface:#FFFFFF;--sunken:#F7F8F8;
+  --b1:#E3E5E5;--b2:#C9CCCC;
+  --g7:#1B4D3E;--g6:#2F6A57;--g4:#5C9083;--g2:#A8C4BC;--g1:#D5E2DE;--g05:#EEF4F2;
+  --amber:#C9A24A;--amber-bg:#F7F0DF;
+  --sans:'Instrument Sans','Helvetica Neue',Arial,sans-serif;
+  --mono:'Spline Sans Mono','IBM Plex Mono',monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--font-sans);background:var(--bg-page);color:var(--ink-1);
-  -webkit-font-smoothing:antialiased;line-height:1.5}
-.wrap{max-width:1060px;margin:0 auto;background:var(--surface);
-  border-left:1px solid var(--border-1);border-right:1px solid var(--border-1)}
-.lbl{font-family:var(--font-mono);font-size:10px;letter-spacing:var(--tl);
-  text-transform:uppercase;color:var(--ink-3);display:block}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink-1);-webkit-font-smoothing:antialiased;line-height:1.5}
+.wrap{max-width:980px;margin:0 auto;background:var(--surface);border-left:1px solid var(--b1);border-right:1px solid var(--b1)}
+.lbl{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);display:block}
+.mono{font-family:var(--mono)}
+section{padding:36px 44px;border-top:1px solid var(--b1)}
+.sh{display:flex;align-items:baseline;gap:14px;margin-bottom:20px}
+.sh .num{font-family:var(--mono);font-size:11px;color:var(--g6)}
+.sh h2{font-size:22px;font-weight:600;letter-spacing:-.03em}
+.sh .note{margin-left:auto;font-family:var(--mono);font-size:10.5px;color:var(--ink-3)}
+p.cap{font-size:13px;line-height:1.6;color:var(--ink-2);margin-top:14px}
+p.cap b{color:var(--ink-1);font-weight:600}
 
-header{padding:44px 44px 34px}
-.mark{display:inline-flex;align-items:center;gap:10px;margin-bottom:30px}
-.mark i{width:12px;height:12px;background:var(--green-700);display:block}
-.mark b{font-weight:700;font-size:18px;letter-spacing:-.04em}
-.htop{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
-h1{font-size:42px;font-weight:600;letter-spacing:-.045em;line-height:1.02;margin-top:10px}
+/* header */
+header{padding:40px 44px 30px}
+.mark{display:inline-flex;align-items:center;gap:9px;margin-bottom:26px}
+.mark i{width:11px;height:11px;background:var(--g7);display:block}
+.mark b{font-weight:700;font-size:16px;letter-spacing:-.04em}
+.htop{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+h1{font-size:38px;font-weight:600;letter-spacing:-.045em;line-height:1.04;margin-top:8px}
 .per{font-size:13px;color:var(--ink-2);text-align:right;line-height:1.7}
 .per b{color:var(--ink-1)}
 
-.verd{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border-1);
-  border-bottom:1px solid var(--border-1)}
-.vc{padding:24px 28px 26px}
-.vc+.vc{border-left:1px solid var(--border-1)}
-.vc h3{font-size:17px;font-weight:600;letter-spacing:-.02em;margin:10px 0 8px}
-.vc p{font-size:13.5px;line-height:1.6;color:var(--ink-2)}
+/* 1 brief */
+.brief{list-style:none;counter-reset:b}
+.brief li{counter-increment:b;display:grid;grid-template-columns:34px 1fr;gap:6px;padding:14px 0;border-top:1px solid var(--b1)}
+.brief li:first-child{border-top:none;padding-top:0}
+.brief li::before{content:"0" counter(b);font-family:var(--mono);font-size:12px;color:var(--g6);padding-top:3px}
+.brief h3{font-size:16px;font-weight:600;letter-spacing:-.015em;margin-bottom:3px}
+.brief p{font-size:13.5px;color:var(--ink-2);line-height:1.6}
 
-.sbar{padding:30px 44px 20px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
-.sbar h2{font-size:27px;font-weight:600;letter-spacing:-.035em}
-.sbar span.cur{font-family:var(--font-mono);font-size:11px;color:var(--ink-3);letter-spacing:.1em}
+/* 2 scorecard */
+table{width:100%;border-collapse:collapse}
+.sc th{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:400;text-align:right;padding:0 0 10px;border-bottom:1px solid var(--b2)}
+.sc th.st{color:var(--ink-1);font-weight:500;font-size:10.5px}
+.sc th:first-child{text-align:left}
+.sc td{padding:11px 0;border-bottom:1px solid var(--b1);text-align:right;font-family:var(--mono);font-size:13px}
+.sc td:first-child{text-align:left;font-family:var(--sans);font-size:13.5px}
+.sc td.sub{font-size:11.5px;color:var(--ink-3)}
+.sc td.gap{width:28px;border-bottom:none}
+.sc tr.hero td{font-size:17px;font-weight:600;padding:14px 0;border-bottom:1px solid var(--b2)}
+.sc tr.hero td:first-child{font-size:14.5px}
+.sc tr.hero td.v{color:var(--g7)}
+.sc tr.hero td.sub{font-size:12px;font-weight:400}
+.sc td.na{color:var(--b2)}
+.sc tr.grp td{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding:16px 0 6px;border-bottom:1px solid var(--b1);text-align:left}
 
-.mg{display:grid;grid-template-columns:repeat(4,1fr);
-  border-top:1px solid var(--border-1);border-bottom:1px solid var(--border-1)}
-.m{padding:20px 24px 22px}
-.m+.m{border-left:1px solid var(--border-1)}
-.m .lbl{margin-bottom:12px}
-.m .v{font-size:27px;font-weight:600;letter-spacing:-.032em;line-height:1;margin-bottom:10px}
-.m .d{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-2)}
-.m .d .u{color:var(--success)} .m .d .w{color:var(--danger)} .m .d .f{color:var(--ink-3)}
-.ctx{padding:16px 44px 20px;font-size:13px;line-height:1.6;color:var(--ink-2);
-  border-bottom:1px solid var(--border-1)}
+/* 3 sale */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--b1)}
+.two>div{padding:22px 24px}
+.two>div+div{border-left:1px solid var(--b1)}
+.big{font-size:30px;font-weight:600;letter-spacing:-.035em;line-height:1;color:var(--g7);margin:10px 0 6px}
+.yoy{font-family:var(--mono);font-size:11.5px;color:var(--ink-2);margin-bottom:14px}
+.ln{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-top:1px solid var(--b1);font-size:13px}
+.ln .n{font-family:var(--mono);font-size:12.5px}
+.ln.m{color:var(--ink-3);font-size:12px}
+.ln.m .n{font-size:11.5px}
 
-.two{display:grid;grid-template-columns:340px 1fr;border-bottom:1px solid var(--border-1)}
-.crm{padding:26px 28px 28px;border-right:1px solid var(--border-1);background:var(--tint-green)}
-.crm .big{font-size:34px;font-weight:600;letter-spacing:-.035em;line-height:1;color:var(--green-700);margin:12px 0 8px}
-.crm .sh{font-family:var(--font-mono);font-size:12px;color:var(--ink-2);margin-bottom:20px}
-.ln{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
-  padding:9px 0;border-top:1px solid rgba(16,18,19,.09);font-size:13px}
-.ln:first-of-type{border-top:none}
-.ln .n{font-family:var(--font-mono);font-size:12.5px;font-weight:500}
-.tr{padding:26px 32px 28px}
-.chart{display:flex;align-items:flex-end;gap:13px;height:118px;
-  border-bottom:1px solid var(--border-2);margin-top:20px}
-.bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;height:100%}
-.bar .cap{font-family:var(--font-mono);font-size:10.5px;text-align:center;margin-bottom:6px;color:var(--ink-2)}
-.bar .cap.on{color:var(--ink-1);font-weight:500}
-.stk{display:flex;flex-direction:column-reverse}
-.stk u,.bar>u{display:block;width:100%;text-decoration:none}
-.xa{display:flex;gap:13px;margin-top:8px}
-.xa div{flex:1;text-align:center}
-.xa .mo{font-family:var(--font-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
-.xa .pc{font-family:var(--font-mono);font-size:10.5px;color:var(--ink-2);margin-top:4px}
-.xa div.on .mo,.xa div.on .pc{color:var(--ink-1);font-weight:500}
-.axlab{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--ink-3);margin-top:10px;text-align:right}
-.leg{display:flex;gap:16px;margin-top:12px;font-family:var(--font-mono);font-size:10.5px;color:var(--ink-2)}
-.leg span{display:inline-flex;align-items:center;gap:6px}
-.leg u{width:9px;height:9px;display:block;text-decoration:none}
+/* 4 mix bars */
+.mix{margin-top:6px}
+.mrow{display:grid;grid-template-columns:92px 1fr;gap:16px;align-items:center;padding:14px 0;border-top:1px solid var(--b1)}
+.mrow:first-child{border-top:none}
+.mrow .who{font-size:14px;font-weight:600}
+.mrow .who span{display:block;font-family:var(--mono);font-size:11px;font-weight:400;color:var(--ink-3);margin-top:2px}
+.bar{display:flex;height:26px;width:100%}
+.bar i{display:block;height:100%}
+.bar i+i{border-left:2px solid #fff}
+.c1{background:var(--g7)}.c2{background:var(--g4)}.c3{background:var(--g2)}.c4{background:var(--g1)}
+.vals{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:8px}
+.vals div{font-family:var(--mono);font-size:11.5px;color:var(--ink-1)}
+.vals div span{display:block;font-size:10.5px;color:var(--ink-3)}
+.legend{display:flex;flex-wrap:wrap;gap:18px;margin-bottom:6px;font-family:var(--mono);font-size:10.5px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend u{width:10px;height:10px;display:block;text-decoration:none}
 
-.tw{padding:26px 44px 32px;border-bottom:1px solid var(--border-1)}
-table{width:100%;border-collapse:collapse;margin-top:16px}
-th{font-family:var(--font-mono);font-size:10px;letter-spacing:var(--tl);text-transform:uppercase;
-  color:var(--ink-3);font-weight:400;text-align:right;padding:0 0 10px;border-bottom:1px solid var(--border-2)}
-th:first-child{text-align:left}
-td{padding:11px 0;border-bottom:1px solid var(--border-1);text-align:right;
-  font-family:var(--font-mono);font-size:12.5px}
-td:first-child{text-align:left;font-family:var(--font-sans);font-size:13.5px;font-weight:500}
-td .ch{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--ink-3);margin-left:8px;font-weight:400}
-tr:last-child td{border-bottom:none}
-td.rev{font-weight:500;color:var(--green-700)}
+/* 5 subs */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--b1)}
+.kpis>div{padding:18px 20px}
+.kpis>div+div{border-left:1px solid var(--b1)}
+.kpis .v{font-size:26px;font-weight:600;letter-spacing:-.03em;line-height:1;margin:10px 0 8px}
+.kpis .d{font-family:var(--mono);font-size:11px;color:var(--ink-2)}
+.subgrid{display:grid;grid-template-columns:1.25fr 1fr;gap:36px;margin-top:26px}
+.wk{display:flex;align-items:flex-end;gap:7px;height:120px;border-bottom:1px solid var(--b2);margin-top:16px}
+.wk div{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center}
+.wk div span{font-family:var(--mono);font-size:10px;color:var(--ink-2);margin-bottom:4px}
+.wk div u{display:block;width:100%;background:var(--g2);text-decoration:none}
+.wk div.hl u{background:var(--amber)}
+.wk div.hl span{color:#8F6A1E;font-weight:500}
+.wkx{display:flex;gap:7px;margin-top:6px}
+.wkx div{flex:1;text-align:center;font-family:var(--mono);font-size:9px;color:var(--ink-3);line-height:1.3}
+.wkx div.hl{color:#8F6A1E}
+.mini th{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:400;text-align:right;padding:0 0 8px;border-bottom:1px solid var(--b2)}
+.mini th:first-child{text-align:left}
+.mini td{padding:9px 0;border-bottom:1px solid var(--b1);text-align:right;font-family:var(--mono);font-size:12.5px}
+.mini td:first-child{text-align:left;font-family:var(--sans);font-size:13px}
+.mini tr.t td{font-weight:600;border-bottom:none}
 
-.nx{padding:36px 44px 20px}
-.nx h2{font-size:26px;font-weight:600;letter-spacing:-.035em;margin:12px 0 10px}
-.nx p.in{font-size:14px;line-height:1.65;color:var(--ink-2);max-width:72ch}
-.tl{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border-1);
-  border-bottom:1px solid var(--border-1);margin-top:26px}
-.tl div{padding:20px 22px 24px}
-.tl div+div{border-left:1px solid var(--border-1)}
-.tl .dt{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;color:var(--green-700);
-  display:block;margin-bottom:10px}
-.tl h4{font-size:14.5px;font-weight:600;letter-spacing:-.01em;margin-bottom:6px}
-.tl p{font-size:12.5px;line-height:1.55;color:var(--ink-2)}
-.shape{padding:28px 44px 34px}
-.shape .lbl{margin-bottom:16px}
-.si{padding:13px 0;border-top:1px solid var(--border-1);display:grid;
-  grid-template-columns:190px 1fr;gap:22px;align-items:baseline}
+/* 6 sends */
+.sends{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.sends h4{font-size:14px;font-weight:600;margin-bottom:10px}
+.ts td{padding:9px 0;border-bottom:1px solid var(--b1);font-size:12.5px;font-family:var(--mono);text-align:right;vertical-align:top}
+.ts td:first-child{text-align:left;font-family:var(--sans);font-size:13px}
+.ts td:first-child small{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-top:2px}
+.ts td.r{color:var(--g7);font-weight:500}
+.ts th{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:400;text-align:right;padding:0 0 8px;border-bottom:1px solid var(--b2)}
+.ts th:first-child{text-align:left}
+.ts tr.ev td{background:var(--sunken)}
+.ts tr.ev td:first-child{padding-left:8px}
+.ts tr.ev td:last-child{padding-right:8px}
+
+/* 7 next */
+.si{display:grid;grid-template-columns:210px 1fr;gap:24px;padding:14px 0;border-top:1px solid var(--b1);align-items:baseline}
 .si:first-of-type{border-top:none;padding-top:0}
-.si .k{font-size:13.5px;font-weight:600;letter-spacing:-.01em}
-.si .k em{display:block;font-family:var(--font-mono);font-size:11.5px;font-style:normal;
-  font-weight:500;color:var(--green-700);margin-top:4px}
-.si p{font-size:13px;line-height:1.6;color:var(--ink-2)}
+.si .k{font-size:14px;font-weight:600;letter-spacing:-.01em}
+.si .k em{display:block;font-family:var(--mono);font-size:11px;font-style:normal;color:var(--g6);margin-top:4px;font-weight:400}
+.si p{font-size:13.5px;line-height:1.6;color:var(--ink-2)}
+.si p b{color:var(--ink-1);font-weight:600}
+.oct{margin-top:22px;padding:16px 18px;background:var(--g05);border:1px solid var(--g1);font-size:13.5px;line-height:1.6;color:var(--ink-2)}
+.oct a{color:var(--g7);font-weight:600}
 
+footer{padding:20px 44px 26px;background:var(--sunken);border-top:1px solid var(--b1)}
+.fnote{font-size:11.5px;color:var(--ink-3);line-height:1.65;margin-top:10px}
 
-.costs{margin-top:18px;padding-top:14px;border-top:1px solid rgba(16,18,19,.14)}
-.clbl{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--ink-3);display:block;margin-bottom:10px}
-.cr{display:flex;justify-content:space-between;align-items:baseline;gap:10px;
-  font-size:12.5px;color:var(--ink-2);margin-top:8px}
-.cr .cn{font-family:var(--font-mono);font-size:12px;color:var(--danger)}
-.cb{font-family:var(--font-mono);font-size:10.5px;margin-top:2px}
-.cb.good{color:var(--green-600)} .cb.poor{color:var(--ink-3)}
-footer{padding:20px 44px;background:var(--surface-sunken);border-top:1px solid var(--border-1)}
-.fnote{font-size:11.5px;color:var(--ink-3);line-height:1.6;margin-top:12px;max-width:92ch}
-@media(max-width:900px){
-  .verd,.mg,.two,.tl{grid-template-columns:1fr}
-  .vc+.vc,.m+.m,.crm,.tl div+div{border-left:none;border-top:1px solid var(--border-1)}
-  .si{grid-template-columns:1fr;gap:6px}
-  header,.sbar,.ctx,.tw,.nx,.shape,footer{padding-left:22px;padding-right:22px}
-  h1{font-size:31px}
+@media(max-width:820px){
+  header,section,footer{padding-left:18px;padding-right:18px}
+  h1{font-size:30px}
+  .two,.sends,.subgrid{grid-template-columns:1fr}
+  .two>div+div{border-left:none;border-top:1px solid var(--b1)}
+  .kpis{grid-template-columns:1fr 1fr}
+  .kpis>div:nth-child(3){border-left:none}
+  .kpis>div:nth-child(n+3){border-top:1px solid var(--b1)}
+  .mrow{grid-template-columns:1fr}
+  .vals{grid-template-columns:1fr 1fr}
+  .si{grid-template-columns:1fr;gap:4px}
+  .sc{font-size:12px}
+  .sc td.sub,.sc th.sub{display:none}
+  .sc td.gap{width:10px}
+  .sh .note{display:none}
 }
-.xa .mo{padding-bottom:2px}
-.mini td:first-child{font-weight:400}
-.ln .n .w{color:var(--danger)}
 </style>
 </head>
 <body>
@@ -152,249 +167,206 @@ footer{padding:20px 44px;background:var(--surface-sunken);border-top:1px solid v
       <h1>September 2026<br>retention report</h1>
     </div>
     <div class="per"><b>1 – 30 September 2026</b><br>compared with August 2026<br>
-      <span style="font-family:var(--font-mono);font-size:11px">US + India</span></div>
+      <span class="mono" style="font-size:11px">US + India</span></div>
   </div>
 </header>
 
-<div class="verd">
-  <div class="vc">
-    <span class="lbl">US store · the month in short</span>
-    <h3>The Birthday Sale carried September.</h3>
-    <p>Email and SMS brought in $14.6K, three quarters of it from Birthday Sale sends. Subscription renewals had their best month since July, with 100 recurring orders shipped.</p>
-  </div>
-  <div class="vc">
-    <span class="lbl">India store · the month in short</span>
-    <h3>The back half of the sale, then a launch.</h3>
-    <p>Email and WhatsApp brought in ₹46.6L. Automated email flows doubled to ₹15.2L during the sale, and the Clarifying Shampoo launch added ₹2.23L in its first three days.</p>
-  </div>
-</div>
+<!-- 01 -->
+<section>
+  <div class="sh"><span class="num">01</span><h2>September in brief</h2></div>
+  <ol class="brief">
+    <li><div><h3>India's Birthday Sale campaigns more than doubled last year's.</h3>
+      <p>Over the full sale, 29 August to 5 September, India's email sends made ₹33.4L against ₹15.8L in 2025, with WhatsApp adding ₹26.3L on top. US sends made $23.9K, in line with last year's $24.9K.</p></div></li>
+    <li><div><h3>India's automated emails nearly doubled.</h3>
+      <p>Flows brought in ₹15.2L in September, up from ₹8.4L. The Birthday Sale welcome and cart flows made ₹12.0L of it, and the everyday flows kept running underneath.</p></div></li>
+    <li><div><h3>US subscription renewals were up 35%. New sign-ups paused during the sale.</h3>
+      <p>100 renewal orders shipped, up from 74. No new subscriptions started for nine days while the sale price was live, so the active base held at 602. We're fixing this before BFCM.</p></div></li>
+  </ol>
+</section>
 
-<!-- ══════════════ US ══════════════ -->
-<div class="sbar"><h2>US store</h2><span class="cur">All figures in USD</span></div>
-
-<div class="mg">
-  <div class="m"><span class="lbl">Active subscriptions</span><div class="v">602</div>
-    <div class="d">August <b>606</b> · <span class="f">−4</span></div></div>
-  <div class="m"><span class="lbl">New subscriptions</span><div class="v">38</div>
-    <div class="d">August <b>111</b> · <span class="f">−73</span></div></div>
-  <div class="m"><span class="lbl">Cancellations</span><div class="v">42</div>
-    <div class="d">6.9% of active · August <b>7.6%</b> · <span class="u">−0.7 pts</span></div></div>
-  <div class="m"><span class="lbl">Recurring orders</span><div class="v">100</div>
-    <div class="d">$4,481 · August <b>74</b> · <span class="u">+35%</span></div></div>
-</div>
-<div class="ctx">Renewals were strong: 100 subscription orders shipped, up from 74 in August. New sign-ups paused during the sale.
-  No subscriptions were started between 30 August and 7 September while sale pricing was live, and sign-ups have been picking back up since.
-  With cancellations steady, the active base held at 602. Champi Hair Oil makes up 54% of active subscriptions.</div>
-
-<div class="two">
-  <div class="crm">
-    <span class="lbl">Revenue from email &amp; SMS</span>
-    <div class="big">$14,612</div>
-    <div class="sh">August $20,444 · sale opened 29 Aug</div>
-    <div class="ln"><span>Campaigns</span><span class="n">$12,426</span></div>
-    <div class="ln"><span>Automated flows</span><span class="n">$2,186</span></div>
-    <div class="ln"><span>Email</span><span class="n">$14,002</span></div>
-    <div class="ln"><span>SMS</span><span class="n">$610</span></div>
-    <div class="ln"><span>Orders from CRM</span><span class="n">216</span></div>
-    <div class="ln"><span>Subscription orders (Recharge)</span><span class="n">$6,204</span></div>
-  </div>
-  <div class="tr">
-    <span class="lbl">Revenue from email &amp; SMS · by month</span>
-    <div class="chart">
-      <div class="bar"><span class="cap">8.0</span><u style="height:31%;background:var(--green-200)"></u></div>
-      <div class="bar"><span class="cap">25.8</span><u style="height:100%;background:var(--green-400)"></u></div>
-      <div class="bar"><span class="cap">17.3</span><u style="height:67%;background:var(--green-400)"></u></div>
-      <div class="bar"><span class="cap">4.0</span><u style="height:16%;background:var(--green-200)"></u></div>
-      <div class="bar"><span class="cap">8.2</span><u style="height:32%;background:var(--green-200)"></u></div>
-      <div class="bar"><span class="cap">20.4</span><u style="height:79%;background:var(--green-400)"></u></div>
-      <div class="bar"><span class="cap on">14.6</span><u style="height:57%;background:var(--green-700)"></u></div>
-    </div>
-    <div class="xa">
-      <div><div class="mo">Mar</div></div>
-      <div><div class="mo">Apr</div></div>
-      <div><div class="mo">May</div></div>
-      <div><div class="mo">Jun</div></div>
-      <div><div class="mo">Jul</div></div>
-      <div><div class="mo">Aug</div></div>
-      <div class="on"><div class="mo">Sep</div></div>
-    </div>
-    <div class="axlab">Bars: revenue in $000s · mid-green bars: sale months</div>
-    <p style="font-size:13px;color:var(--ink-2);margin-top:14px;line-height:1.6">
-      April and May were the Summer Sale. The Birthday Sale ran 29 August to 5 September, so it is split across
-      August and September. August also carried the waitlist build and the opening weekend.</p>
-  </div>
-</div>
-
-<div class="tw">
-  <span class="lbl">What earned the most · September</span>
-  <table>
-    <tr><th>Send</th><th>Recipients</th><th>Orders</th><th>Revenue</th></tr>
-    <tr><td>Flash Sale · Shampoo &amp; Conditioner<span class="ch">Email</span></td><td>56,720</td><td>42</td><td class="rev">$3,042</td></tr>
-    <tr><td>Flash Sale · Free OG DLT<span class="ch">Email</span></td><td>52,695</td><td>35</td><td class="rev">$2,290</td></tr>
-    <tr><td>Birthday Sale · Last Chance<span class="ch">Email</span></td><td>30,841</td><td>31</td><td class="rev">$2,196</td></tr>
-    <tr><td>First Time on Sale<span class="ch">Email</span></td><td>50,364</td><td>26</td><td class="rev">$1,865</td></tr>
-    <tr><td>Flash Sale · Grow &amp; Repair<span class="ch">Email</span></td><td>15,041</td><td>11</td><td class="rev">$894</td></tr>
-    <tr><td>Flash Sale · Free OG DLT<span class="ch">SMS</span></td><td>871</td><td>7</td><td class="rev">$610</td></tr>
+<!-- 02 -->
+<section>
+  <div class="sh"><span class="num">02</span><h2>Scorecard</h2><span class="note">September vs August</span></div>
+  <table class="sc">
+    <tr><th></th><th class="st">US · Sep</th><th class="sub">Aug</th><th class="sub">Change</th><th></th><th class="st">India · Sep</th><th class="sub">Aug</th><th class="sub">Change</th></tr>
+    <tr class="hero"><td>Revenue from retention</td><td class="v">$14,612</td><td class="sub">$20,444</td><td class="sub">−29%</td><td class="gap"></td><td class="v">₹46.6L</td><td class="sub">₹53.1L</td><td class="sub">−12%</td></tr>
+    <tr class="grp"><td colspan="8">Where it came from</td></tr>
+    <tr><td>Email campaigns</td><td>$11,816</td><td class="sub">$15,813</td><td class="sub">−25%</td><td class="gap"></td><td>₹21.6L</td><td class="sub">₹20.5L</td><td class="sub">+5%</td></tr>
+    <tr><td>Automated email flows</td><td>$2,186</td><td class="sub">$2,584</td><td class="sub">−15%</td><td class="gap"></td><td>₹15.2L</td><td class="sub">₹8.4L</td><td class="sub">+81%</td></tr>
+    <tr><td>WhatsApp broadcasts</td><td class="na">—</td><td class="sub na">—</td><td class="sub"></td><td class="gap"></td><td>₹9.7L</td><td class="sub">₹24.1L</td><td class="sub">−60%</td></tr>
+    <tr><td>SMS &amp; RCS</td><td>$610</td><td class="sub">$2,047</td><td class="sub">−70%</td><td class="gap"></td><td>₹8,214</td><td class="sub">₹4,600</td><td class="sub">+79%</td></tr>
+    <tr class="grp"><td colspan="8">Customers and list</td></tr>
+    <tr><td>Orders from retention</td><td>216</td><td class="sub">300</td><td class="sub">−28%</td><td class="gap"></td><td>2,497</td><td class="sub">2,480</td><td class="sub">+1%</td></tr>
+    <tr><td>Email unsubscribes</td><td>1,277</td><td class="sub">1,924</td><td class="sub">−34%</td><td class="gap"></td><td>3,255</td><td class="sub">3,356</td><td class="sub">−3%</td></tr>
+    <tr><td>Active subscriptions</td><td>602</td><td class="sub">606</td><td class="sub">−4</td><td class="gap"></td><td class="na">—</td><td class="sub na">—</td><td class="sub"></td></tr>
   </table>
-  <p style="font-size:13px;color:var(--ink-2);margin-top:18px;line-height:1.6">
-    The sale days earned <b style="color:var(--ink-1)">$10,897</b>, 88% of September's campaign revenue. Each day led
-    with a different product, and Shampoo &amp; Conditioner day did best.</p>
-</div>
+  <p class="cap">The Birthday Sale ran 29 August to 5 September, so it is split across both months. August holds the launch weekend,
+    which was the sale's biggest stretch, plus the run-up sends. That's why September sits below August in both stores. The full sale is in section 03.</p>
+</section>
 
-<div class="tw">
-  <span class="lbl">Why subscribers cancelled · reason given at cancellation</span>
-  <table class="mini">
-    <tr><th>Reason</th><th>September</th><th>August</th></tr>
-    <tr><td>I already have more than I need</td><td>13</td><td>9</td></tr>
-    <tr><td>I no longer use this product</td><td>11</td><td>7</td></tr>
-    <tr><td>This is too expensive</td><td>8</td><td>11</td></tr>
-    <tr><td>Other reason</td><td>5</td><td>6</td></tr>
-    <tr><td>Payment failed after retries</td><td>2</td><td>4</td></tr>
-    <tr><td>Created by accident · different product</td><td>3</td><td>4</td></tr>
-    <tr><td><b>Total cancellations</b></td><td><b>42</b></td><td><b>41</b></td></tr>
-  </table>
-  <p style="font-size:13px;color:var(--ink-2);margin-top:18px;line-height:1.6">
-    "More than I need" is now the most common reason. 11 of those 13 subscribers cancelled within days of a September
-    renewal arriving, which points to timing rather than the product. 61% of active subscribers are on a 90-day refill.
-    "Too expensive" came down from 11 to 8.</p>
-</div>
-
-<!-- ══════════════ INDIA ══════════════ -->
-<div class="sbar"><h2>India store</h2><span class="cur">All figures in INR</span></div>
-
-<div class="mg">
-  <div class="m"><span class="lbl">Orders from CRM</span><div class="v">2,497</div>
-    <div class="d">email, flows, WhatsApp &amp; SMS</div></div>
-  <div class="m"><span class="lbl">Email automated flows</span><div class="v">₹15.2L</div>
-    <div class="d">August <b>₹8.4L</b> · <span class="u">+81%</span></div></div>
-  <div class="m"><span class="lbl">WhatsApp &amp; SMS broadcasts</span><div class="v">8</div>
-    <div class="d">August <b>17</b> · sale days + launch</div></div>
-  <div class="m"><span class="lbl">Email unsubscribes</span><div class="v">3,255</div>
-    <div class="d">August <b>3,356</b> · <span class="u">−3%</span></div></div>
-</div>
-<div class="ctx">The sale's first three days (29 to 31 August) sit in August's number, so September holds the five flash-sale days, the thank-you
-  and survey sends, and the start of the Clarifying Shampoo launch. WhatsApp rested for three weeks after the sale and came back on 30 September for the launch.</div>
-
-<div class="two">
-  <div class="crm">
-    <span class="lbl">Revenue from email &amp; WhatsApp</span>
-    <div class="big">₹46.6L</div>
-    <div class="sh">August ₹53.1L · sale opened 29 Aug</div>
-    <div class="ln"><span>Email campaigns</span><span class="n">₹21.58L</span></div>
-    <div class="ln"><span>Email automated flows</span><span class="n">₹15.22L</span></div>
-    <div class="ln"><span>WhatsApp broadcasts</span><span class="n">₹9.72L</span></div>
-    <div class="ln"><span>SMS broadcast</span><span class="n">₹8,214</span></div>
-    <div class="ln"><span>Orders from CRM</span><span class="n">2,497</span></div>
-    <div class="costs">
-      <span class="clbl">Less send cost · charged per message</span>
-      <div class="cr"><span>WhatsApp</span><span class="cn">−₹48,183</span></div>
-      <div class="cb good">₹20.18 back per ₹1 spent</div>
-      <div class="cr"><span>SMS</span><span class="cn">−₹1,212</span></div>
-      <div class="cb good">₹6.78 back per ₹1 spent</div>
+<!-- 03 -->
+<section>
+  <div class="sh"><span class="num">03</span><h2>Birthday Sale, full run</h2><span class="note">29 Aug – 5 Sep · both months</span></div>
+  <div class="two">
+    <div>
+      <span class="lbl">US · email &amp; SMS</span>
+      <div class="big">$25,589</div>
+      <div class="yoy">Sale sends $23,914 · 2025: $24.9K</div>
+      <div class="ln"><span>Sale campaigns</span><span class="n">$23,914</span></div>
+      <div class="ln"><span>Automations during the sale</span><span class="n">$1,675</span></div>
+      <div class="ln m"><span>of which in September</span><span class="n">$11,995</span></div>
+    </div>
+    <div>
+      <span class="lbl">India · email &amp; WhatsApp</span>
+      <div class="big">₹76.5L</div>
+      <div class="yoy">Email sale sends ₹33.4L · 2025: ₹15.8L</div>
+      <div class="ln"><span>Email campaigns</span><span class="n">₹33.4L</span></div>
+      <div class="ln"><span>WhatsApp broadcasts</span><span class="n">₹26.3L</span></div>
+      <div class="ln"><span>Automations during the sale</span><span class="n">₹16.7L</span></div>
+      <div class="ln m"><span>WhatsApp send cost · return per ₹1</span><span class="n">₹62,741 · ₹41.9</span></div>
     </div>
   </div>
-  <div class="tr">
-    <span class="lbl">Revenue from email &amp; WhatsApp · by month</span>
-    <div class="chart">
-      <div class="bar"><span class="cap">3.3</span><div class="stk" style="height:6%"><u style="height:5%;background:var(--green-700)"></u><u style="height:95%;background:var(--green-400)"></u></div></div>
-      <div class="bar"><span class="cap">13.0</span><div class="stk" style="height:25%"><u style="height:2%;background:var(--green-700)"></u><u style="height:98%;background:var(--green-400)"></u></div></div>
-      <div class="bar"><span class="cap">7.0</span><div class="stk" style="height:13%"><u style="height:8%;background:var(--green-700)"></u><u style="height:92%;background:var(--green-400)"></u></div></div>
-      <div class="bar"><span class="cap">5.4</span><div class="stk" style="height:10%"><u style="height:86%;background:var(--green-700)"></u><u style="height:14%;background:var(--green-400)"></u></div></div>
-      <div class="bar"><span class="cap">8.4</span><div class="stk" style="height:16%"><u style="height:70%;background:var(--green-700)"></u><u style="height:30%;background:var(--green-400)"></u></div></div>
-      <div class="bar"><span class="cap">53.1</span><div class="stk" style="height:100%"><u style="height:55%;background:var(--green-700)"></u><u style="height:45%;background:var(--green-400)"></u></div></div>
-      <div class="bar"><span class="cap on">46.6</span><div class="stk" style="height:88%"><u style="height:79%;background:var(--green-700)"></u><u style="height:21%;background:var(--green-400)"></u></div></div>
-    </div>
-    <div class="xa">
-      <div><div class="mo">Mar</div></div>
-      <div><div class="mo">Apr</div></div>
-      <div><div class="mo">May</div></div>
-      <div><div class="mo">Jun</div></div>
-      <div><div class="mo">Jul</div></div>
-      <div><div class="mo">Aug</div></div>
-      <div class="on"><div class="mo">Sep</div></div>
-    </div>
-    <div class="axlab">Bars: revenue in ₹ lakh</div>
-    <div class="leg">
-      <span><u style="background:var(--green-700)"></u>Email</span>
-      <span><u style="background:var(--green-400)"></u>WhatsApp &amp; SMS</span>
-    </div>
-    <p style="font-size:13px;color:var(--ink-2);margin-top:12px;line-height:1.6">
-      August and September together hold the Birthday Sale. August's WhatsApp share is higher because the opening
-      weekend's VIP and Mystery Box broadcasts went out on 29 and 31 August.</p>
-  </div>
-</div>
+  <p class="cap">The 2025 comparison is campaigns only, which is all that was measured for last year's sale. This year also had a waitlist,
+    a tease and WhatsApp on every deal day, none of which ran in 2025.</p>
+</section>
 
-<div class="tw">
-  <span class="lbl">What earned the most · September</span>
-  <table>
-    <tr><th>Send</th><th>Recipients</th><th>Orders</th><th>Revenue</th></tr>
-    <tr><td>Flash Sale · Shampoo &amp; Conditioner<span class="ch">Email</span></td><td>1,05,561</td><td>188</td><td class="rev">₹3,91,753</td></tr>
-    <tr><td>Flash Sale · Free OG DLT<span class="ch">Email</span></td><td>54,108</td><td>192</td><td class="rev">₹3,70,664</td></tr>
-    <tr><td>First Time on Discount<span class="ch">Email</span></td><td>98,472</td><td>174</td><td class="rev">₹3,29,284</td></tr>
-    <tr><td>Sale Ends Tonight<span class="ch">Email</span></td><td>1,28,164</td><td>164</td><td class="rev">₹3,17,891</td></tr>
-    <tr><td>Flash Sale · indē dolly<span class="ch">Email</span></td><td>77,295</td><td>146</td><td class="rev">₹2,73,578</td></tr>
-    <tr><td>Flash Sale · Grow &amp; Repair<span class="ch">WhatsApp</span></td><td>37,467</td><td>122</td><td class="rev">₹2,36,583</td></tr>
-  </table>
-  <p style="font-size:13px;color:var(--ink-2);margin-top:18px;line-height:1.6">
-    Every sale day ran on email and WhatsApp together. 1 September, with two flash offers, was the month's biggest day
-    at <b style="color:var(--ink-1)">₹7.79L</b> across both channels. After the sale, Free OG DLT on 22 September
-    earned ₹68K, and the Clarifying Shampoo waitlist group (298 people) bought ₹19.5K on launch day.</p>
-</div>
+<!-- 04 -->
+<section>
+  <div class="sh"><span class="num">04</span><h2>Where September's revenue came from</h2></div>
+  <div class="legend">
+    <span><u class="c1"></u>Sale sends</span><span><u class="c2"></u>Sale automations</span>
+    <span><u class="c3"></u>Everyday automations</span><span><u class="c4"></u>Everyday sends</span>
+  </div>
+  <div class="mix">
+    <div class="mrow">
+      <div class="who">US<span>$14,612</span></div>
+      <div>
+        <div class="bar"><i class="c1" style="width:74.6%"></i><i class="c2" style="width:7.5%"></i><i class="c3" style="width:7.4%"></i><i class="c4" style="width:10.5%"></i></div>
+        <div class="vals"><div>$10,897<span>75% · sale sends</span></div><div>$1,098<span>8% · sale automations</span></div><div>$1,088<span>7% · everyday automations</span></div><div>$1,529<span>10% · everyday sends</span></div></div>
+      </div>
+    </div>
+    <div class="mrow">
+      <div class="who">India<span>₹46.6L</span></div>
+      <div>
+        <div class="bar"><i class="c1" style="width:60.2%"></i><i class="c2" style="width:25.7%"></i><i class="c3" style="width:7.0%"></i><i class="c4" style="width:7.2%"></i></div>
+        <div class="vals"><div>₹28.0L<span>60% · sale sends</span></div><div>₹12.0L<span>26% · sale automations</span></div><div>₹3.2L<span>7% · everyday automations</span></div><div>₹3.4L<span>7% · everyday sends</span></div></div>
+      </div>
+    </div>
+  </div>
+  <p class="cap">Everyday automations (welcome, cart, browse and subscription reminders) made <b>$1,088</b> in the US and <b>₹3.2L</b> in India.
+    That is the baseline that runs every month whatever the calendar. After the sale, India's Clarifying Shampoo launch made <b>₹2.23L</b>
+    across email, WhatsApp and SMS in its first three days.</p>
+</section>
 
-<!-- ══════════════ NEXT ══════════════ -->
-<div class="nx">
-  <span class="lbl">Where October is going</span>
-  <h2>Land the shampoo, run the festive season, fill the BFCM waitlist.</h2>
-  <p class="in">Clarifying Shampoo keeps selling in India with routine and ingredient sends, and launches in the US on 8 October.
-    There is one promotion this month, a three-day offer from 13 to 15 October in both stores. The festive codes follow,
-    and a BFCM waitlist opens on 28 October.</p>
-</div>
-<div class="tl">
-  <div><span class="dt">OCT 4 – 10</span><h4>Shampoo</h4>
-    <p>US waitlist on the 5th, early access on the 7th, launch on the 8th. India follow-up sends on the routine and why you need both shampoos.</p></div>
-  <div><span class="dt">OCT 11 – 17</span><h4>Navratri + promo</h4>
-    <p>The month's one offer, 13 to 15 October. Navratri sends in India. US Champi subscribers get a subscribe-and-save reminder timed to their 90-day refill.</p></div>
-  <div><span class="dt">OCT 18 – 25</span><h4>Festive gifting</h4>
-    <p>Gift Shop with FESTIVE5 and Halloween with HALLOWEEN5 in both stores. Diipa's plain-text reply email in the US.</p></div>
-  <div><span class="dt">OCT 26 – 31</span><h4>Close + waitlist</h4>
-    <p>Karwa Chauth in India, last calls on both codes, and the BFCM waitlist from Diipa on the 28th.</p></div>
-</div>
+<!-- 05 -->
+<section>
+  <div class="sh"><span class="num">05</span><h2>US subscriptions</h2><span class="note">Recharge</span></div>
+  <div class="kpis">
+    <div><span class="lbl">Active subscriptions</span><div class="v">602</div><div class="d">Aug 606 · −4</div></div>
+    <div><span class="lbl">Renewal orders</span><div class="v">100</div><div class="d">$4,481 · Aug 74 · +35%</div></div>
+    <div><span class="lbl">New subscriptions</span><div class="v">38</div><div class="d">Aug 111</div></div>
+    <div><span class="lbl">Cancellations</span><div class="v">42</div><div class="d">6.9% of active · Aug 7.6%</div></div>
+  </div>
+  <div class="subgrid">
+    <div>
+      <span class="lbl">New subscriptions per week</span>
+      <div class="wk">
+        <div><span>20</span><u style="height:51%"></u></div>
+        <div><span>22</span><u style="height:56%"></u></div>
+        <div><span>16</span><u style="height:41%"></u></div>
+        <div><span>23</span><u style="height:59%"></u></div>
+        <div><span>17</span><u style="height:44%"></u></div>
+        <div><span>26</span><u style="height:67%"></u></div>
+        <div><span>39</span><u style="height:100%"></u></div>
+        <div><span>23</span><u style="height:59%"></u></div>
+        <div class="hl"><span>0</span><u style="height:1%"></u></div>
+        <div><span>7</span><u style="height:18%"></u></div>
+        <div><span>8</span><u style="height:21%"></u></div>
+        <div><span>16</span><u style="height:41%"></u></div>
+      </div>
+      <div class="wkx">
+        <div>Jul<br>6</div><div>13</div><div>20</div><div>27</div><div>Aug<br>3</div><div>10</div><div>17</div><div>24</div><div class="hl">Aug<br>31</div><div>Sep<br>7</div><div>14</div><div>21</div>
+      </div>
+      <p class="cap">Week starting Monday. Sign-ups stopped completely from 30 August to 7 September while the 29% sale price was live,
+        then recovered to 16 in the week of 21 September.</p>
+    </div>
+    <div>
+      <span class="lbl">Why subscribers cancelled</span>
+      <table class="mini" style="margin-top:12px">
+        <tr><th>Reason given</th><th>Sep</th><th>Aug</th></tr>
+        <tr><td>Already have more than I need</td><td>13</td><td>9</td></tr>
+        <tr><td>No longer use this product</td><td>11</td><td>7</td></tr>
+        <tr><td>Too expensive</td><td>8</td><td>11</td></tr>
+        <tr><td>Other reasons</td><td>10</td><td>14</td></tr>
+        <tr class="t"><td>Total</td><td>42</td><td>41</td></tr>
+      </table>
+      <p class="cap">11 of the 13 "more than I need" cancellations came within days of a renewal arriving. 61% of subscribers are on a 90-day refill,
+        and Champi Hair Oil is 54% of all active subscriptions.</p>
+    </div>
+  </div>
+</section>
 
-<div class="shape">
-  <span class="lbl">What September taught us that changes the plan</span>
+<!-- 06 -->
+<section>
+  <div class="sh"><span class="num">06</span><h2>Best sends</h2><span class="note">September · by revenue</span></div>
+  <div class="sends">
+    <div>
+      <h4>US</h4>
+      <table class="ts">
+        <tr><th>Send</th><th>Orders</th><th>Revenue</th></tr>
+        <tr><td>Flash Sale · Shampoo &amp; Conditioner<small>Email · 3 Sep</small></td><td>42</td><td class="r">$3,042</td></tr>
+        <tr><td>Flash Sale · Free OG DLT<small>Email + SMS · 2 Sep</small></td><td>42</td><td class="r">$2,900</td></tr>
+        <tr><td>Birthday Sale · Last Chance<small>Email · 7 Sep</small></td><td>31</td><td class="r">$2,196</td></tr>
+        <tr><td>First Time on Sale<small>Email · 4 Sep</small></td><td>26</td><td class="r">$1,865</td></tr>
+        <tr class="ev"><td>Champi Hair Essentials Kit<small>Best everyday send · 18 Sep</small></td><td>11</td><td class="r">$817</td></tr>
+      </table>
+    </div>
+    <div>
+      <h4>India</h4>
+      <table class="ts">
+        <tr><th>Send</th><th>Orders</th><th>Revenue</th></tr>
+                <tr><td>Flash Sale · Grow &amp; Repair + indē dolly<small>Email + WhatsApp · 1 Sep</small></td><td>419</td><td class="r">₹7.79L</td></tr>
+        <tr><td>Sale Ends Tonight + Last Hour<small>Email + WhatsApp · 5 Sep</small></td><td>299</td><td class="r">₹5.77L</td></tr>
+<tr><td>Flash Sale · Free OG DLT<small>Email + WhatsApp · 2 Sep</small></td><td>294</td><td class="r">₹5.63L</td></tr>
+        <tr><td>Flash Sale · Shampoo &amp; Conditioner<small>Email + WhatsApp · 3 Sep</small></td><td>271</td><td class="r">₹5.49L</td></tr>
+        <tr class="ev"><td>Clarifying Shampoo launch<small>Best everyday send · 28–30 Sep</small></td><td>141</td><td class="r">₹2.23L</td></tr>
+      </table>
+    </div>
+  </div>
+  <p class="cap">In India each sale day ran on email and WhatsApp together, so the rows show both channels combined per day.
+    1 September, with two flash offers, was the biggest day at <b>₹7.79L</b>.</p>
+</section>
+
+<!-- 07 -->
+<section>
+  <div class="sh"><span class="num">07</span><h2>What September changes for October</h2></div>
   <div class="si">
-    <div class="k">Sign-ups pause during a sale<em>0 new subscriptions, 30 Aug – 7 Sep</em></div>
-    <p>Subscription checkouts stopped completely while the 29% sale price was live. Before BFCM we'll confirm the
-      subscribe option stays visible and is priced at or below the sale price, so sale shoppers can still start one.</p>
+    <div class="k">Keep subscriptions open in a sale<em>0 sign-ups, 30 Aug – 7 Sep</em></div>
+    <p>Before BFCM we'll make sure the subscribe option stays visible and is priced at or below the sale price, so sale shoppers can still start a subscription.</p>
   </div>
   <div class="si">
-    <div class="k">Too much product, not the wrong product<em>13 of 42 cancellations</em></div>
-    <p>Most of the "more than I need" cancellations came right after a renewal. We'll add a "push my next order back"
-      option to the cancel flow for this reason, so a subscriber who has too much product can delay their next order instead of cancelling.</p>
+    <div class="k">Offer a delay, not just cancel<em>13 of 42 cancellations</em></div>
+    <p>Add a "push my next order back" option to the cancel flow for "more than I need". Champi subscribers also get a refill reminder timed to their 90-day cycle in mid-October.</p>
   </div>
   <div class="si">
-    <div class="k">Waitlists make small lists pay<em>298 people · ₹19.5K on launch day</em></div>
-    <p>The Clarifying Shampoo waitlist repeated what the Birthday Sale waitlist showed: a small group who asked to
-      hear first buys on the first day. The US shampoo launch and BFCM both open with a waitlist.</p>
+    <div class="k">Open with a waitlist<em>298 people · ₹19.5K on launch day</em></div>
+    <p>The Clarifying Shampoo waitlist group bought on day one, just like the Birthday Sale waitlist did. The US shampoo launch (8 Oct) and BFCM (waitlist from 28 Oct) both open this way.</p>
   </div>
   <div class="si">
-    <div class="k">US non-sale sends go to buyers<em>3 sends · $1,426 · 520 unsubscribes</em></div>
-    <p>After the sale, the survey, Champi Kit and Gift Shop sends went to lists of 23,000 to 57,000. In October, US
-      sends outside the launch and the promo go to buyer segments only.</p>
+    <div class="k">US everyday sends to buyers<em>3 sends · $1,426 · 520 unsubscribes</em></div>
+    <p>After the sale, three US sends went to lists of 23,000 to 57,000 people. In October, US sends outside the launch and the mid-month promo go to buyer segments only.</p>
   </div>
-</div>
+  <div class="oct">October in one line: land Clarifying Shampoo in both stores, one three-day promo on 13–15 October, the festive codes from the 20th, and the BFCM waitlist on the 28th.
+    <a href="campaigns/oct26-plan.html">See the October plan →</a></div>
+</section>
 
 <footer>
-  <span class="lbl">Grovae · indē wild · September 2026</span>
+  <span class="lbl">Grovae · indē wild · September 2026 · how these numbers are measured</span>
   <div class="fnote">
-    Email, SMS and flow revenue from Klaviyo (US and India accounts), attributed on Placed Order using Klaviyo's default
-    attribution. Subscriptions from Recharge: new and cancelled counted by start and cancel date, active subscriptions
-    rebuilt from those dates at month end, renewals are Recharge recurring orders. WhatsApp and SMS revenue and send cost
-    from Bitespeed broadcast reports, main broadcast rows only (retry rows are not counted twice). Send cost is the cost
-    Bitespeed reports. Klaviyo and Bitespeed each attribute independently, so an order that came from both an email
-    and a WhatsApp message can appear in both. WhatsApp automated journeys are excluded because that report is
-    cumulative per journey and cannot be split by month, so India's figure is understated by that amount. March to July
-    figures are as reported in the July report.
+    Revenue from retention = Klaviyo email, SMS and flow revenue (attributed on Placed Order, Klaviyo default attribution) plus Bitespeed WhatsApp and SMS broadcast revenue. Klaviyo and Bitespeed attribute independently, so an order that came from both an email and a WhatsApp message can show up in both.
+    Sale = sends and automations built for the Birthday Sale, 29 Aug – 7 Sep (US Last Chance went out on 7 Sep). Everyday = everything else, including the thank-you and survey sends.
+    WhatsApp counts main broadcast rows only (retries are not counted twice), and send cost is the cost Bitespeed reports. WhatsApp automated journeys are not included, because Bitespeed reports them as all-time totals that can't be split by month, so India's figure is understated by that amount.
+    Subscriptions come from Recharge: new and cancelled are counted by start and cancel date, active is rebuilt at month end, and renewals are Recharge recurring orders. 2025 sale figures are Klaviyo campaigns over 28 Aug – 2 Sep 2025.
   </div>
 </footer>
 
